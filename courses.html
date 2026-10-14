@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Physics & Kinematics Mastery Courses</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io"></script>
+    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="container navbar">
+            <div class="logo">Science Behind <span>Things</span></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html" class="active">Courses</a></li>
+                    <li><a href="#">Physics Videos</a></li>
+                    <li><a href="bookshelf.html">The Bookshelf</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="hero-section" style="padding: 5rem 0 3rem 0;">
+        <div class="container hero-content">
+            <h1>Master Calculus-Based Physics</h1>
+            <p class="hero-subtitle">Stop memorizing formulas blindly. Develop a single-block framework to dismantle any complex mechanics problem systematically.</p>
+        </div>
+    </section>
+
+    <!-- Multi-Tiered Funnel / Pricing Grid -->
+    <section class="container" style="padding-bottom: 4rem;">
+        <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 5rem;">
+            
+            <!-- Tier 1: Free Inbound Lead Funnel -->
+            <div class="pricing-card" style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 0.5rem;">Free Action Guide</h3>
+                    <div class="price" style="font-size: 2.5rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 1rem;">$0</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Get the exact automated reference guide mapping basic variables straight into calculus concepts. Perfect for immediate, just-in-time review.</p>
+                    <ul style="color: var(--text-primary); list-style: none; padding: 0; font-size: 0.9rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ The "1 Secret" Reference Sheet</li>
+                        <li style="margin-bottom: 0.5rem;">✓ 5 Companion Practice Problems</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Direct \(\LaTeX\) Formula Checklist</li>
+                    </ul>
+                </div>
+                <a href="#register-form" class="btn btn-secondary" onclick="setTier('Free Inbound Guide')" style="text-align: center;">Get Free Access</a>
+            </div>
+
+            <!-- Tier 2: The Core Mini-Course (Active Entry Tier) -->
+            <div class="pricing-card" style="background: var(--bg-card); border: 2px solid var(--accent-glow); padding: 2.5rem; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 4px 20px rgba(31, 111, 235, 0.15);">
+                <span style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-glow); color: var(--white); padding: 0.25rem 1rem; font-size: 0.75rem; font-weight: 700; border-radius: 20px; text-transform: uppercase;">Most Popular</span>
+                <div>
+                    <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 0.5rem;">Kinematics Mini-Course</h3>
+                    <div class="price" style="font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: 1rem;">$49 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/ initial tier</span></div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Ditch the "3rd kinematics equation" confusion. Establish absolute baseline clarity on multi-stage constant acceleration models.</p>
+                    <ul style="color: var(--text-primary); list-style: none; padding: 0; font-size: 0.9rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ Full Step-by-Step Video Blueprint</li>
+                        <li style="margin-bottom: 0.5rem;">✓ 15 Interactive Problem Appendices</li>
+                        <li style="margin-bottom: 0.5rem;">✓ High-Converting Exam Worksheets</li>
+                    </ul>
+                </div>
+                <a href="#register-form" class="btn btn-primary" onclick="setTier('Kinematics Mini-Course ($49 Tier)') style="text-align: center;">Enroll Now</a>
+            </div>
+
+            <!-- Tier 3: Advanced Systems & Dynamics Pipeline -->
+            <div class="pricing-card" style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="color: var(--white); font-size: 1.5rem; margin-bottom: 0.5rem;">Orbital Mechanics & Systems</h3>
+                    <div class="price" style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem;">TBD</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Advanced engineering-level frameworks modeling complex celestial trajectories and high-fidelity aerospace documentation paradigms.</p>
+                    <ul style="color: var(--text-primary); list-style: none; padding: 0; font-size: 0.9rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ Advanced Calculus Integrals</li>
+                        <li style="margin-bottom: 0.5rem;">✓ ARP4754A Systems Engineering Alignments</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Vector Space Trajectory Modules</li>
+                    </ul>
+                </div>
+                <a href="#register-form" class="btn btn-secondary" onclick="setTier('Advanced Orbital Systems Tier')" style="text-align: center;">Join Waiting List</a>
+            </div>
+
+        </div>
+
+        <!-- Registration Form Anchor Block -->
+        <div id="register-form" style="max-width: 600px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-color); padding: 3rem; border-radius: 8px;">
+            <h2 style="color: var(--white); text-align: center; margin-bottom: 0.5rem;">Secure Your Position</h2>
+            <p style="color: var(--text-muted); text-align: center; font-size: 0.9rem; margin-bottom: 2.5rem;">Select your operational program level below to build out your technical registration layout.</p>
+            
+            <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- Student / Professional Selector -->
+                <div>
+                    <label style="display: block; color: var(--white); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Account Track Profile</label>
+                    <select name="track_profile" required style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border-color); padding: 0.8rem; border-radius: 6px; color: var(--text-primary); font-size: 1rem; outline: none;">
+                        <option value="student">High School / AP Physics Student</option>
+                        <option value="parent">Parent of Enrolled Student</option>
+                        <option value="professional">Young Aerospace Professional / Developer</option>
+                    </select>
+                </div>
+
+                <!-- Selected Tier (Populated Automatically) -->
+                <div>
+                    <label style="display: block; color: var(--white); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Selected Program Level</label>
+                    <input type="text" id="selected_tier" name="selected_tier" value="Kinematics Mini-Course ($49 Tier)" readonly style="width: 100%; background: rgba(48, 54, 61, 0.3); border: 1px solid var(--border-color); padding: 0.8rem; border-radius: 6px; color: var(--accent-blue); font-size: 1rem; font-weight: 600; cursor: not-allowed; outline: none;">
+                </div>
+
+                <!-- Registration Credentials -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label style="display: block; color: var(--white); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">First Name</label>
+                        <input type="text" name="first_name" required placeholder="First" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border-color); padding: 0.8rem; border-radius: 6px; color: var(--text-primary); font-size: 1rem; outline: none;">
+                    </div>
+                    <div>
+                        <label style="display: block; color: var(--white); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Last Name</label>
+                        <input type="text" name="last_name" required placeholder="Last" style="width: 100%; background: var(--bg-dark); border: 1px solid var(--border-color); padding: 0.8rem; border-radius: 6px; color: var(--text-primary); font-size: 1rem; outline: none;">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+            <p class="sub-footer">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
+        </div>
+    </footer>
