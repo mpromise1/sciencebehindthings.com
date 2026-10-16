@@ -1,47 +1,41 @@
-/* Global Navigation Layout */
-.site-nav {
-    width: 100%;
-    background-color: #0b0f19; /* Your established dark-mode background */
-    border-bottom: 1px solid #1e293b;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Force Navigation Header Layout in articles.html */
+header nav, .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    background-color: #0b0e14; /* Deep dark mode background */
 }
 
-.nav-logo {
-    font-weight: 700;
-    color: #f8fafc;
-    text-decoration: none;
-    font-size: 1.25rem;
-}
-
+/* Clean horizontal list for links */
 .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .nav-links a {
     color: #94a3b8;
     text-decoration: none;
     font-weight: 500;
+    white-space: nowrap;
     transition: color 0.2s ease;
 }
 
 .nav-links a:hover, 
 .nav-links a.active {
-    color: #38bdf8; /* High-contrast accent color */
+    color: #38bdf8;
+}
+
+/* Style your main logo link */
+header .logo a {
+    color: #edf2f7 !important;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.25rem;
 }
 
 * {
@@ -76,14 +70,40 @@ body {
     margin: 0 auto;
 }
 
-/* --- Header / Navigation --- */
+/* Ensure the outer header takes up full width */
 .site-header {
-    background-color: rgba(13, 17, 23, 0.95);
-    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    background-color: #0b0f19;
+    border-bottom: 1px solid #1e293b;
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(8px);
+}
+
+/* Clear, single-row flex layout */
+.site-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+/* Force the logo to stay on one single line */
+.nav-logo {
+    font-weight: 700;
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 1.5rem;
+    white-space: nowrap; /* Prevents "Things" from dropping down */
+    flex-shrink: 0;      /* Keeps the logo from getting squished */
+}
+
+/* Color highlight for "Things" */
+.nav-logo .accent-text {
+    color: #38bdf8;
 }
 
 .navbar {
