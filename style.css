@@ -1,41 +1,47 @@
-/* --- Global Reset & Variables --- */
+/* Global Navigation Layout */
+.site-nav {
+    width: 100%;
+    background-color: #0b0f19; /* Your established dark-mode background */
+    border-bottom: 1px solid #1e293b;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-/* Force Navigation Header Layout in articles.html */
-header nav, .nav-container {
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #0b0e14; /* Deep dark mode background */
 }
 
-/* Clear list styling and align horizontally */
-header nav ul, .nav-links {
+.nav-logo {
+    font-weight: 700;
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.nav-links {
     display: flex;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 1.5rem; /* Even spacing between links */
 }
 
-/* Style the navigation links for high visibility */
-header nav ul li a, .nav-links a {
-    color: #ffffff !important; /* Bright white links override */
+.nav-links a {
+    color: #94a3b8;
     text-decoration: none;
-    font-size: 1rem;
+    font-weight: 500;
     transition: color 0.2s ease;
 }
 
-header nav ul li a:hover, .nav-links a:hover {
-    color: #63b3ed !important; /* Vivid blue hover effect */
-}
-
-/* Style your main logo link */
-header .logo a {
-    color: #edf2f7 !important;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.25rem;
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #38bdf8; /* High-contrast accent color */
 }
 
 * {
