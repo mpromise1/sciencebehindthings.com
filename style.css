@@ -1,4 +1,43 @@
 /* --- Global Reset & Variables --- */
+
+/* Force Navigation Header Layout in articles.html */
+header nav, .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #0b0e14; /* Deep dark mode background */
+}
+
+/* Clear list styling and align horizontally */
+header nav ul, .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem; /* Even spacing between links */
+}
+
+/* Style the navigation links for high visibility */
+header nav ul li a, .nav-links a {
+    color: #ffffff !important; /* Bright white links override */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+header nav ul li a:hover, .nav-links a:hover {
+    color: #63b3ed !important; /* Vivid blue hover effect */
+}
+
+/* Style your main logo link */
+header .logo a {
+    color: #edf2f7 !important;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
 * {
     margin: 0;
     padding: 0;
