@@ -17,22 +17,35 @@
     <!-- Web Manifest for Mobile Platforms -->
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Non-blocking Thread Management for MathJax LaTeX Equations -->
+    <!-- Optimized Hyper-Fast MathJax (CHTML Configuration) -->
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-        svg: { fontCache: 'global' },
-        startup: {
-          ready: () => {
-            MathJax.startup.defaultReady();
-          }
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          processEscapes: true
+        },
+        chtml: {
+          displayAlign: 'left',
+          scale: 0.95 // Matches text footprint cleanly
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         }
       };
     </script>
-    <script id="MathJax-script" defer src="https://jsdelivr.net"></script>
-</head>
-<body>
+    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
 
+    <!-- Chrome Rendering Optimization for Long Math Texts -->
+    <style>
+      /* Tells Chrome to only render articles as they approach the viewport */
+      .article-card, .technical-content {
+        content-visibility: auto;
+        contain-intrinsic-size: 0 500px; /* Estimates height to prevent scrollbar jumps */
+      }
+    </style>
+</head>
+
+<body>
 <header class="site-header">
     <nav class="site-nav">
         <a href="index.html" class="nav-logo">
