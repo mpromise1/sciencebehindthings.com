@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<header class="site-header">
+    <link rel="stylesheet" href="style.css">
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">
+            Science Behind <span class="accent-text">Things</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="videos.html" class="active">Physics Videos</a></li>
+            <li><a href="bookshelf.html">The Bookshelf</a></li>
+            <li><a href="articles.html">Articles</a></li>
+        </ul>
+    </nav>
+</header>
+
+<head>
+<!-- Explicit square dimensions force Safari compliance -->
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon.png?v=2">
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+</head>
+
