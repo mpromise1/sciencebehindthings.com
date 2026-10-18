@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momentum Absorption: The Physics of Crumple Zones</title>
-    <!-- MathJax Configuration Block for Clean Formatting -->
+    <!-- MathJax Configuration Block -->
     <script>
         window.MathJax = {
             tex: {
@@ -35,7 +35,6 @@
             margin: 0;
             padding: 0;
         }
-        /* Standardized Article Page Margins & Layout Control */
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -63,7 +62,6 @@
             margin-bottom: 1.5rem;
             text-align: justify;
         }
-        /* Beautiful Display Math Container */
         .math-block {
             background-color: var(--math-bg);
             padding: 1rem;
@@ -71,6 +69,7 @@
             margin: 1.5rem 0;
             overflow-x: auto;
             border-left: 4px solid var(--accent-color);
+            text-align: center;
         }
     </style>
 </head>
@@ -86,13 +85,13 @@
             <p>An impacting vehicle possesses a localized momentum vector ($p$) defined by its mass and instantaneous velocity vector. To bring the vehicle to rest, an external impulse ($J$) must be applied over a discrete time frame:</p>
             
             <div class="math-block">
-                \[J = \int_{t_i}^{t_f} F(t) \, dt = \Delta p\]
+                $$J = \int_{t_i}^{t_f} F(t) \, dt = \Delta p$$
             </div>
             
             <p>If we look at the average impact force ($F_{avg}$) acting over a definitive structural collapse timeframe ($\Delta t$), the calculation simplifies to:</p>
             
             <div class="math-block">
-                \[F_{avg} \Delta t = m(v_f - v_i)\]
+                $$F_{avg} \Delta t = m(v_f - v_i)$$
             </div>
             
             <h2>Quantifying the Force Attenuation</h2>
@@ -101,23 +100,23 @@
             <p>If the vehicle frame is completely rigid and collapses by only 5.08 cm ($0.0508 \text{ m}$) upon impact, the stopping time is roughly $\Delta t \approx 0.0038 \text{ seconds}$. Let's compute the catastrophic average force experienced by the vehicle structure:</p>
             
             <div class="math-block">
-                \[F_{avg} = \frac{1,451.5 \text{ kg} \times (0 - 26.82 \text{ m/s})}{0.0038 \text{ s}} \approx -1,024,453 \text{ N}\]
+                $$F_{avg} = \frac{1,451.5 \text{ kg} \times (0 - 26.82 \text{ m/s})}{0.0038 \text{ s}} \approx -1,024,453 \text{ N}$$
             </div>
             
             <p>Now, look at what happens when we introduce an engineered 76.2 cm ($0.762 \text{ m}$) front crumple zone that manages mechanical deformation over an extended duration of $\Delta t = 0.057 \text{ seconds}$:</p>
             
             <div class="math-block">
-                \[F_{avg} = \frac{1,451.5 \text{ kg} \times (0 - 26.82 \text{ m/s})}{0.057 \text{ s}} \approx -68,297 \text{ N}\]
+                $$F_{avg} = \frac{1,451.5 \text{ kg} \times (0 - 26.82 \text{ m/s})}{0.057 \text{ s}} \approx -68,297 \text{ N}$$
             </div>
             
             <p>By increasing the duration of momentum transfer by an order of magnitude via structural failure, the peak average force is reduced by over 93%. Mechanical structures sacrifice themselves predictably so that the cabin acceleration envelope remains survivable.</p>
         </article>
     </div>
+
     <footer class="site-footer">
     <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
     <p style="font-size: 0.8rem; margin-top: 5px; color: #555;">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
 </footer>
-
 
 </body>
 </html>
