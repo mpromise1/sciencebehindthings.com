@@ -1,13 +1,90 @@
-/* Mobile responsive override */ 
-@media (max-width: 768px) { 
+/* ==========================================================================
+   UNIFIED GLOBAL HEADER NAVIGATION ARCHITECTURE
+   ========================================================================== */
+
+/* Baseline Desktop Styles (Viewports wider than 768px) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #111827;
+    background-color: #060814; /* Matches deep midnight theme */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap; /* Prevents title word fragmentation */
+}
+
+header .logo span {
+    color: #38bdf8; /* Cyan contrast anchor */
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.75rem; /* Clean horizontal gaps */
+    align-items: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+header nav a:hover {
+    color: #e2e8f0;
+}
+
+header nav a.active {
+    color: #38bdf8;
+}
+
+/* Hard Mobile Responsive Override Block */
+@media screen and (max-width: 768px) {
     header {
-        display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        text-align: center;
-        gap: 16px; /* Creates explicit, breathing vertical separation between logo and nav stack */
-        padding: 1.5rem 0;
+        text-align: center !important;
+        gap: 1.25rem !important; /* Forces breathing room between logo and links */
+        padding: 1.5rem 0.5rem !important;
     }
+
+    header nav {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    header nav ul {
+        flex-direction: row !important; /* Keeps links horizontal on mobile */
+        flex-wrap: wrap !important;     /* Safely wraps links to line two on tight viewports */
+        justify-content: center !important;
+        gap: 1.25rem !important;        /* Prevents horizontal crowding */
+        width: 100% !important;
+    }
+    
+    header nav a {
+        font-size: 1rem !important;     /* Increases tap target size for touch screens */
+        padding: 0.25rem 0.5rem !important;
+    }
+}
 
     nav {
         display: flex !important;
