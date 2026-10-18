@@ -83,121 +83,22 @@
         }
     </style>
 </head>
+<body>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 2rem;
-        }
-
-        .nav-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand {
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-
-        nav a {
-            margin-left: 1.5rem;
-            text-decoration: none;
-            color: var(--meta-color);
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        main {
-            flex: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            box-sizing: border-box;
-            content-visibility: auto;
-        }
-
-        .technical-dive h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-        }
-
-        .meta {
-            color: var(--meta-color);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 1.6rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 0.5rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .math-block {
-            background-color: var(--box-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem;
-            margin: 1.5rem 0;
-            overflow-x: auto;
-            text-align: center;
-        }
-
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--meta-color);
-            background-color: var(--bg-color);
-            margin-top: auto;
-        }
-    </style>
-</head>
-<body class="tex2jax_process">
-
-    <!-- Global Navigation Header -->
-    <header>
-        <div class="nav-container">
-            <nav>
-                <a href="/index.html" class="brand">Science Behind Things</a>
-                <a href="/bookshelf.html">Bookshelf</a>
-                <a href="/videos.html">Videos</a>
-                <a href="/courses.html">Courses</a>
-                <a href="/articles.html">Articles</a>
-            </nav>
-        </div>
-    </header>
+<header class="site-header">
+    <nav class="site-nav">
+        <a href="/index.html" class="nav-logo">
+            Science Behind <span class="accent-text">Things</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/courses.html">Courses</a></li>
+            <li><a href="/videos.html">Physics Videos</a></li>
+            <li><a href="/bookshelf.html">The Bookshelf</a></li>
+            <li><a href="/articles.html" class="active">Articles</a></li>
+        </ul>
+    </nav>
+</header>
 
     <!-- Main Content Body -->
     <main>
