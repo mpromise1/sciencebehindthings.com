@@ -1,76 +1,97 @@
 /* ==========================================================================
-   STACKED NAVIGATION ARCHITECTURE (DESKTOP & MOBILE)
+   UNIFIED STACKED NAVIGATION ARCHITECTURE (GLOBAL COMPATIBILITY)
    ========================================================================== */
 
-header {
-    display: flex;
-    flex-direction: column; /* Forces navigation layout to stack vertically */
-    align-items: center;    /* Centers everything horizontally */
-    text-align: center;
-    padding: 1.75rem 1rem;
-    border-bottom: 1px solid #111827;
-    background-color: #060814;
-    width: 100%;
-    box-sizing: border-box;
-    gap: 1.25rem;           /* Creates explicit, even separation between logo and links */
+header, .site-header, .navbar {
+    display: flex !important;
+    flex-direction: column !important; /* Drops links perfectly underneath your title logo */
+    align-items: center !important;    /* Clean horizontal balance */
+    text-align: center !important;
+    padding: 1.75rem 1rem !important;
+    background-color: #060814 !important; /* Deep midnight theme anchor */
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 1.25rem !important;           /* Structural separation gap */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #111827 !important;
 }
 
-header .logo {
-    font-size: 1.75rem;     /* Slightly larger header presence for centered layout */
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
-    white-space: nowrap;
-    letter-spacing: -0.01em;
+/* Symmetrical title logo rule overrides */
+header .logo, .nav-logo, .logo {
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.01em !important;
+    display: inline-block !important;
+    float: none !important;
 }
 
-header .logo span {
-    color: #38bdf8;
+header .logo span, .nav-logo .accent-text, .logo span {
+    color: #38bdf8 !important; /* Signature custom cyan text highlight */
 }
 
-header nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+/* Structural navigation container overrides */
+header nav, .nav-container, .main-nav {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    float: none !important;
+    margin: 0 auto !important;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: row;    /* Keeps links lined up side-by-side */
-    flex-wrap: wrap;        /* Gracefully maps to a new line on tight viewports */
-    justify-content: center;
-    gap: 1.5rem;            /* Clean horizontal gaps between menu listings */
+/* Bulletproof horizontal list array tracking */
+header nav ul, .nav-menu, .main-nav ul, .nav-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;    /* Explicitly layout out links side-by-side */
+    flex-wrap: wrap !important;        /* Smooth row wrapping on tight mobile screen specs */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.5rem !important;            /* Clean horizontal spatial distribution */
 }
 
-header nav a {
-    text-decoration: none;
-    color: #94a3b8;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-    padding: 0.25rem 0.5rem;
+/* List element margins elimination */
+header nav li, .nav-menu li, .main-nav ul li {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-header nav a:hover {
-    color: #e2e8f0;
+/* Symmetrical global anchor typography rules */
+header nav a, .nav-link, .main-nav a, .nav-links a {
+    text-decoration: none !important;
+    color: #94a3b8 !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    transition: color 0.2s ease !important;
+    white-space: nowrap !important;
+    padding: 0.25rem 0.5rem !important;
 }
 
-header nav a.active {
-    color: #38bdf8;
+header nav a:hover, .nav-link:hover, .main-nav a:hover, .nav-links a:hover {
+    color: #e2e8f0 !important;
 }
 
-/* Responsive constraints for ultra-small mobile screen parameters */
+header nav a.active, .nav-link.active, .main-nav a.active, .nav-links a.active {
+    color: #38bdf8 !important;
+}
+
+
+
+
+/* Tight viewports optimization pass */
 @media screen and (max-width: 480px) {
-    header {
-        gap: 1rem;
-        padding: 1.5rem 0.5rem;
+    header, .site-header, .navbar {
+        gap: 1rem !important;
+        padding: 1.25rem 0.5rem !important;
     }
-    header nav ul {
-        gap: 1rem;          /* Pulls links slightly closer together on tiny viewports */
+    header nav ul, .nav-menu, .main-nav ul, .nav-links {
+        gap: 1rem !important; /* Brings links slightly closer on ultra-narrow frames */
     }
 }
 
