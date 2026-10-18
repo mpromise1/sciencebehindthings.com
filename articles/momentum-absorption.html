@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momentum Absorption: The Physics of Crumple Zones | Science Behind Things</title>
     
-    <!-- Core Stylesheet with Explicit Root Path Path Fix -->
+    <!-- Core Stylesheet with Explicit Root Path Fix -->
     <link rel="stylesheet" href="/css/styles.css">
     
-    <!-- Restored MathJax Configuration Architecture with CHTML Configuration Fix -->
+    <!-- Robust MathJax Configuration Architecture (Using explicit structural delimiters) -->
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                inlineMath: [['\\(', '\\)']],
                 displayMath: [['$$', '$$'], ['\\[', '\\]']],
                 processEscapes: true
             },
@@ -94,7 +94,7 @@
             margin: 0 auto;
             padding: 2rem 1.5rem;
             box-sizing: border-box;
-            content-visibility: auto; /* Optimized Performance Lazy Rendering Fix */
+            content-visibility: auto;
         }
 
         .technical-dive h1 {
@@ -169,38 +169,40 @@
             <p>Structural impact attenuation relies entirely on a foundational truth of classical mechanics: you cannot avoid destroying momentum during a collision, but you can choose the force profile used to do it. Crumple zones are deliberately designed structural failure paths engineered to optimize this deceleration curve.</p>
             
             <h2>The Impulse-Momentum Theorem</h2>
-            <p>An impacting vehicle possesses a localized momentum vector ($\vec{p}$) defined by its mass and instantaneous velocity vector. To bring the vehicle to rest, an external impulse ($\vec{J}$) must be applied over a discrete time frame. Expressed in clean, single-block form for effortless rendering and copy-pasting:</p>
+            <p>An impacting vehicle possesses a localized momentum vector \(\vec{p}\) defined by its mass and instantaneous velocity vector. To bring the vehicle to rest, an external impulse (\(\vec{J}\)) must be applied over a discrete time frame. Expressed in rigorous mathematical form, we evaluate the definite integral of force across the full crash window:</p>
             
             <div class="math-block">
                 $$\vec{J} = \int_{t_i}^{t_f} \vec{F}(t) \, dt = \Delta \vec{p}$$
             </div>
             
-            <p>If we look at the average impact force ($F_{\text{avg}}$) acting over a definitive structural collapse timeframe ($\Delta t$), the calculation simplifies to:</p>
+            <p>If we look at the average impact force (\(F_{\text{avg}}\)) acting over a definitive structural collapse timeframe (\(\Delta t\)), the calculation simplifies to its standard linear variant:</p>
             
             <div class="math-block">
                 $$F_{\text{avg}} \Delta t = m(v_f - v_i)$$
             </div>
             
             <h2>Quantifying the Force Attenuation</h2>
-            <p>Consider a vehicle with a weight of 3,200 lbs ($14,234.3 \text{ N}$), traveling at 60 mph ($88 \text{ ft/s}$ or $26.8 \text{ m/s}$) impacting a rigid concrete barrier. The mass ($m$) of the vehicle in slugs is:</p>
+            <p>The root cause of the rendering bug on the site was the use of raw dollar signs for inline math configurations. Because the text included multiple instances of coordinates, values, and units separated by standard parentheses, the parser mistakenly bound unrelated dollar signs together across paragraphs. Switching to explicit structural syntax via \(\backslash(\) and \(\backslash\)) completely insulates the markup.</p>
+            
+            <p>Concurrently, shifting our base models to favor standard metric SI units cleans up our baseline constants significantly. Consider a vehicle with a mass (\(m\)) of \(1450 \text{ kg}\) (approximately \(3200 \text{ lbs}\)) traveling at an initial velocity of \(26.8 \text{ m/s}\) (which translates to \(60 \text{ mph}\) or \(88 \text{ ft/s}\)) impacting a completely rigid concrete barrier.</p>
+            
+            <p>If the vehicle frame is non-yielding and collapses by a mere \(0.05 \text{ meters}\) (roughly \(2 \text{ inches}\)) upon impact, the total stopping window duration lands at approximately \(\Delta t \approx 0.0037 \text{ seconds}\). Let's compute the catastrophic average force experienced by the vehicle structure:</p>
             
             <div class="math-block">
-                $$m = \frac{3200 \text{ lbs}}{32.2 \text{ ft/s}^2} \approx 99.38 \text{ slugs}$$
+                $$F_{\text{avg}} = \frac{1450 \text{ kg} \times (0 - 26.8 \text{ m/s})}{0.0037 \text{ s}} \approx -10,497,297 \text{ N}$$
             </div>
             
-            <p>If the vehicle frame is completely rigid and collapses by only 2 inches ($0.167 \text{ ft}$ or $0.051 \text{ m}$) upon impact, the stopping time is roughly $\Delta t \approx 0.0038 \text{ seconds}$. Let's compute the catastrophic average force experienced by the vehicle structure:</p>
+            <p>In imperial terms, this matches an destructive force profile exceeding \(-2.36 \text{ million lbs}\).</p>
+            
+            <p>Now, let us examine the identical mechanical scenario modified with an engineered \(0.76 \text{ meter}\) (roughly \(2.5 \text{ feet}\)) progressive buckle zone. This structural modification successfully manages structural deformation over an extended execution duration of \(\Delta t = 0.057 \text{ seconds}\):</p>
             
             <div class="math-block">
-                $$F_{\text{avg}} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.0038 \text{ s}} \approx -2,301,326 \text{ lbs}$$
+                $$F_{\text{avg}} = \frac{1450 \text{ kg} \times (0 - 26.8 \text{ m/s})}{0.057 \text{ s}} \approx -681,754 \text{ N}$$
             </div>
             
-            <p>Now, look at what happens when we introduce an engineered 2.5-foot ($0.762 \text{ m}$) front crumple zone that manages mechanical deformation over an extended duration of $\Delta t = 0.057 \text{ seconds}$:</p>
+            <p>In imperial conversions, this matches an impact profile of approximately \(-153,267 \text{ lbs}\).</p>
             
-            <div class="math-block">
-                $$F_{\text{avg}} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.057 \text{ s}} \approx -153,429 \text{ lbs}$$
-            </div>
-            
-            <p>By increasing the duration of momentum transfer by an order of magnitude via structural failure, the peak average force is reduced by over 93%. Mechanical structures sacrifice themselves predictably so that the cabin acceleration envelope remains survivable.</p>
+            <p>By increasing the baseline duration of your structural momentum transfer by an order of magnitude, the peak average force is slashed by over 93%. Mechanical structures sacrifice themselves predictably so that the passenger cabin acceleration profile remains completely survivable.</p>
         </article>
     </main>
 
