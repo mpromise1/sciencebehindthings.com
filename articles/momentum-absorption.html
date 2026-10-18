@@ -3,160 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momentum Absorption: The Physics of Crumple Zones</title>
-    <!-- MathJax Configuration Block -->
+    <title>Momentum Absorption - Science Behind Things</title>
+    
+    <!-- Core Layout Stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Unified Root Favicons with Cache Busting -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=3">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+    
+    <!-- Web Manifest for Mobile Platforms -->
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Bulletproof Combined MathJax Core Architecture -->
     <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$']],
-                displayMath: [['$$', '$$']],
-                processEscapes: true
-            },
-            options: {
-                ignoreHtmlClass: 'tex2jax_ignore',
-                processHtmlClass: 'tex2jax_process'
-            }
-        };
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        },
+        chtml: {
+          displayAlign: 'center',
+          fontURL: 'https://jsdelivr.net'
+        }
+      };
     </script>
-    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #060814;
-            color: #cbd5e1;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
+        .article-container {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.7;
         }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #111827;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-decoration: none;
-        }
-        .logo span {
-            color: #38bdf8;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 1.75rem;
-        }
-        nav a {
-            text-decoration: none;
-            color: #94a3b8;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-        nav a:hover {
-            color: #e2e8f0;
-        }
-        nav a.active {
-            color: #38bdf8;
-        }
-        .technical-dive {
-            margin-top: 3rem;
-            margin-bottom: 4rem;
-        }
-        .meta {
-            color: #0ea5e9;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 2.5rem;
-        }
-        h1 {
-            color: #ffffff;
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-        h2 {
-            color: #f8fafc;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-        }
-        p {
-            margin-bottom: 1.5rem;
-            color: #cbd5e1;
-        }
-        .math-block {
-            border-left: 4px solid #38bdf8;
-            padding: 1rem 0 1rem 1.5rem;
-            margin: 2rem 0;
-            background: rgba(56, 189, 248, 0.02);
-        }
-        .context-callout {
-            border-left: 4px solid #f59e0b;
-            padding: 1.25rem 0 1.25rem 1.5rem;
-            margin: 2.5rem 0;
-            background: rgba(245, 158, 11, 0.01);
-        }
-        .context-callout p {
-            margin-bottom: 1rem;
-        }
-        .context-callout p:last-child {
-            margin-bottom: 0;
-            font-style: italic;
-            color: #94a3b8;
-        }
-        .context-title {
-            font-weight: 700;
-            color: #f8fafc;
-        }
-        footer {
-            text-align: center;
-            padding: 3rem 0 2rem 0;
-            border-top: 1px solid #111827;
+        .meta-header {
+            color: var(--accent-color, #00d2ff);
             font-size: 0.9rem;
-            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .article-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .equation-block {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--accent-color, #00d2ff);
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .side-note {
+            background: rgba(255, 165, 0, 0.05);
+            border-left: 4px solid #ffa500;
+            padding: 12px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        .site-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #888;
         }
     </style>
 </head>
-<body class="tex2jax_process">
-<div class="container">
-    <header>
-        <a href="../index.html" class="logo">Science Behind <span>Things</span></a>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../courses.html">Courses</a></li>
-                <li><a href="../videos.html">Physics Videos</a></li>
-                <li><a href="../bookshelf.html">The Bookshelf</a></li>
-                <li><a href="articles.html" class="active">Articles</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="technical-dive">
-        <div class="meta">Technical Analysis // AP Physics C Mechanics</div>
-        <h1>Momentum Absorption: The Physics of Crumple Zones</h1>
-        <p>Structural impact attenuation relies on classical mechanics: managing force profiles via engineered structural collapse. For the full HTML document layout, mathematical derivations, and styling implementation, please reference the complete code structure.</p>
-        <div class="math-block">
-            $$J = \int_{t_i}^{t_f} F(t) \, dt = \Delta p$$
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
-    </footer>
-</div>
+<body>
+
+<header class="site-header">
+    <nav class="site-nav">
+        <a href="/index.html" class="nav-logo">
+            Science Behind <span class="accent-text">Things</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/courses.html">Courses</a></li>
+            <li><a href="/videos.html">Physics Videos</a></li>
+            <li><a href="/bookshelf.html">The Bookshelf</a></li>
+            <li><a href="/articles.html" class="active">Articles</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article-container tex2jax_process">
+    <div class="meta-header">Technical Analysis // AP Physics C Mechanics</div>
+    <h1 class="article-title">Momentum Absorption: The Physics of Crumple Zones</h1>
+    
+    <p>Structural impact attenuation relies entirely on a foundational truth of classical mechanics: you cannot avoid destroying momentum during a collision, but you can choose the force profile used to do it. Crumple zones are deliberately designed structural failure paths engineered to optimize this deceleration curve.</p>
+    
+    <h2>The Impulse-Momentum Theorem</h2>
+    <p>An impacting vehicle possess a localized momentum vector ($p$) defined by its mass and instantaneous velocity vector. To bring the vehicle to rest, an external impulse ($J$) must be applied over a discrete time frame:</p>
+    <div class="equation-block">
+        $$J = \int_{t_i}^{t_f} F(t) \, dt = \Delta p$$
+    </div>
+    <p>If we look at the average impact force ($F_{avg}$) acting over a definitive structural collapse timeframe ($\Delta t$), the calculation simplifies to:</p>
+    <div class="equation-block">
+        $$F_{avg} \Delta t = m(v_f - v_i)$$
+    </div>
+
+    <h2>Quantifying the Force Attenuation</h2>
+    <p>Consider a 3,200 lb vehicle traveling at 60 mph ($88 \text{ ft/s}$) impacting a rigid concrete barrier. The mass ($m$) of the vehicle in slugs is:</p>
+    <div class="equation-block">
+        $$m = \frac{3200 \text{ lbs}}{32.2 \text{ ft/s}^2} \approx 99.38 \text{ slugs}$$
+    </div>
+    <p>If the vehicle frame is completely rigid and collapses by only 2 inches ($0.167 \text{ ft}$) upon impact, the stopping time is roughly $\Delta t \approx 0.0038 \text{ seconds}$. Let's compute the catastrophic average force experienced by the vehicle structure:</p>
+    <div class="equation-block">
+        $$F_{avg} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.0038 \text{ s}} \approx -2,301,326 \text{ lbs}$$
+    </div>
+    <p>Now, look at what happens when we introduce an engineered 2.5-foot front crumple zone that managed mechanical deformation over a extended duration of $\Delta t = 0.057 \text{ seconds}$:</p>
+    <div class="equation-block">
+        $$F_{avg} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.057 \text{ s}} \approx -153,429 \text{ lbs}$$
+    </div>
+    <h2>Conclusion</h2>
+    <p>By increasing the duration of momentum transfer by an order of magnitude via structural failure, the peak average force is reduced by over 93%. Mechanical structures sacrifice themselves predictably so that the cabin acceleration envelope remains survivable.</p>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+    <p style="font-size: 0.8rem; margin-top: 5px; color: #555;">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
+</footer>
+
 </body>
 </html>
