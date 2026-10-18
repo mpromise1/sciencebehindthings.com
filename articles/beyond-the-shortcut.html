@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beyond the Shortcut - Science Behind Things</title>
     
-    <!-- Core Layout Stylesheet (Uses uniform absolute paths to prevent breaks) -->
+    <!-- Core Layout Stylesheet -->
     <link rel="stylesheet" href="/style.css">
 
     <!-- Unified Root Favicons with Cache Busting -->
@@ -17,32 +17,29 @@
     <!-- Web Manifest for Mobile Platforms -->
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Native MathJax Component Loader for Nested Article Subfolders -->
+    <!-- Bulletproof Combined MathJax Core Architecture -->
     <script>
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']],
-          processEscapes: true
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
         },
         chtml: {
           displayAlign: 'center',
-          adaptiveCSS: true
-        },
-        startup: {
-          pageReady: () => {
-            return MathJax.startup.defaultPageReady().then(() => {
-              // Safety baseline trigger forces rendering on deep-linked pages
-              MathJax.typesetPromise();
-            });
-          }
+          fontURL: 'https://jsdelivr.net'
         }
       };
     </script>
-    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-        /* Specific content layout overrides for technical reading comfort */
         .article-container {
             max-width: 800px;
             margin: 40px auto;
@@ -90,7 +87,6 @@
 
 <header class="site-header">
     <nav class="site-nav">
-        <!-- Root relative paths keep navigation links solid across pages -->
         <a href="/index.html" class="nav-logo">
             Science Behind <span class="accent-text">Things</span>
         </a>
@@ -104,7 +100,7 @@
     </nav>
 </header>
 
-<main class="article-container">
+<main class="article-container tex2jax_process">
     <div class="meta-header">Technical Analysis // AP Physics C Mechanics</div>
     <h1 class="article-title">Beyond the Shortcut: Deriving the Work-Energy Connection</h1>
     
