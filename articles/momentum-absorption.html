@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momentum Absorption: The Physics of Crumple Zones</title>
-    <!-- MathJax Script Endpoint Configuration -->
+    <!-- MathJax Configuration Block -->
     <script>
         window.MathJax = {
             tex: {
@@ -28,39 +28,76 @@
             padding: 2rem 1rem;
             color: #333;
         }
+        nav {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
         .technical-dive {
             margin-bottom: 3rem;
         }
         .meta {
             color: #666;
             font-style: italic;
+            margin-top: -0.5rem;
+            margin-bottom: 2rem;
         }
         h1 {
             color: #111;
             margin-bottom: 0.5rem;
+            font-size: 2.2rem;
         }
         h2 {
             color: #222;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             border-bottom: 1px solid #eee;
             padding-bottom: 0.3rem;
         }
-        /* Customized Centered Footer Styling */
         footer {
             text-align: center;
             padding: 2rem 0;
-            margin-top: 4rem;
+            margin-top: 5rem;
             border-top: 1px solid #e0e0e0;
             font-size: 0.9rem;
+            color: #555;
+        }
+        footer .tagline {
+            font-style: italic;
             color: #777;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
-<body>
+<body class="tex2jax_process">
+
+<nav>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../courses.html">Courses</a></li>
+        <li><a href="../videos.html">Physics Videos</a></li>
+        <li><a href="../bookshelf.html">The Bookshelf</a></li>
+        <li><a href="articles.html">Articles</a></li>
+    </ul>
+</nav>
 
 <article class="technical-dive">
     <h1>Momentum Absorption: The Physics of Crumple Zones</h1>
-    <p class="meta">Published: October 2026 | Category: Kinematics & Pure Mechanics</p>
+    <p class="meta">Technical Analysis // AP Physics C Mechanics</p>
     
     <p>Structural impact attenuation relies entirely on a foundational truth of classical mechanics: you cannot avoid destroying momentum during a collision, but you can choose the force profile used to do it. Crumple zones are deliberately designed structural failure paths engineered to optimize this deceleration curve.</p>
     
@@ -74,23 +111,26 @@
     $$F_{avg} \Delta t = m(v_f - v_i)$$
     
     <h2>Quantifying the Force Attenuation</h2>
-    <p>Consider a 3,200 lb vehicle traveling at 60 mph ($88 \text{ ft/s}$) impacting a rigid concrete barrier. The mass ($m$) of the vehicle in slugs is:</p>
+    <p>Consider a vehicle with a mass of $1450 \text{ kg}$ traveling at an initial velocity of $26.8 \text{ m/s}$ impacting a rigid concrete barrier. The raw incoming momentum ($p_i$) that must be completely stripped from the physical system is calculated as $38,860 \text{ N}\cdot\text{s}$.</p>
+
+    <p>If the vehicle frame is completely rigid and collapses by only $0.05 \text{ meters}$ upon impact, the stopping time is tight and brief, lasting roughly $\Delta t \approx 0.0037 \text{ seconds}$. Let's compute the catastrophic average force experienced by the vehicle structure during this rapid window:</p>
     
-    $$m = \frac{3200 \text{ lbs}}{32.2 \text{ ft/s}^2} \approx 99.38 \text{ slugs}$$
+    $$F_{avg} = \frac{1450 \text{ kg} \times (0 - 26.8 \text{ m/s})}{0.0037 \text{ s}} \approx -1,050,270 \text{ Newtons}$$
     
-    <p>If the vehicle frame is completely rigid and collapses by only 2 inches ($0.167 \text{ ft}$) upon impact, the stopping time is roughly $\Delta t \approx 0.0038 \text{ seconds}$. Let's compute the catastrophic average force experienced by the vehicle structure:</p>
+    <p>Now, look at what happens when we introduce an engineered $0.76\text{-meter}$ front crumple zone that manages mechanical structural deformation over an extended structural displacement duration of $\Delta t = 0.057 \text{ seconds}$:</p>
     
-    $$F_{avg} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.0038 \text{ s}} \approx -2,301,326 \text{ lbs}$$
+    $$F_{avg} = \frac{1450 \text{ kg} \times (0 - 26.8 \text{ m/s})}{0.057 \text{ s}} \approx -681,754 \text{ Newtons}$$
     
-    <p>Now, look at what happens when we introduce an engineered 2.5-foot front crumple zone that managed mechanical deformation over a extended duration of $\Delta t = 0.057 \text{ seconds}$:</p>
-    
-    $$F_{avg} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.057 \text{ s}} \approx -153,429 \text{ lbs}$$
-    
-    <p>By increasing the duration of momentum transfer by an order of magnitude via structural failure, the peak average force is reduced by over 93%. Mechanical structures sacrifice themselves predictably so that the cabin acceleration envelope remains survivable.</p>
+    <p>By increasing the duration of momentum transfer by an order of magnitude via structural failure, the peak average force is reduced by over 35%. Mechanical structures sacrifice themselves predictably so that the cabin acceleration envelope remains survivable.</p>
+
+    <p><strong>Contextual Note on Scale and Application:</strong> The kinetic energy dissipated during this deceleration vector mapping totals approximately $520,840 \text{ Joules}$.</p>
+
+    <p><em>For historical contextual reference within US highway paradigms, this setup matches a 3,200 lb vehicle traveling at 60 mph impacting a barrier, where a rigid 2-inch collapse generates a catastrophic -2,301,326 lbs of force, whereas an engineered 2.5-foot crumple zone drops that destructive envelope down to -153,429 lbs.</em></p>
 </article>
 
 <footer>
-    <p>&copy; 2026 Technical Dive Mechanics. All rights reserved.</p>
+    <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+    <p class="tagline">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
 </footer>
 
 </body>
