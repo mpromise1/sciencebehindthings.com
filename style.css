@@ -7,6 +7,21 @@ header nav, .nav-container {
     background-color: #0b0e14; /* Deep dark mode background */
 }
 
+/* Mobile responsive override */
+@media (max-width: 768px) {
+  header, .nav-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px; /* Adds clean separation between title and links */
+  }
+
+  nav {
+    display: flex;
+    gap: 15px; /* Keeps individual nav links spaced apart */
+  }
+}
+
 /* Clean horizontal list for links */
 .nav-links {
     display: flex;
