@@ -1,3 +1,5 @@
+
+
 <article class="technical-dive">
     <h1>Momentum Absorption: The Physics of Crumple Zones</h1>
     <p class="meta">Published: October 2026 | Category: Kinematics & Pure Mechanics</p>
@@ -28,3 +30,4 @@
     
     <p>By increasing the duration of momentum transfer by an order of magnitude via structural failure, the peak average force is reduced by over 93%. Mechanical structures sacrifice themselves predictably so that the cabin acceleration envelope remains survivable.</p>
 </article>
+
