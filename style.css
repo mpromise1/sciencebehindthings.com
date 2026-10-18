@@ -1,25 +1,28 @@
-/* Force Navigation Header Layout in articles.html */
-header nav, .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #0b0e14; /* Deep dark mode background */
-}
+/* Mobile responsive override */ 
+@media (max-width: 768px) { 
+    header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 16px; /* Creates explicit, breathing vertical separation between logo and nav stack */
+        padding: 1.5rem 0;
+    }
 
-/* Mobile responsive override */
-@media (max-width: 768px) {
-  header, .nav-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px; /* Adds clean separation between title and links */
-  }
+    nav {
+        display: flex !important;
+        justify-content: center;
+        width: 100%;
+    }
 
-  nav {
-    display: flex;
-    gap: 15px; /* Keeps individual nav links spaced apart */
-  }
+    nav ul {
+        display: flex !important;
+        flex-wrap: wrap; /* Permits safe text wrapping if a mobile phone viewport is extremely narrow */
+        justify-content: center;
+        gap: 16px; /* Ensures clean spacing between individual inline links */
+        padding: 0;
+        margin: 0;
+    }
 }
 
 /* Clean horizontal list for links */
