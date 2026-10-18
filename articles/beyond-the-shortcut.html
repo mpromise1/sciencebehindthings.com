@@ -1,79 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+<article class="technical-dive">
 <head>
-    <meta charset="UTF-8">
-    <title>Beyond the Shortcut | Science Behind Things</title>
-    <link rel="stylesheet" href="../css/style.css">
-    
-    <!-- MathJax Configuration Block -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-            }
-        };
-    </script>
-
-<!-- MathJax Delivery Engine -->
-    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+<link rel="stylesheet" href="../css/style.css">
 </head>
-
-<body>
-    <!-- Global Component Navigation Anchor -->
-    <header id="global-navbar"></header>
-
-    <!-- Main Semantic Layout Shell -->
-    <main class="content-wrapper">
-        <article class="technical-dive">
-            <h1>Beyond the Shortcut: Deconstructing the Third Kinematics Equation</h1>
-            <p class="meta">Published: October 2026 | Category: Kinematics & Pure Mechanics</p>
-            
-            <p>In introductory physics, students are routinely handed the timeless equation of motion to solve for terminal velocities without a time parameter:</p>
-            
-            $$v_f^2 = v_i^2 + 2a\Delta x$$
-            
-            <p>While algebra allows you to derive this by substituting $t = \frac{v_f - v_i}{a}$ into the displacement equation, this algebraic manipulation obscures the profound physical law hidden beneath the surface: <strong>The Work-Energy Theorem</strong>. By bypassing the time parameter using calculus, we can see exactly how acceleration scales over a spatial field.</p>
-            
-            <h2>The Calculus Derivation</h2>
-            <p>We begin with the fundamental definition of instantaneous acceleration as the time derivative of velocity, and velocity as the time derivative of position:</p>
-            
-            $$a = \frac{dv}{dt}$$
-            $$v = \frac{dx}{dt} \implies dt = \frac{dx}{v}$$
-            
-            <p>Substituting $dt$ into our acceleration model yields the differential relationship linking acceleration, velocity, and spatial displacement:</p>
-            
-            $$a = v\frac{dv}{dx}$$
-            
-            <p>Separating variables allows us to integrate both sides of the expression. We evaluate the left side across a spatial boundary from $x_i$ to $x_f$, and the right side across a velocity boundary from $v_i$ to $v_f$ assuming a constant acceleration $a$:</p>
-            
-            $$\int_{x_i}^{x_f} a \, dx = \int_{v_i}^{v_f} v \, dv$$
-            $$a \int_{x_i}^{x_f} dx = \int_{v_i}^{v_f} v \, dv$$
-            
-            <p>Evaluating these definite integrals yields:</p>
-            
-            $$a(x_f - x_i) = \frac{1}{2}v_f^2 - \frac{1}{2}v_i^2$$
-            
-            <p>Multiplying the entire equation by 2 and defining $\Delta x = x_f - x_i$ delivers our kinematics standard:</p>
-            
-            $$2a\Delta x = v_f^2 - v_i^2 \implies v_f^2 = v_i^2 + 2a\Delta x$$
-            
-            <h2>The Physical Insight: Kinetic Energy Hidden in Plain Sight</h2>
-            <p>If we multiply our integrated equation by mass ($m$), its true identity is revealed:</p>
-            
-            $$ma\Delta x = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2$$
-            
-            <p>Because $F = ma$, the term $F\Delta x$ represents mechanical work ($W$), while the right hand side explicitly tracks the change in kinetic energy ($\Delta K$). The third kinematics equation is not a mere mathematical trick; it is conservation of energy wearing a kinematic mask.</p>
-        </article>
-    </main>
-
-    <!-- Global Component Footer Anchor -->
-    <footer id="global-footer"></footer>
-
-    <!-- Global Component Loader Script -->
-    <script src="../js/components.js"></script>
-</body>
-</html>
+    <h1>Beyond the Shortcut: Deconstructing the Third Kinematics Equation</h1>
+    <p class="meta">Published: October 2026 | Category: Kinematics & Pure Mechanics</p>
+    
+    <p>In introductory physics, students are routinely handed the timeless equation of motion to solve for terminal velocities without a time parameter:</p>
+    
+    $$v_f^2 = v_i^2 + 2a\Delta x$$
+    
+    <p>While algebra allows you to derive this by substituting $t = \frac{v_f - v_i}{a}$ into the displacement equation, this algebraic manipulation obscures the profound physical law hidden beneath the surface: <strong>The Work-Energy Theorem</strong>. By bypassing the time parameter using calculus, we can see exactly how acceleration scales over a spatial field.</p>
+    
+    <h2>The Calculus Derivation</h2>
+    <p>We begin with the fundamental definition of instantaneous acceleration as the time derivative of velocity, and velocity as the time derivative of position:</p>
+    
+    $$a = \frac{dv}{dt}$$
+    $$v = \frac{dx}{dt} \implies dt = \frac{dx}{v}$$
+    
+    <p>Substituting $dt$ into our acceleration model yields the differential relationship linking acceleration, velocity, and spatial displacement:</p>
+    
+    $$a = v\frac{dv}{dx}$$
+    
+    <p>Separating variables allows us to integrate both sides of the expression. We evaluate the left side across a spatial boundary from $x_i$ to $x_f$, and the right side across a velocity boundary from $v_i$ to $v_f$ assuming a constant acceleration $a$:</p>
+    
+    $$\int_{x_i}^{x_f} a \, dx = \int_{v_i}^{v_f} v \, dv$$
+    $$a \int_{x_i}^{x_f} dx = \int_{v_i}^{v_f} v \, dv$$
+    
+    <p>Evaluating these definite integrals yields:</p>
+    
+    $$a(x_f - x_i) = \frac{1}{2}v_f^2 - \frac{1}{2}v_i^2$$
+    
+    <p>Multiplying the entire equation by 2 and defining $\Delta x = x_f - x_i$ delivers our kinematics standard:</p>
+    
+    $$2a\Delta x = v_f^2 - v_i^2 \implies v_f^2 = v_i^2 + 2a\Delta x$$
+    
+    <h2>The Physical Insight: Kinetic Energy Hidden in Plain Sight</h2>
+    <p>If we multiply our integrated equation by mass ($m$), its true identity is revealed:</p>
+    
+    $$ma\Delta x = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2$$
+    
+    <p>Because $F = ma$, the term $F\Delta x$ represents mechanical work ($W$), while the right hand side explicitly tracks the change in kinetic energy ($\Delta K$). The third kinematics equation is not a mere mathematical trick; it is conservation of energy wearing a kinematic mask.</p>
+</article>
