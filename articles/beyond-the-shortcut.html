@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beyond the Shortcut - Science Behind Things</title>
     
-    <!-- Core Layout Stylesheet (Navigates up one level to root) -->
-    <link rel="stylesheet" href="../style.css">
+    <!-- Core Layout Stylesheet (Uses uniform absolute paths to prevent breaks) -->
+    <link rel="stylesheet" href="/style.css">
 
     <!-- Unified Root Favicons with Cache Busting -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
@@ -17,16 +17,31 @@
     <!-- Web Manifest for Mobile Platforms -->
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Optimized Hyper-Fast MathJax (CHTML Configuration) -->
+    <!-- Explicitly Configured MathJax Rendering Engine -->
     <script>
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
           processEscapes: true
         },
+        options: {
+          renderActions: {
+            findScript: [10, function (doc) {
+              for (const node of Array.from(document.querySelectorAll('script[type^="math/tex"]'))) {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+              }
+            }, '']
+          }
+        },
         chtml: {
-          displayAlign: 'center',
-          scale: 1.0
+          displayAlign: 'center'
         }
       };
     </script>
@@ -67,22 +82,30 @@
             font-size: 0.95rem;
             font-style: italic;
         }
+        .site-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #888;
+        }
     </style>
 </head>
 <body>
 
 <header class="site-header">
     <nav class="site-nav">
-        <!-- Relative paths point back up to root level -->
-        <a href="../index.html" class="nav-logo">
+        <!-- Root relative paths keep navigation links solid across pages -->
+        <a href="/index.html" class="nav-logo">
             Science Behind <span class="accent-text">Things</span>
         </a>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../courses.html">Courses</a></li>
-            <li><a href="../videos.html">Physics Videos</a></li>
-            <li><a href="../bookshelf.html">The Bookshelf</a></li>
-            <li><a href="../articles.html" class="active">Articles</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/courses.html">Courses</a></li>
+            <li><a href="/videos.html">Physics Videos</a></li>
+            <li><a href="/bookshelf.html">The Bookshelf</a></li>
+            <li><a href="/articles.html" class="active">Articles</a></li>
         </ul>
     </nav>
 </header>
@@ -91,7 +114,7 @@
     <div class="meta-header">Technical Analysis // AP Physics C Mechanics</div>
     <h1 class="article-title">Beyond the Shortcut: Deriving the Work-Energy Connection</h1>
     
-    <p>In high school physics, students are routinely handed the "timeless" kinematic equation as a shortcut shortcut to bypass tracking temporal variables. We are taught to look at a system, spot the missing time component, and blindly execute the algebraic pattern. But equations do not manifest out of thin air; they map an underlying, elegant order woven into the fabric of physical laws.</p>
+    <p>In high school physics, students are routinely handed the "timeless" kinematic equation as a shortcut to bypass tracking temporal variables. We are taught to look at a system, spot the missing time component, and blindly execute the algebraic pattern. But equations do not manifest out of thin air; they map an underlying, elegant order woven into the fabric of physical laws.</p>
     
     <p>To truly master mechanics, we must look beyond the algebraic shortcut and look directly at the calculus-based reality: the Work-Energy Theorem. Let us derive this connection from foundational principles.</p>
 
@@ -146,13 +169,10 @@
     <p>The shortcuts we memorize are merely shadows cast by calculus integrations. When you look beneath the algebraic formulas of mechanics, you don't find chaos; you find a highly structured, mathematical architecture that behaves predictably and dependably every single time.</p>
 </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
-            <p class="sub-footer">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
-        </div>
-    </footer>
-    
+<footer class="site-footer">
+    <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+    <p style="font-size: 0.8rem; margin-top: 5px; color: #555;">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
+</footer>
+
 </body>
 </html>
