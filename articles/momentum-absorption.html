@@ -1,30 +1,213 @@
-<article class="technical-dive">
-    <h1>Momentum Absorption: The Physics of Crumple Zones</h1>
-    <p class="meta">Published: October 2026 | Category: Kinematics & Pure Mechanics</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum Absorption: The Physics of Crumple Zones | Science Behind Things</title>
     
-    <p>Structural impact attenuation relies entirely on a foundational truth of classical mechanics: you cannot avoid destroying momentum during a collision, but you can choose the force profile used to do it. Crumple zones are deliberately designed structural failure paths engineered to optimize this deceleration curve.</p>
+    <!-- Core Stylesheet with Explicit Root Path Fix for Safari Dark Theme Integration -->
+    <link rel="stylesheet" href="/css/styles.css">
     
-    <h2>The Impulse-Momentum Theorem</h2>
-    <p>An impacting vehicle possess a localized momentum vector ($p$) defined by its mass and instantaneous velocity vector. To bring the vehicle to rest, an external impulse ($J$) must be applied over a discrete time frame:</p>
+    <!-- Updated MathJax Configuration Architecture for Seamless Asynchronous Block Rendering -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
     
-    $$J = \int_{t_i}^{t_f} F(t) \, dt = \Delta p$$
-    
-    <p>If we look at the average impact force ($F_{avg}$) acting over a definitive structural collapse timeframe ($\Delta t$), the calculation simplifies to:</p>
-    
-    $$F_{avg} \Delta t = m(v_f - v_i)$$
-    
-    <h2>Quantifying the Force Attenuation</h2>
-    <p>Consider a 3,200 lb vehicle traveling at 60 mph ($88 \text{ ft/s}$) impacting a rigid concrete barrier. The mass ($m$) of the vehicle in slugs is:</p>
-    
-    $$m = \frac{3200 \text{ lbs}}{32.2 \text{ ft/s}^2} \approx 99.38 \text{ slugs}$$
-    
-    <p>If the vehicle frame is completely rigid and collapses by only 2 inches ($0.167 \text{ ft}$) upon impact, the stopping time is roughly $\Delta t \approx 0.0038 \text{ seconds}$. Let's compute the catastrophic average force experienced by the vehicle structure:</p>
-    
-    $$F_{avg} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.0038 \text{ s}} \approx -2,301,326 \text{ lbs}$$
-    
-    <p>Now, look at what happens when we introduce an engineered 2.5-foot front crumple zone that managed mechanical deformation over a extended duration of $\Delta t = 0.057 \text{ seconds}$:</p>
-    
-    $$F_{avg} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.057 \text{ s}} \approx -153,429 \text{ lbs}$$
-    
-    <p>By increasing the duration of momentum transfer by an order of magnitude via structural failure, the peak average force is reduced by over 93%. Mechanical structures sacrifice themselves predictably so that the cabin acceleration envelope remains survivable.</p>
-</article>
+    <style>
+        /* Embedded Safety Fallbacks for Structural Alignment & Universal Dark/Light Themes */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #0066cc;
+            --meta-color: #666666;
+            --box-bg: #f5f5f7;
+            --border-color: #e5e5e7;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #e5e5e7;
+                --accent-color: #2f95dc;
+                --meta-color: #a1a1a6;
+                --box-bg: #1c1c1e;
+                --border-color: #2c2c2e;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        nav a {
+            margin-left: 1.5rem;
+            text-decoration: none;
+            color: var(--meta-color);
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .technical-dive h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta {
+            color: var(--meta-color);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .math-block {
+            background-color: var(--box-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--meta-color);
+            background-color: var(--bg-color);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body class="tex2jax_process">
+
+    <!-- Global Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="/index.html" class="brand">Science Behind Things</a>
+            <nav>
+                <a href="/bookshelf.html">Bookshelf</a>
+                <a href="/videos.html">Videos</a>
+                <a href="/courses.html">Courses</a>
+                <a href="/articles.html">Articles</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main>
+        <article class="technical-dive">
+            <h1>Momentum Absorption: The Physics of Crumple Zones</h1>
+            <p class="meta">Published: October 2026 | Category: Kinematics & Pure Mechanics</p>
+            
+            <p>Structural impact attenuation relies entirely on a foundational truth of classical mechanics: you cannot avoid destroying momentum during a collision, but you can choose the force profile used to do it. Crumple zones are deliberately designed structural failure paths engineered to optimize this deceleration curve.</p>
+            
+            <h2>The Impulse-Momentum Theorem</h2>
+            <p>An impacting vehicle possesses a localized momentum vector defined by its mass and instantaneous velocity vector. To bring the vehicle to rest, an external impulse ($\vec{J}$) must be applied over a discrete time frame. Expressed in rigorous mathematical form, we look at the definite integral of force across the full crash window:</p>
+            
+            <div class="math-block">
+                \[\begin{array}{c} \vec{J} = \int_{t_i}^{t_f} \vec{F}(t) \, dt = \Delta \vec{p} \end{array}\]
+            </div>
+            
+            <p>If we evaluate the average impact force ($F_{\text{avg}}$) acting over a definitive structural collapse timeframe ($\Delta t$), the relationship simplifies to its standard algebraic form:</p>
+            
+            <div class="math-block">
+                \[\begin{array}{c} F_{\text{avg}} \Delta t = m(v_f - v_i) \end{array}\]
+            </div>
+            
+            <h2>Quantifying the Force Attenuation</h2>
+            <p>Consider a vehicle with a weight of 3,200 lbs ($14,234.3 \text{ N}$), moving with an initial velocity of 60 mph ($88 \text{ ft/s}$ or $26.8 \text{ m/s}$) impacting a completely rigid concrete barrier. The mass ($m$) of the vehicle calculated in gravitational US units (slugs) yields:</p>
+            
+            <div class="math-block">
+                \[\begin{array}{c} m = \frac{3200 \text{ lbs}}{32.2 \text{ ft/s}^2} \approx 99.38 \text{ slugs} \end{array}\]
+            </div>
+            
+            <p>If the vehicle frame is completely rigid and collapses by only 2 inches ($0.167 \text{ ft}$ or $0.051 \text{ m}$) upon impact, the total stopping time is roughly $\Delta t \approx 0.0038 \text{ seconds}$. Let's compute the catastrophic average force experienced by the vehicle structure:</p>
+            
+            <div class="math-block">
+                \[\begin{array}{c} F_{\text{avg}} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.0038 \text{ s}} \approx -2,301,326 \text{ lbs} \end{array}\]
+            </div>
+            
+            <p>Now, let us examine what happens when we introduce an engineered 2.5-foot ($0.762 \text{ m}$) front crumple zone. This deliberate mechanical failure pathway successfully manages deformation over an extended duration of $\Delta t = 0.057 \text{ seconds}$:</p>
+            
+            <div class="math-block">
+                \[\begin{array}{c} F_{\text{avg}} = \frac{99.38 \text{ slugs} \times (0 - 88 \text{ ft/s})}{0.057 \text{ s}} \approx -153,429 \text{ lbs} \end{array}\]
+            </div>
+            
+            <p>By extending the structural duration of the momentum transfer by an order of magnitude via predictable mechanical failure, the peak average impact force is slashed by over 93%. Materials sacrifice themselves completely so that the passenger cabin acceleration window remains entirely survivable.</p>
+        </article>
+    </main>
+
+    <!-- Correctly Positioned Dynamic Footer Elements -->
+    <footer>
+        <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8;">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
+    </footer>
+
+</body>
+</html>
