@@ -1,0 +1,11 @@
+                <article class="post-preview">
+                    <span class="post-meta">October 2026</span>
+                    <h3><a href="articles/beyond-the-shortcut.html">Read Beyond the Shortcut</a></h3>
+                    <p>A deep calculus-based derivation of the work-energy connection hidden inside constant acceleration models.</p>
+                </article>
+                <article class="post-preview">
+                    <span class="post-meta">October 2026</span>
+                    <h3><a href="articles/momentum-absorption.html">Momentum Absorption: The Physics of Crumple Zones</a></h3>
+                    <p>Analyzing impulse, force dissipation over time, and real-world structural engineering impact attenuation.</p>
+                </article>
+
