@@ -102,9 +102,23 @@
             font-size: 0.9rem;
         }
     </style>
+    <!-- MathJax Configuration & Script Loader -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
 </head>
-<body>
 
+<body>
     <div class="container">
         <header>
             <h1>The Technical Bookshelf</h1>
