@@ -3,17 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookshelf - Science Behind Things</title>
-    <link href="https://jsdelivr.net" rel="stylesheet">
+    <title>The Bookshelf | Science Behind Things</title>
+    <style>
+        body {
+            background-color: #0D1117;
+            color: #C9D1D9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 1px solid #21262D;
+            padding-bottom: 40px;
+        }
+        h1 {
+            color: #FFFFFF;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #8B949E;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        .section-title {
+            color: #F5A623;
+            font-size: 1.6rem;
+            border-left: 4px solid #F5A623;
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .book-card {
+            background-color: #161B22;
+            border: 1px solid #30363D;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .book-title {
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        .book-meta {
+            color: #58A6FF;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .book-description {
+            color: #C9D1D9;
+            font-size: 1.05rem;
+        }
+        .formula-box {
+            background-color: #0D1117;
+            border-left: 3px solid #58A6FF;
+            padding: 15px;
+            font-family: "Courier New", Courier, monospace;
+            color: #58A6FF;
+            font-size: 0.95rem;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .btn-buy {
+            display: inline-block;
+            text-align: center;
+            background-color: #F5A623;
+            color: #0D1117;
+            font-weight: 700;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            max-width: 200px;
+            transition: background-color 0.2s;
+        }
+        .btn-buy:hover {
+            background-color: #E0951B;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #21262D;
+            color: #8B949E;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
-<body class="bg-dark text-light">
-    <div class="container py-5 text-center">
-        <h1 class="mb-4">Textbook Bookshelf</h1>
-        <p class="lead">Explore deep-dive physics curriculum options.</p>
-        <!-- Content goes here -->
-        <div class="mt-5">
-            <a href="index.html" class="btn btn-outline-light">Return Home</a>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>The Technical Bookshelf</h1>
+            <p class="subtitle">Subtle Faith. Absolute Rigor.</p>
+        </header>
+
+        <!-- Section 1: Hard Sci-Fi Analytics -->
+        <div class="section-title">Hard Sci-Fi & Analytical Fiction</div>
+
+        <div class="book-card">
+            <h2 class="book-title">The Ghost Signal</h2>
+            <div class="book-meta">Hard Science Fiction / Orbital Mechanics Mechanics</div>
+            <p class="book-description">
+                When an anomalous, deeply structured signal originates from a dead orbit, brute-force computational decoding fails. Fusing orbital perturbations with non-linear wave mechanics, the investigation exposes a terrifying mathematical truth hidden inside deep-space telemetry coordinates. 
+            </p>
+            <p class="book-description">
+                Unlike mainstream soft fiction, the narrative functions directly on real-world tracking metrics. The characters navigate orbital maneuvers where an error of mere inches—or a localized acceleration delta of 0.05 m/s² (approx. 0.16 ft/s²)—means structural annihilation against atmospheric entry boundaries.
+            </p>
+            <div class="formula-box">
+                // Telemetry Tracking Vector Integration:<br>
+                r(t) = r_0 + \int [v_0 + \int a(t') dt'] dt'
+            </div>
+            <a href="#" class="btn-buy">Acquire Volume</a>
         </div>
+
+        <!-- Section 2: The Core Trilogy -->
+        <div class="section-title">The Foundation Trilogy</div>
+
+        <div class="book-card">
+            <h2 class="book-title">Vance and Caleb: The Complete Chronicles</h2>
+            <div class="book-meta">Three-Volume Hard Sci-Fi Mystery Set</div>
+            <p class="book-description">
+                The definitive three-volume odyssey tracking deep-system investigators Vance and Caleb as they dismantle structural conspiracies across the solar architecture. From the high-velocity industrial decks of asteroid transport hubs to isolated planetary outposts, every forensic breakdown is treated as a rigorous mechanics problem.
+            </p>
+            <p class="book-description">
+                Every structural failure, pressure-seal rupture, and ballistics trajectory within the trilogy maps directly to exact physical constraints. Inside the text, system diagnostics utilize accurate mass-flow rates, contrasting standard metric configurations with heavy industrial transport dimensions measured in pounds and feet.
+            </p>
+            <div class="formula-box">
+                // Stress Matrix Resolution:<br>
+                \sigma = \lim_{\Delta A \to 0} \frac{\Delta F}{\Delta A}
+            </div>
+            <a href="#" class="btn-buy">Explore the Trilogy</a>
+        </div>
+
+        <footer>
+            <p>© 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+            <p>Formulas rendered via browser-safe mathematical layouts. Absolute Rigor.</p>
+        </footer>
     </div>
+
 </body>
 </html>
