@@ -3,90 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science Behind Things</title>
+    <title>Science Behind Things | AP Physics C & Undergraduate Mechanics Mastery</title>
+    <meta name="description" content="Master calculus-based physics and crush your exams. Learn the foundational core secrets to solving any mechanics problem with absolute conceptual clarity.">
     
-    <!-- Core Layout Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Polyfill for older browsers and MathJax Configuration -->
+    <script src="https://polyfill.io"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
 
-    <!-- Unified Root Favicons with Cache Busting -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=3">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
-    
-    <!-- Web Manifest for Mobile Platforms -->
-    <link rel="manifest" href="/site.webmanifest">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            --success-color: #10b981;
+            --border-color: #334155;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-color);
+        }
+
+        .hero {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 0.85rem 2rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+
+        .features {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 5rem 2rem;
+        }
+
+        .grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .math-block {
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px dashed var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .product-section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .product-box {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            max-width: 650px;
+            margin: 2.5rem auto 0 auto;
+            padding: 3.5rem 2.5rem;
+            text-align: left;
+        }
+
+        .product-box h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--success-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+        }
+
+        .product-box ul {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .product-box li {
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .product-box li::before {
+            content: "✓";
+            color: var(--success-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer p {
+            margin-bottom: 0.75rem;
+        }
+
+        .tagline {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 1rem; }
+        }
+    </style>
 </head>
-<body>
+<body class="tex2jax_ignore">
 
-<header class="site-header">
-    <nav class="site-nav">
-        <a href="index.html" class="nav-logo">
-            Science Behind <span class="accent-text">Things</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="videos.html">Videos</a></li>
-<!--           <li><a href="bookshelf.html">Bookshelf</a></li> -->
-            <li><a href="articles.html">Articles</a></li>
-        </ul>
-    </nav>
-</header>
-
-<body>
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container hero-content">
-            <h1>Demystifying the Universe Through Hard Science & Narrative</h1>
-            <p class="hero-subtitle">Where calculus-based physics meets near-future mystery. Master AP Physics, explore cutting-edge engineering, and dive into stories built on real equations.</p>
-            <div class="hero-cta-group">
-                <a href="bookshelf.html" class="btn btn-primary">Explore the Bookshelf</a>
-                <a href="videos.html" class="btn btn-secondary">Watch Physics Videos</a>
-            </div>
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo">Science Behind Things</a>
+            <nav>
+                <a href="#courses">Courses</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#about">About</a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- Segmented Track Blocks -->
-    <section class="tracks-section">
-        <div class="container">
-            <h2 class="section-title">Choose Your Track</h2>
-            <div class="tracks-grid">
+    <main class="tex2jax_process">
+        <section class="hero">
+            <h1>Stop Memorizing Formulas.<br>Master Mechanics with Absolute Calculus-Based Clarity.</h1>
+            <p>Built strictly for AP Physics C and elite undergraduate physics students who demand rigorous derivation over brute memorization.</p>
+            <a href="#courses" class="cta-button">Unlock the Kinematics Vault</a>
+        </section>
+
+        <section class="features" id="methodology">
+            <div class="grid">
+                <div class="card">
+                    <h3>Cheat-Proof Physics</h3>
+                    <p>Generic AI tools and solution manuals fail when problems test your core integration choices. We train you to construct systems from basic principles, forcing error isolation before you ever calculate a number.</p>
+                </div>
+                <div class="card">
+                    <h3>Pure Metric SI Rigor</h3>
+                    <p>Completely optimized for standard educational benchmarks. All core derivations operate flawlessly in metric SI units, mapping directly to your testing environment:</p>
+                    <div class="math-block">
+                        $$x(t) = x_0 + \int_{0}^{t} v(t') \, dt'$$
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-section" id="courses">
+            <h2>Available Training Vaults</h2>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Immediate, high-impact resources to overhaul your problem-solving paradigm.</p>
+            
+            <div class="product-box">
+                <h2>Advanced Kinematics Mastery Vault</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">The foundational mini-course covering multi-stage motion, vector calculus integration, and advanced frame tracking.</p>
+                <div class="price">$49 <span>$149</span></div>
                 
-                <!-- Track 1: AP Physics Students -->
-                <div class="track-card">
-                    <div class="track-icon">🎓</div>
-                    <h3>AP Physics C Mastery</h3>
-                    <p>Stop memorizing formulas. Learn the foundational core secret to solving any kinematics problem with deep, calculus-based conceptual clarity.</p>
-                    <a href="courses.html" class="track-link">Unlock the Course &rarr;</a>
-                </div>
+                <ul>
+                <li>10 Premium AP-Style/Undergrad Practice Problems with full LaTeX solutions</li>
+                <ul>
+                    <li>10 Premium AP-Style/Undergrad Practice Problems with full LaTeX solutions</li>
+                    <li>The 1 Essential Secret to solving any complex multi-variable kinematics system</li>
+                    <li>Complete video breakdowns with clear step-by-step mathematical proofs</li>
+                    <li>No filler, no fluff—engineered for hyper-focused, just-in-time test prep</li>
+                </ul>
 
-                <!-- Track 2: Sci-Fi Readers -->
-                <div class="track-card Highlighted">
-                    <div class="track-icon">🚀</div>
-                    <h3>The Quantum Forensic Files</h3>
-                    <p>Step into hard sci-fi mysteries featuring Vance and Caleb. Every novel features immersive world-building backed by production-ready technical math appendices.</p>
-                    <a href="bookshelf.html" class="track-link">Browse the Series &rarr;</a>
-                </div>
-
-                <!-- Track 3: Aerospace Professionals -->
-                <div class="track-card">
-                    <div class="track-icon">🛰️</div>
-                    <h3>Systems Engineering & Dynamics</h3>
-                    <p>Advance your professional journey. Dive into advanced orbital mechanics, systems engineering documentation, and real-world aerospace paradigms.</p>
-                    <a href="articles.html" class="track-link">Explore Technical Articles &rarr;</a>
-                </div>
-
+                <button class="cta-button" style="width: 100%; text-align: center;">Gain Instant Access</button>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
-            <p class="sub-footer">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
-        </div>
+    <footer>
+        <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+        <div class="tagline">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</div>
     </footer>
 
 </body>
