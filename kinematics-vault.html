@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Kinematics Mastery Vault | Science Behind Things</title>
+    <meta name="description" content="Master calculus-based mechanics with absolute clarity. Stop memorizing formulas and learn to construct systems natively from first principles.">
+    <!-- Native MathJax Configuration for Safari & Apple Ecosystem -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --text-bright: #f0f6fc;
+            --accent-color: #cc0000;
+            --accent-hover: #ff3333;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-bright);
+            font-weight: bold;
+        }
+
+        h1 {
+            color: var(--text-bright);
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 20px 0;
+            font-weight: 800;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+        }
+
+        .subheadline {
+            font-size: 1.25rem;
+            color: #8b949e;
+            margin-bottom: 30px;
+        }
+
+        .cta-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .price {
+            font-size: 2rem;
+            color: var(--text-bright);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .price del {
+            color: #8b949e;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-bright);
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 4px 12px rgba(204, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        h2 {
+            color: var(--text-bright);
+            font-size: 1.75rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .value-bullets li::before {
+            content: "✓";
+            color: #238636;
+        }
+
+        .problem-preview {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body class="tex2jax_process">
+
+    <div class="container">
+        <header>
+            <div class="logo">Science Behind Things</div>
+        </header>
+
+        <main>
+            <h1>Stop Memorizing Shortcuts. Master Mechanics with <span class="highlight">Absolute Calculus Rigor</span>.</h1>
+            
+            <p class="subheadline">Built strictly for AP Physics C and elite undergraduate mechanics students who demand derivation over brute-force tracking.</p>
+
+            <p>Generic solution manuals and basic AI models fail the moment an exam forces you to construct a coordinate system from scratch. If you rely on blind algebra shortcuts, you are writing down a plus sign where the universe wrote a minus—and losing 2 to 4 critical conceptual free-response points every single time.</p>
+
+            <h2>Why Traditional Test Prep Fails You</h2>
+            <ul>
+                <li><strong>The Indefinite Integral Trap:</strong> Blindly tacking on $+C$ and dropping the real boundary constraints required for velocity-dependent systems.</li>
+                <li><strong>The Static Formula Crisis:</strong> Relying on $v = v_0 + at$ when acceleration changes dynamically every millisecond.</li>
+                <li><strong>The Multi-Stage Blind Spot:</strong> Blowing piecewise transition conditions because you didn't pass Stage 1 terminal states into Stage 2 floors.</li>
+            </ul>
+
+            <div class="cta-box">
+                <h2>Gain Instant Access to the Blueprint</h2>
+                <p>The Advanced Kinematics Mastery Vault is a standalone, premium PDF workbook engineered to systematically dismantle your calculation dependencies.</p>
+                <div class="price"><del>$149</del> $49</div>
+                <a href="YOUR_STRIPE_OR_GUMROAD_LINK_HERE" class="btn">Download the Blueprint PDF</a>
+                <p style="font-size: 0.85rem; margin-top: 15px; color: #8b949e;">Immediate digital delivery. Includes 10 exhaustive calculus-based proofs.</p>
+            </div>
+
+            <h2>What is Trapped Inside the Vault?</h2>
+            <ul class="value-bullets">
+                <li><strong>10 Premium Workbook Proofs:</strong> Zero fluff, zero filler systems meticulously typeset using pristine, standalone LaTeX formatting.</li>
+                <li><strong>Step-by-Step Native Isolatons:</strong> Learn to implement separable differential boundary equations natively from the first stroke of your pen.</li>
+                <li><strong>The Plain English Translation Layer:</strong> A dedicated, intuitive strategy matrix mapping variable acceleration profiles to their exact vector calculus keys.</li>
+                <li><strong>Interactive Video Proof Extensions:</strong> Direct hyperlink access embedded into every single problem layout pointing to exact on-screen video breakdowns.</li>
+            </ul>
+
+            <h2>A Glance at the Rigor Inside:</h2>
+            <p>You will master complex tracking environments including velocity-dependent fluid tracks, time-dependent directional vectors, and rotating polar system matrices:</p>
+            
+            <div class="problem-preview">
+                $$a(v) = -\beta v^{3/2} \implies \int_{v_0}^{v(t)} v'^{-3/2} \, dv' = -\beta \int_{0}^{t} dt'$$
+                <br>
+                $$\vec{r}(t) = r_0 e^{k \omega_0 t} \hat{r} \implies \vec{a}(t) = \omega_0^2 r_0 e^{k \omega_0 t} \left( k^2 - 1 \right) \hat{r} + 2 k \omega_0^2 r_0 e^{k \omega_0 t} \hat{\theta}$$
+            </div>
+
+            <div class="cta-box" style="margin-top: 60px;">
+                <h3>Stop Guessing. Earn the Points.</h3>
+                <p>The math is consistent. It was consistent before you learned it, and it will be consistent on exam day. Secure your copy of the complete Advanced Kinematics Mastery Vault today.</p>
+                <a href="YOUR_STRIPE_OR_GUMROAD_LINK_HERE" class="btn">Get Instant Vault Access</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+            <p>Formulas rendered via MathJax LaTeX. Subtle Faith. Absolute Rigor.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
