@@ -8,21 +8,17 @@
     
     <!-- Polyfill for older browsers and MathJax Configuration -->
     <script src="https://polyfill.io"></script>
+    <!-- Replace your old MathJax script lines with this clean, self-configuring block -->
     <script>
         window.MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            options: {
-                ignoreHtmlClass: 'tex2jax_ignore',
-                processHtmlClass: 'tex2jax_process'
+                displayMath: [['$$', '$$']]
             }
         };
     </script>
-    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
-
+    <script src="https://jsdelivr.net" id="MathJax-script" async></script>
+    
     <style>
         :root {
             --bg-color: #0f172a;
