@@ -7,20 +7,17 @@
     <meta name="description" content="Master calculus-based mechanics with absolute clarity. Stop memorizing formulas and learn to construct systems natively from first principles.">
     
     <!-- Verified MathJax v3 Configuration Block -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            options: {
-                ignoreHtmlClass: 'tex2jax_ignore',
-                processHtmlClass: 'tex2jax_process'
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cloudflare.com"></script>
+<!-- Universal MathJax v3 configuration and delivery script -->
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    };
+</script>
+<script id="MathJax-script" async src="https://jsdelivr.net"></script>
     
     <style>
         :root {
@@ -241,9 +238,8 @@
             <p>You will master complex tracking environments including velocity-dependent fluid tracks, time-dependent directional vectors, and rotating polar system matrices:</p>
             
             <div class="problem-preview">
-                $$a(v) = -\beta v^{3/2} \implies \int_{v_0}^{v(t)} v'^{-3/2} \, dv' = -\beta \int_{0}^{t} dt'$$
-                <br>
-                $$\vec{r}(t) = r_0 e^{k \omega_0 t} \hat{r} \implies \vec{a}(t) = \omega_0^2 r_0 e^{k \omega_0 t} \left( k^2 - 1 \right) \hat{r} + 2 k \omega_0^2 r_0 e^{k \omega_0 t} \hat{\theta}$$
+            <div>$$a(v) = -\beta v^{3/2} \implies \int_{v_0}^{v(t)} v'^{-3/2} \, dv' = -\beta \int_{0}^{t} dt'$$</div>
+            <div style="margin-top: 15px;">$$\vec{r}(t) = r_0 e^{k \omega_0 t} \hat{r} \implies \vec{a}(t) = \omega_0^2 r_0 e^{k \omega_0 t} \left( k^2 - 1 \right) \hat{r} + 2 k \omega_0^2 r_0 e^{k \omega_0 t} \hat{\theta}$$</div>
             </div>
 
             <div class="cta-box" style="margin-top: 60px;">
