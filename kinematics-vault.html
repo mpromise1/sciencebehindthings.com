@@ -15,17 +15,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Kinematics Mastery Vault | Science Behind Things</title>
     <meta name="description" content="Master calculus-based mechanics with absolute clarity. Stop memorizing formulas and learn to construct systems natively from first principles.">
-    
-    <!-- Verified MathJax v3 Configuration Block -->
-<!-- Universal MathJax v3 configuration and delivery script -->
+
+<!-- MathJax v3 Configuration Block -->
 <script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']],
-            processEscapes: true
-        }
-    };
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: {
+      processHtmlClass: 'tex2jax_process'
+    }
+  };
 </script>
 
 <script id="MathJax-script" async src="https://jsdelivr.net"></script>    
@@ -207,6 +209,7 @@
 
 <!-- Change from <body class="tex2jax_process"> to a clean body tag -->
 <body>
+    <body class="tex2jax_process">
     <div class="container">
         <header>
             <a href="index.html" class="logo">Science Behind Things</a>
