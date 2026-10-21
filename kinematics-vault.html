@@ -2,6 +2,29 @@
 <html lang="en">
 <head>
 
+<!-- Added from a technical article that displays mathematical equations properly -->
+     <!-- Bulletproof Combined MathJax Core Architecture -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        },
+        chtml: {
+          displayAlign: 'center',
+          fontURL: 'https://jsdelivr.net'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
         <!-- Unified Root Favicons with Cache Busting -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=3">
@@ -207,8 +230,22 @@
     </style>
 </head>
 
+<!-- Added by Matthew -->
+<main class="article-container tex2jax_process">
+    <div class="meta-header">Technical Analysis // AP Physics C Mechanics</div>
+    <h1 class="article-title">Momentum Absorption: The Physics of Crumple Zones</h1>
+    
+    <p>Structural impact attenuation relies entirely on a foundational truth of classical mechanics: you cannot avoid destroying momentum during a collision, but you can choose the force profile used to do it. Crumple zones are deliberately designed structural failure paths engineered to optimize this deceleration curve.</p>
+    
+    <h2>The Impulse-Momentum Theorem</h2>
+    <p>An impacting vehicle possess a localized momentum vector ($p$) defined by its mass and instantaneous velocity vector. To bring the vehicle to rest, an external impulse ($J$) must be applied over a discrete time frame:</p>
+    <div class="equation-block">
+        $$J = \int_{t_i}^{t_f} F(t) \, dt = \Delta p$$
+    </div>
+
+
 <!-- Change from <body class="tex2jax_process"> to a clean body tag -->
-<body>
+    <body>
     <body class="tex2jax_process">
     <div class="container">
         <header>
