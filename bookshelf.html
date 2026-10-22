@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- Added from a technical article that displays mathematical equations properly -->
+     <!-- Bulletproof Combined MathJax Core Architecture -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        },
+        chtml: {
+          displayAlign: 'center',
+          fontURL: 'https://jsdelivr.net'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- End bulletproof MathJax configuration -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bookshelf | Science Behind Things</title>
