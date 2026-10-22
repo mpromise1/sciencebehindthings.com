@@ -1,107 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- Added from a technical article that displays mathematical equations properly -->
-     <!-- Bulletproof Combined MathJax Core Architecture -->
-    <script>
-      window.MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']],
-          processEscapes: true,
-          processEnvironments: true
-        },
-        options: {
-          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-          ignoreHtmlClass: 'tex2jax_ignore',
-          processHtmlClass: 'tex2jax_process'
-        },
-        chtml: {
-          displayAlign: 'center',
-          fontURL: 'https://jsdelivr.net'
-        }
-      };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<!-- End bulletproof MathJax configuration -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bookshelf | Science Behind Things</title>
+    <title>The Bookshelf - Science Behind Things</title>
     
-    <!-- MathJax Configuration & Script Loader -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            options: {
-                processHtmlClass: 'tex2jax_process'
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+    <!-- Core Layout Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        body { background-color: #0D1117; color: #C9D1D9; font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 60px; border-bottom: 1px solid #21262D; padding-bottom: 40px; }
-        h1 { color: #FFFFFF; font-size: 2.5rem; margin-bottom: 10px; }
-        .subtitle { color: #8B949E; font-size: 1.2rem; font-style: italic; }
-        .section-title { color: #F5A623; font-size: 1.6rem; border-left: 4px solid #F5A623; padding-left: 15px; margin: 40px 0 25px; text-transform: uppercase; }
-        .book-card { background-color: #161B22; border: 1px solid #30363D; border-radius: 8px; padding: 30px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px; }
-        .book-title { color: #FFFFFF; font-size: 1.8rem; margin: 0; }
-        .book-meta { color: #58A6FF; font-size: 0.95rem; font-weight: 600; }
-        .book-description { color: #C9D1D9; font-size: 1.05rem; }
-        .formula-box { background-color: #0D1117; border-left: 3px solid #58A6FF; padding: 20px; margin: 15px 0; overflow-x: auto; }
-        .btn-buy { display: inline-block; text-align: center; background-color: #F5A623; color: #0D1117; font-weight: 700; padding: 12px 24px; text-decoration: none; border-radius: 6px; max-width: 200px; }
-        footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #21262D; color: #8B949E; font-size: 0.9rem; }
-    </style>
+    <!-- Unified Root Favicons with Cache Busting -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=3">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+    
+    <!-- Web Manifest for Mobile Platforms -->
+    <link rel="manifest" href="/site.webmanifest">
 </head>
+<body>
+
+<header class="site-header">
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">
+            Science Behind <span class="accent-text">Things</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="bookshelf.html" class="active">Bookshelf</a></li>
+            <li><a href="articles.html">Articles</a></li>
+        </ul>
+    </nav>
+</header>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>The Technical Bookshelf</h1>
-            <p class="subtitle">Subtle Faith. Absolute Rigor.</p>
-        </header>
+    <!-- Subpage Hero -->
+    <section class="hero-section" style="padding: 5rem 0 3rem 0;">
+        <div class="container hero-content">
+            <h1>The Quantum Forensic Files</h1>
+            <p class="hero-subtitle">Hard Sci-Fi Mystery Novels by Matthew Promise. Step into near-future orbital mechanics and deep forensic puzzles. Read the narrative, master the underlying physics.</p>
+        </div>
+    </section>
 
-        <div class="section-title">Hard Sci-Fi & Analytical Fiction</div>
-        <div class="book-card">
-            <h2 class="book-title">The Ghost Signal</h2>
-            <div class="book-meta">Hard Science Fiction / Orbital Mechanics</div>
-            <p class="book-description">When an anomalous signal originates from a dead orbit, the investigation exposes a terrifying mathematical truth hidden inside deep-space telemetry coordinates.</p>
-
-<!-- This woirks elsewhere -->
-            <div class="math-block">
-                $$r(t) = r_0 + \int_{0}^{t} \left[v_0 + \int_{0}^{t'} a(t'') \, dt''\right] dt'$$
+    <!-- Books Loop Funnel Container -->
+    <section class="container" style="padding-bottom: 6rem;">
+        
+        <!-- Book 1: The Zeno Record -->
+        <div class="book-showcase-row" style="display: flex; gap: 3rem; margin-bottom: 5rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; flex-wrap: wrap;">
+            <div class="book-cover-container" style="flex: 1; min-width: 250px; display: flex; justify-content: center; align-items: flex-start;">
+            <img src="images/zeno-cover.jpg" alt="The Zeno Record Book Cover" style="width: 100%; max-width: 280px; height: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); border: 1px solid var(--border-color);">
+        </div>
+            <div class="book-details" style="flex: 2; min-width: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span style="color: var(--accent-blue); font-size: 0.85rem; font-weight: 700; uppercase; letter-spacing: 1px;">BOOK 1 — NOW AVAILABLE</span>
+                    <h2 style="color: var(--white); font-size: 2rem; margin: 0.5rem 0 1rem 0;">The Zeno Record</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Follow Vance and Caleb into the future of hard criminal tracking. When an untraceable tracking anomaly fractures standard telemetry profiles, Caleb must deploy raw physics and data logic to uncover an structural criminal network hiding right inside open orbital trajectories.</p>
+                    
+                    <div style="background: rgba(13, 17, 23, 0.6); padding: 1.2rem; border-left: 3px solid var(--accent-blue); margin-bottom: 1.5rem; border-radius: 0 4px 4px 0;">
+                        <strong style="color: var(--white); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Technical Appendix Target: Inverse-Square Attenuation</strong>
+                        <p style="font-size: 1.25rem; font-family: 'Times New Roman', Times, serif; color: var(--white); margin: 0; padding: 0.5rem 0; font-style: italic; letter-spacing: 0.5px;">
+                           I = <span style="display: inline-block; text-align: center; vertical-align: middle;"><span style="display: block; border-bottom: 1px solid var(--white); padding: 0 4px;">P</span><span style="display: block; padding: 0 4px;">4&pi;r<sup>2</sup></span></span>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://kdp.amazon.com/amazon-dp-action/us/dualbookshelf.marketplacelink/B0HHWC83G3" class="btn btn-primary" style="margin-right: 1rem;">Buy on Amazon (KDP)</a>
+                    <a href="#" class="btn btn-secondary">Watch Video Lesson</a>
+                </div>
             </div>
-
-<!-- Doesn't work -->
-<!---            <div class="formula-box tex2jax_process">
-                $$r(t) = r_0 + \int_{0}^{t} \left[v_0 + \int_{0}^{t'} a(t'') \, dt''\right] dt'$$
-            </div>
-        -->
-            <a href="#" class="btn-buy">Acquire Volume</a>
         </div>
 
-        <div class="section-title">The Foundation Trilogy</div>
-        <div class="book-card">
-            <h2 class="book-title">Vance and Caleb: The Complete Chronicles</h2>
-            <div class="book-meta">Three-Volume Hard Sci-Fi Mystery Set</div>
-            <p class="book-description">Tracking deep-system investigators Vance and Caleb as they dismantle structural conspiracies across the solar architecture.</p>
-            <div class="formula-box tex2jax_process">
-                $$\sigma = \lim_{\Delta A \to 0} \frac{\Delta F}{\Delta A}$$
+        <!-- Book 2: The Blackout Override -->
+        <div class="book-showcase-row" style="display: flex; gap: 3rem; margin-bottom: 5rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; flex-wrap: wrap;">
+            <div class="book-cover-container" style="flex: 1; min-width: 250px; display: flex; justify-content: center; align-items: flex-start;">
+            <img src="images/blackout-cover.jpg" alt="The Zeno Record Book Cover" style="width: 100%; max-width: 280px; height: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); border: 1px solid var(--border-color);">
+        </div>
+            <div class="book-details" style="flex: 2; min-width: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span style="color: var(--text-muted); font-size: 0.85rem; font-weight: 700; uppercase; letter-spacing: 1px;">BOOK 2 — NOW AVAILABLE</span>
+                    <h2 style="color: var(--white); font-size: 2rem; margin: 0.5rem 0 1rem 0;">The Blackout Override</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">The mystery deepens as localized telemetry disruptions threaten systematic infrastructure data matrices. Dive back into Caleb's investigative workspace as he challenges traditional kinematic assumptions during an unmitigated orbital mechanics crisis.</p>                    
+                    <div style="background: rgba(13, 17, 23, 0.6); padding: 1.2rem; border-left: 3px solid var(--accent-blue); margin-bottom: 1.5rem; border-radius: 0 4px 4px 0;">
+                        <strong style="color: var(--white); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Technical Appendix Target: Constant Kinematic Acceleration</strong>
+                        <p style="font-size: 1.25rem; font-family: 'Times New Roman', Times, serif; color: var(--white); margin: 0; padding: 0.5rem 0; font-style: italic; letter-spacing: 0.5px;">
+                            v<sub>f</sub><sup>2</sup> = v<sub>i</sub><sup>2</sup> + 2a&Delta;x
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://kdp.amazon.com/amazon-dp-action/us/dualbookshelf.marketplacelink/B0HD58ZZXP" class="btn btn-primary" style="margin-right: 1rem;">Buy on Amazon (KDP)</a>
+                    <a href="#" class="btn btn-secondary">Watch Video Lesson</a>
+                </div>
             </div>
-            <a href="#" class="btn-buy">Explore the Trilogy</a>
         </div>
 
-        <footer>
-            <p>© 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
-        </footer>
+        <!-- Book 3: The Ghost Signal -->
+        <div class="book-showcase-row" style="display: flex; gap: 3rem; margin-bottom: 5rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; flex-wrap: wrap;">
+            <div class="book-cover-container" style="flex: 1; min-width: 250px; display: flex; justify-content: center; align-items: flex-start;">
+            <img src="images/ghost-signal-cover.png" alt="The Zeno Record Book Cover" style="width: 100%; max-width: 280px; height: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); border: 1px solid var(--border-color);">
+        </div>
+            <div class="book-details" style="flex: 2; min-width: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span style="color: #ea6045; font-size: 0.85rem; font-weight: 700; uppercase; letter-spacing: 1px;">BOOK 3 — IN DEVELOPMENT (PRIORITY RELEASE)</span>
+                    <h2 style="color: var(--white); font-size: 2rem; margin: 0.5rem 0 1rem 0;">The Ghost Signal</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Uncover the ultimate telemetry anomaly. When a mysterious, phantom wavelength slices through standard communication arrays, Vance and Caleb must parse a heavily distorted signal that shouldn't exist. Written as a masterful 15-chapter hard science fiction mystery, this entry explicitly anchors your core YouTube video curriculum into the narrative universe.</p>
+                    
+<div style="background: rgba(13, 17, 23, 0.6); padding: 1.2rem; border-left: 3px solid var(--accent-blue); margin-bottom: 1.5rem; border-radius: 0 4px 4px 0;">
+    <strong style="color: var(--white); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Technical Appendix Target: Universal Gravitation & Orbital Speed</strong>
+    <div style="display: flex; align-items: center; justify-content: flex-start; font-family: 'Times New Roman', Times, serif; font-size: 1.4rem; color: var(--white); font-style: italic; padding: 0.5rem 0;">
+        <span style="margin-right: 0.4rem;">v = </span>
+        
+        <span style="display: inline-flex; align-items: stretch; position: relative;">
+            <!-- Shifted radical down and adjusted scaling height parameters to connect perfectly -->
+            <span style="font-size: 2.1rem; font-style: normal; line-height: 1; transform: scaleY(1.1) translateY(4px); display: inline-block; margin-right: -2px; padding-right: 2px;">&radic;</span>
+            
+            <span style="border-top: 2px solid var(--white); padding-top: 4px; padding-left: 3px; padding-right: 4px; display: inline-flex; align-items: center;">
+                <span style="display: inline-block; text-align: center; vertical-align: middle; font-size: 1.1rem; line-height: 1.1; font-style: italic;">
+                    <span style="display: block; border-bottom: 1px solid var(--white); padding: 0 4px; font-weight: bold; letter-spacing: 0.5px;">GM</span>
+                    <span style="display: block; padding: 2px 4px 0 4px;">r</span>
+                </span>
+            </span>
+        </span>
     </div>
+</div>
+                <div>
+                    <a href="#" class="btn btn-secondary" style="border-color: #ea6045; color: #ea6045;">Join the Pre-Release Funnel</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Book 4: The Geodesic Illusion -->
+        <div class="book-showcase-row" style="display: flex; gap: 3rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; flex-wrap: wrap;">
+            <div class="book-cover-container" style="flex: 1; min-width: 250px; display: flex; justify-content: center; align-items: flex-start;">
+            <img src="images/geodesic-cover.png" alt="The Zeno Record Book Cover" style="width: 100%; max-width: 280px; height: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); border: 1px solid var(--border-color);">
+            </div>
+            <div class="book-details" style="flex: 2; min-width: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span style="color: #ea6045; font-size: 0.85rem; font-weight: 700; uppercase; letter-spacing: 1px;">BOOK 4 — IN DEVELOPMENT (PRIORITY RELEASE)</span>
+                    <h2 style="color: var(--white); font-size: 2rem; margin: 0.5rem 0 1rem 0;">The Geodesic Illusion</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Your high-priority novel tracking the ultimate boundary distortion mysteries. Caleb's analytical framework encounters an operational anomaly that challenges the geometric logic of trajectories themselves. Features complete math models fully optimized for Apple Pages formatting compatibility.</p>
+                    
+                    <div style="background: rgba(13, 17, 23, 0.6); padding: 1.2rem; border-left: 3px solid #ea6045; margin-bottom: 1.5rem; border-radius: 0 4px 4px 0;">
+                        <strong style="color: var(--white); font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Technical Appendix Target: Geodesic Metric Acceleration</strong>
+                        <p style="font-size: 1.25rem; font-family: 'Times New Roman', Times, serif; color: var(--white); margin: 0; padding: 0.5rem 0; font-style: italic; letter-spacing: 0.5px;">
+                        <span style="display: inline-block; text-align: center; vertical-align: middle;"><span style="display: block; border-bottom: 1px solid var(--white); padding: 0 2px;">d<sup>2</sup>x<sup>&mu;</sup></span><span style="display: block; padding: 0 2px;">d&tau;<sup>2</sup></span></span> + &Gamma;<sup>&mu;</sup><sub>&alpha;&beta;</sub> <span style="display: inline-block; text-align: center; vertical-align: middle;"><span style="display: block; border-bottom: 1px solid var(--white); padding: 0 2px;">dx<sup>&alpha;</sup></span><span style="display: block; padding: 0 2px;">d&tau;</span></span> <span style="display: inline-block; text-align: center; vertical-align: middle;"><span style="display: block; border-bottom: 1px solid var(--white); padding: 0 2px;">dx<sup>&beta;</sup></span><span style="display: block; padding: 0 2px;">d&tau;</span></span> = 0
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <a href="#" class="btn btn-secondary" style="border-color: #ea6045; color: #ea6045;">Join the Pre-Release Funnel</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+            <p class="sub-footer">Formulas rendered via LaTeX. Subtle Faith. Absolute Rigor.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

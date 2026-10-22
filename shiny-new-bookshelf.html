@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Added from a technical article that displays mathematical equations properly -->
+     <!-- Bulletproof Combined MathJax Core Architecture -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        },
+        chtml: {
+          displayAlign: 'center',
+          fontURL: 'https://jsdelivr.net'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- End bulletproof MathJax configuration -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bookshelf | Science Behind Things</title>
+    
+    <!-- MathJax Configuration & Script Loader -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                processHtmlClass: 'tex2jax_process'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+
+    <style>
+        body { background-color: #0D1117; color: #C9D1D9; font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 60px; border-bottom: 1px solid #21262D; padding-bottom: 40px; }
+        h1 { color: #FFFFFF; font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { color: #8B949E; font-size: 1.2rem; font-style: italic; }
+        .section-title { color: #F5A623; font-size: 1.6rem; border-left: 4px solid #F5A623; padding-left: 15px; margin: 40px 0 25px; text-transform: uppercase; }
+        .book-card { background-color: #161B22; border: 1px solid #30363D; border-radius: 8px; padding: 30px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px; }
+        .book-title { color: #FFFFFF; font-size: 1.8rem; margin: 0; }
+        .book-meta { color: #58A6FF; font-size: 0.95rem; font-weight: 600; }
+        .book-description { color: #C9D1D9; font-size: 1.05rem; }
+        .formula-box { background-color: #0D1117; border-left: 3px solid #58A6FF; padding: 20px; margin: 15px 0; overflow-x: auto; }
+        .btn-buy { display: inline-block; text-align: center; background-color: #F5A623; color: #0D1117; font-weight: 700; padding: 12px 24px; text-decoration: none; border-radius: 6px; max-width: 200px; }
+        footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #21262D; color: #8B949E; font-size: 0.9rem; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>The Technical Bookshelf</h1>
+            <p class="subtitle">Subtle Faith. Absolute Rigor.</p>
+        </header>
+
+        <div class="section-title">Hard Sci-Fi & Analytical Fiction</div>
+        <div class="book-card">
+            <h2 class="book-title">The Ghost Signal</h2>
+            <div class="book-meta">Hard Science Fiction / Orbital Mechanics</div>
+            <p class="book-description">When an anomalous signal originates from a dead orbit, the investigation exposes a terrifying mathematical truth hidden inside deep-space telemetry coordinates.</p>
+
+<!-- This woirks elsewhere -->
+            <div class="math-block">
+                $$r(t) = r_0 + \int_{0}^{t} \left[v_0 + \int_{0}^{t'} a(t'') \, dt''\right] dt'$$
+            </div>
+
+<!-- Doesn't work -->
+<!---            <div class="formula-box tex2jax_process">
+                $$r(t) = r_0 + \int_{0}^{t} \left[v_0 + \int_{0}^{t'} a(t'') \, dt''\right] dt'$$
+            </div>
+        -->
+            <a href="#" class="btn-buy">Acquire Volume</a>
+        </div>
+
+        <div class="section-title">The Foundation Trilogy</div>
+        <div class="book-card">
+            <h2 class="book-title">Vance and Caleb: The Complete Chronicles</h2>
+            <div class="book-meta">Three-Volume Hard Sci-Fi Mystery Set</div>
+            <p class="book-description">Tracking deep-system investigators Vance and Caleb as they dismantle structural conspiracies across the solar architecture.</p>
+            <div class="formula-box tex2jax_process">
+                $$\sigma = \lim_{\Delta A \to 0} \frac{\Delta F}{\Delta A}$$
+            </div>
+            <a href="#" class="btn-buy">Explore the Trilogy</a>
+        </div>
+
+        <footer>
+            <p>© 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
