@@ -305,3 +305,219 @@ header nav a.active, .nav-link.active, .main-nav a.active, .nav-links a.active {
         margin: 0 auto;
     }
 }
+
+/* Added for mobile-friendly buttons October 24, 2026 */
+/* ==========================================================================
+   THE BOOKSHELF RESPONSIVE GRID (DARK MODE OPTIMIZED)
+   ========================================================================== */
+
+:root {
+    --bg-dark: #0f172a;       /* Deep slate background */
+    --card-bg: #1e293b;       /* Lighter slate for depth */
+    --text-main: #f8fafc;     /* Clean crisp white text */
+    --text-muted: #94a3b8;    /* Soft gray for descriptions */
+    --accent-blue: #38bdf8;   /* Brilliant metric blue for links/LaTeX */
+    --tag-green: #4ade80;     /* Available indicator */
+    --tag-amber: #fbbf24;     /* In-development indicator */
+    --border-color: #334155;  /* Subtle divider lines */
+}
+
+/* Base structural layout for the bookshelf page */
+#bookshelf-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+/* Standalone notification callout box */
+.series-note {
+    background: rgba(56, 189, 248, 0.05);
+    border-left: 4px solid var(--accent-blue);
+    padding: 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.series-note p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.series-note strong {
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   THE RESPONSIVE GRID ARCHITECTURE
+   ========================================================================== */
+.bookshelf-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked layout by default on mobile devices */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Desktop layout query breakpoint */
+@media (min-width: 768px) {
+    .bookshelf-grid {
+        grid-template-columns: repeat(2, 1fr); /* Clean 2-column uniform layout */
+    }
+}
+
+/* Individual Book Card Styling */
+.book-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps CTAs perfectly lined up at the bottom */
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-blue);
+}
+
+/* Visual emphasis highlight configuration for high-priority projects */
+.book-card.priority {
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.05);
+}
+
+/* Availability Tags */
+.status-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.status-tag.available {
+    background-color: rgba(74, 222, 128, 0.1);
+    color: var(--tag-green);
+}
+
+.status-tag.development {
+    background-color: rgba(251, 191, 36, 0.1);
+    color: var(--tag-amber);
+}
+
+/* Content typography spacing fixes */
+.book-card h2 {
+    font-size: 1.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--text-main);
+}
+
+.book-card .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Mathematical LaTeX Appendix Block formatting */
+.appendix-focus {
+    background-color: rgba(15, 23, 42, 0.4);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.appendix-focus h3 {
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.appendix-focus p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+}
+
+.appendix-focus .latex-block {
+    font-size: 1.15rem;
+    color: var(--accent-blue);
+    text-align: center;
+    padding: 0.5rem 0;
+    overflow-x: auto; /* Prevents long formulas from breaking layout on small phones */
+}
+
+.appendix-focus .context-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+}
+
+/* Button & Action Triggers */
+.cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto; /* Forces action layer to anchor cleanly */
+}
+
+@media (min-width: 480px) {
+    .cta-group {
+        flex-direction: row; /* Horizontal button alignments if room permits */
+    }
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background-color: #7dd3fc; /* Brighter tint on mouse hover states */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-muted);
+}
