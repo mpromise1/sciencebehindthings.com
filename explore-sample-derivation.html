@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Derivation | Promise Media and Education</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://tailwindcss.com"></script>
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-900 selection:bg-indigo-500 selection:text-white">
+
+    <!-- Global Global Navigation (Matches shared template style) -->
+    <nav class="bg-slate-900 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-tight text-indigo-400">Science Behind Things</a>
+            <div class="space-x-6 text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="courses.html" class="hover:text-white transition">Courses</a>
+                <a href="videos.html" class="hover:text-white transition">Videos</a>
+                <a href="bookshelf.html" class="hover:text-white transition">Bookshelf</a>
+                <a href="articles.html" class="hover:text-white transition">Articles</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        
+        <!-- Page Header -->
+        <header class="mb-12 border-b border-slate-200 pb-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">AP Physics C Reference</span>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">The 3rd Kinematics Equation Derivation</h1>
+            <p class="text-slate-600 mt-2 text-base">Eliminating time parameter \(t\) from foundational constant-acceleration frameworks using definitive symbolic substitutions.</p>
+        </header>
+
+        <!-- Technical Appendix Section (LaTeX Blocks) -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-10">
+            <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span>📐</span> Technical Appendix: Symbolic Flow
+            </h2>
+            
+            <p class="text-slate-600 mb-6 text-sm leading-relaxed">
+                To isolate final velocity purely as a function of position displacement, we begin by referencing the standard definition of acceleration and velocity under constant structural gradients.
+            </p>
+
+            <!-- LaTeX Step 1 -->
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mb-4">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">Step 1: Isolate Time from Velocity Definition</span>
+                <div class="text-lg overflow-x-auto py-2">
+                    $$v_f = v_i + a \cdot t \implies t = \frac{v_f - v_i}{a}$$
+                </div>
+            </div>
+
+            <!-- LaTeX Step 2 -->
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mb-4">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">Step 2: Substitute into Position Function</span>
+                <div class="text-lg overflow-x-auto py-2">
+                    $$\Delta x = v_i \cdot \left(\frac{v_f - v_i}{a}\right) + \frac{1}{2}a \cdot \left(\frac{v_f - v_i}{a}\right)^2$$
+                </div>
+            </div>
+
+            <!-- LaTeX Step 3 -->
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">Step 3: Expand and Isolate Final Velocity Squared</span>
+                <div class="text-lg overflow-x-auto py-2">
+                    $$2a\Delta x = 2v_i v_f - 2v_i^2 + v_f^2 - 2v_i v_f + v_i^2 \implies v_f^2 = v_i^2 + 2a\Delta x$$
+                </div>
+            </div>
+        </section>
+
+        <!-- Contextual Specifications Matrix (Metric vs Imperial) -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-slate-900 mb-4">Dimensional Reference Matrix</h2>
+            <div class="overflow-x-auto bg-white rounded-xl shadow-sm border border-slate-200">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 border-b border-slate-200 font-semibold text-slate-700">
+                            <th class="p-4">Parameter</th>
+                            <th class="p-4">Core SI Base Unit (Primary)</th>
+                            <th class="p-4">US Contextual Alternative</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-600">
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="p-4 font-bold text-slate-900">Displacement (\(\Delta x\))</td>
+                            <td class="p-4 text-indigo-600 font-medium">Meters (\(m\))</td>
+                            <td class="p-4 italic">Feet (\(ft\))</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="p-4 font-bold text-slate-900">Velocity (\(v\))</td>
+                            <td class="p-4 text-indigo-600 font-medium">Meters per second (\(m/s\))</td>
+                            <td class="p-4 italic">Feet per second (\(ft/s\))</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50">
+                            <td class="p-4 font-bold text-slate-900">Acceleration (\(a\))</td>
+                            <td class="p-4 text-indigo-600 font-medium">Meters per second squared (\(m/s^2\))</td>
+                            <td class="p-4 italic">Feet per second squared (\(ft/s^2\))</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Verification Checklist Portfolio -->
+        <section class="bg-indigo-900 text-white rounded-xl shadow-sm p-6">
+            <h2 class="text-xl font-bold mb-3">Verification & Constraints Checklist</h2>
+            <p class="text-indigo-200 text-sm mb-6 leading-relaxed">Ensure structural prerequisite bounds match your physical scenario baseline before scaling computations.</p>
+            <ul class="space-y-3.5 text-sm text-indigo-100">
+                <li class="flex items-start gap-3">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <div>
+                        <strong class="text-white">Constant Acceleration:</strong> This entire mathematical structure breaks completely if \(a\) varies with time or position vectors.
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <div>
+                        <strong class="text-white">One-Dimensional Linear Motion:</strong> All displacement fields must share a singular direction vector to prevent coordinate skewing.
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <div>
+                        <strong class="text-white">Time Independence:</strong> Use this layout strictly when instant structural time logs are omitted or entirely unmeasured.
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Clean Layout Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200 mt-20 py-8 text-center text-xs text-slate-500">
+        &copy; 2026 Promise Media and Education, LLC. All rights reserved.
+    </footer>
+
+</body>
+</html>
