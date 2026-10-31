@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Derivation | Promise Media and Education</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- MathJax CDN for LaTeX rendering -->
-    <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+    
+    <!-- Production Fallback Tailwind Engine -->
+    <script src="https://cloudflare.com" integrity="sha512-V7amSJvHBB9rj8K2S7XWw67t0bV83L45Iymw7G7s9uJdC7U8G1X0Gz67vU38S74H157jO5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Explicit Pre-Load Configuration for MathJax 3 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    
+    <!-- Consolidated MathJax Delivery Core -->
+    <script type="text/javascript" id="MathJax-script" async src="https://jsdelivr.net"></script>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 selection:bg-indigo-500 selection:text-white">
 
