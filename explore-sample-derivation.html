@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Derivation | Promise Media and Education</title>
     
-    <!-- Production Fallback Tailwind Engine -->
-    <script src="https://cloudflare.com" integrity="sha512-V7amSJvHBB9rj8K2S7XWw67t0bV83L45Iymw7G7s9uJdC7U8G1X0Gz67vU38S74H157jO5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- 1. Authentic Tailwind Engine (Must use the official runtime compiler) -->
+    <script src="https://tailwindcss.com"></script>
     
-    <!-- Explicit Pre-Load Configuration for MathJax 3 -->
+    <!-- 2. Non-Blocking MathJax Pre-Configuration -->
     <script>
         window.MathJax = {
             tex: {
@@ -17,14 +18,15 @@
                 processEscapes: true
             },
             options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                processHtmlClass: 'tex2jax_process'
             }
         };
     </script>
     
-    <!-- Consolidated MathJax Delivery Core -->
-    <script type="text/javascript" id="MathJax-script" async src="https://jsdelivr.net"></script>
+    <!-- 3. Reliable, Deferred MathJax Delivery via Cloudflare CDN Alternative -->
+    <script type="text/javascript" id="MathJax-script" defer src="https://cloudflare.com"></script>
 </head>
+
 <body class="bg-slate-50 font-sans text-slate-900 selection:bg-indigo-500 selection:text-white">
 
     <!-- Global Global Navigation (Matches shared template style) -->
