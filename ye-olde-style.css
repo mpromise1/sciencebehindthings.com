@@ -1,0 +1,762 @@
+/* ==========================================================================
+   1. GLOBAL SYSTEM BASELINE & VARIABLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #060814;       /* Consolidated clean deep midnight theme */
+    --bg-card: #111827;
+    --border-color: #1f293b;
+    --text-primary: #cbd5e1;
+    --text-muted: #64748b;
+    --accent-blue: #38bdf8;   /* Clean cyan highlight tracking anchor */
+    --accent-glow: #0ea5e9;
+    --white: #ffffff;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. UNIFIED STACKED NAVIGATION HEADER (DESKTOP & MOBILE FIXED)
+   ========================================================================== */
+header, .site-header {
+    display: flex !important;
+    flex-direction: column !important; /* Forces navigation stack underneath site name */
+    align-items: center !important;    /* Centers everything perfectly */
+    text-align: center !important;
+    padding: 1.75rem 1rem !important;
+    background-color: var(--bg-dark) !important;
+    width: 100% !important;
+    gap: 1.25rem !important;           /* Clean, explicit separation gap */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+header .logo, .nav-logo, .logo {
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+    color: var(--white) !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.01em !important;
+}
+
+header .logo span, .nav-logo .accent-text, .logo span {
+    color: var(--accent-blue) !important;
+}
+
+header nav, .nav-container, .main-nav, .site-nav {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+header nav ul, .nav-menu, .main-nav ul, .nav-links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;    /* Keeps links grouped horizontally */
+    flex-wrap: wrap !important;        /* Gracefully wraps to next line on small screens */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.5rem !important;            /* Clean spacing between menu links */
+}
+
+header nav li, .nav-menu li, .main-nav ul li {
+    margin: 0 !important;
+}
+
+header nav a, .nav-link, .main-nav a, .nav-links a {
+    text-decoration: none !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    transition: color 0.2s ease !important;
+    padding: 0.25rem 0.5rem !important;
+}
+
+header nav a:hover, .nav-link:hover, .main-nav a:hover, .nav-links a:hover {
+    color: var(--white) !important;
+}
+
+header nav a.active, .nav-link.active, .main-nav a.active, .nav-links a.active {
+    color: var(--accent-blue) !important;
+}
+
+/* ==========================================================================
+   3. HERO, SECTIONS, & LAYOUT MODULES
+   ========================================================================== */
+.hero-section {
+    padding: 8rem 0 6rem 0;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.hero-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-glow);
+    color: var(--white);
+    border: 1px solid var(--accent-glow);
+}
+
+.btn-primary:hover {
+    background-color: #0284c7;
+    border-color: #0284c7;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-blue);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(31, 41, 55, 0.5);
+    border-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   4. SEGMENTED TRACK BLOCKS & ARTICLES GRID
+   ========================================================================== */
+.tracks-section, .content-wrapper {
+    padding: 4rem 0 6rem 0;
+}
+
+.section-title, .page-intro h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 3rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-top: -2.5rem;
+    margin-bottom: 3rem;
+}
+
+.tracks-grid, .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.track-card, .article-category-block {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.track-card:hover, .article-category-block:hover {
+    transform: translateY(-4px);
+    border-color: var(--text-muted);
+}
+
+.article-category-block h2 {
+    color: var(--accent-blue);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-category-block hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Post Previews Component inside Category Blocks */
+.post-preview {
+    margin-bottom: 1.5rem;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.post-preview h3 {
+    margin: 0.25rem 0;
+    font-size: 1.15rem;
+}
+
+.post-preview h3 a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-preview h3 a:hover {
+    color: var(--accent-blue);
+}
+
+.post-preview p {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   5. SPECIALIZED EMBED MATRICES & ACCENT CALLOUTS
+   ========================================================================== */
+.MathJax_Display, .MathJax, mjx-container {
+    max-width: 100% !important;
+    overflow-x: auto !important; /* Smooth horizontal scroll path container for tight viewports */
+    overflow-y: hidden !important;
+    padding: 0.5rem 0;
+    -webkit-overflow-scrolling: touch;
+    color: var(--accent-blue) !important;
+}
+
+.funnel-cta-box, .context-callout {
+    background-color: var(--bg-card) !important;
+    border-left: 4px solid var(--accent-blue) !important;
+    padding: 2rem;
+    margin-top: 3.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.site-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 3rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS (OPTIMIZED ADAPTIVE SCALING)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header, .site-header {
+        gap: 1rem !important;
+        padding: 1.5rem 0.5rem !important;
+    }
+    header nav ul, .nav-menu, .main-nav ul, .nav-links {
+        gap: 1rem !important; /* Tightens text spacing on phone viewports */
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* Added for mobile-friendly buttons October 24, 2026 */
+/* ==========================================================================
+   THE BOOKSHELF RESPONSIVE GRID (DARK MODE OPTIMIZED)
+   ========================================================================== */
+
+:root {
+    --bg-dark: #0f172a;       /* Deep slate background */
+    --card-bg: #1e293b;       /* Lighter slate for depth */
+    --text-main: #f8fafc;     /* Clean crisp white text */
+    --text-muted: #94a3b8;    /* Soft gray for descriptions */
+    --accent-blue: #38bdf8;   /* Brilliant metric blue for links/LaTeX */
+    --tag-green: #4ade80;     /* Available indicator */
+    --tag-amber: #fbbf24;     /* In-development indicator */
+    --border-color: #334155;  /* Subtle divider lines */
+}
+
+/* Base structural layout for the bookshelf page */
+#bookshelf-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+
+/* Standalone notification callout box */
+.series-note {
+    background: rgba(56, 189, 248, 0.05);
+    border-left: 4px solid var(--accent-blue);
+    padding: 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.series-note p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.series-note strong {
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   THE RESPONSIVE GRID ARCHITECTURE
+   ========================================================================== */
+.bookshelf-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked layout by default on mobile devices */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Desktop layout query breakpoint */
+@media (min-width: 768px) {
+    .bookshelf-grid {
+        grid-template-columns: repeat(2, 1fr); /* Clean 2-column uniform layout */
+    }
+}
+
+/* Individual Book Card Styling */
+.book-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps CTAs perfectly lined up at the bottom */
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-blue);
+}
+
+/* Visual emphasis highlight configuration for high-priority projects */
+.book-card.priority {
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.05);
+}
+
+/* Availability Tags */
+.status-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.status-tag.available {
+    background-color: rgba(74, 222, 128, 0.1);
+    color: var(--tag-green);
+}
+
+.status-tag.development {
+    background-color: rgba(251, 191, 36, 0.1);
+    color: var(--tag-amber);
+}
+
+/* Content typography spacing fixes */
+.book-card h2 {
+    font-size: 1.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--text-main);
+}
+
+.book-card .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Mathematical LaTeX Appendix Block formatting */
+.appendix-focus {
+    background-color: rgba(15, 23, 42, 0.4);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.appendix-focus h3 {
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.appendix-focus p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+}
+
+.appendix-focus .latex-block {
+    font-size: 1.15rem;
+    color: var(--accent-blue);
+    text-align: center;
+    padding: 0.5rem 0;
+    overflow-x: auto; /* Prevents long formulas from breaking layout on small phones */
+}
+
+.appendix-focus .context-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+}
+
+/* Button & Action Triggers */
+.cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto; /* Forces action layer to anchor cleanly */
+}
+
+@media (min-width: 480px) {
+    .cta-group {
+        flex-direction: row; /* Horizontal button alignments if room permits */
+    }
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background-color: #7dd3fc; /* Brighter tint on mouse hover states */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-muted);
+}
+/* Added from index.html */
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            --success-color: #10b981;
+            --border-color: #334155;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-color);
+        }
+
+        .hero {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 0.85rem 2rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+
+        .features {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 5rem 2rem;
+        }
+
+        .grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .math-block {
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px dashed var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .product-section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .product-box {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            max-width: 650px;
+            margin: 2.5rem auto 0 auto;
+            padding: 3.5rem 2.5rem;
+            text-align: left;
+        }
+
+        .product-box h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--success-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+        }
+
+        .product-box ul {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .product-box li {
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .product-box li::before {
+            content: "✓";
+            color: var(--success-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer p {
+            margin-bottom: 0.75rem;
+        }
+
+        .tagline {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 1rem; }
+        }

@@ -1,354 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Unified Root Favicons with Cache Busting -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=3">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Behind Things | AP Physics Mastery</title>
     
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="b80e1de0-7f4f-4caa-8c94-372aca866ab7"></script>
-
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --surface-color: #1e293b;
-            --text-color: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-color: #3b82f6;
-            --accent-hover: #2563eb;
-            --success-color: #10b981;
-            --border-color: #334155;
-            --max-width: 1100px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        header {
-            border-bottom: 1px solid var(--border-color);
-            background-color: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(8px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            color: var(--text-color);
-            text-decoration: none;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--text-color);
-        }
-
-        .hero {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.04em;
-            margin-bottom: 1.5rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 2.5rem auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--text-color);
-            padding: 0.85rem 2rem;
-            font-size: 1.05rem;
-            font-weight: 600;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .cta-button:active {
-            transform: scale(0.98);
-        }
-
-        .features {
-            background-color: var(--surface-color);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 5rem 2rem;
-        }
-
-        .grid {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .card {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2.5rem;
-        }
-
-        .card h3 {
-            font-size: 1.35rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .math-block {
-            background-color: rgba(15, 23, 42, 0.6);
-            border: 1px dashed var(--border-color);
-            border-radius: 6px;
-            padding: 1rem;
-            margin: 1rem 0;
-            overflow-x: auto;
-        }
-
-        .product-section {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .product-box {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            max-width: 650px;
-            margin: 2.5rem auto 0 auto;
-            padding: 3.5rem 2.5rem;
-            text-align: left;
-        }
-
-        .product-box h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--success-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .price span {
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            text-decoration: line-through;
-            margin-left: 0.5rem;
-        }
-
-        .product-box ul {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-
-        .product-box li {
-            margin-bottom: 0.75rem;
-            color: var(--text-color);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .product-box li::before {
-            content: "✓";
-            color: var(--success-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 4rem 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        footer p {
-            margin-bottom: 0.75rem;
-        }
-
-        .tagline {
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.25rem; }
-            .nav-container { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 1rem; }
-        }
-    </style>
-
-    <!-- Paste your Umami script right here -->
-    <script defer src="https://umami.is" data-website-id="b80e1de0-7f4f-4caa-8c94-372aca866ab7"></script>
-
+    <!-- CRITICAL: This links your HTML to the CSS file. 
+         Assumes your CSS file is named exactly 'style.css' and is in the same folder. -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <div class="nav-container">
-            <a href="/" class="logo">Science Behind Things</a>
-            <nav>
-                <a href="kinematics-vault.html" style="color: #cc0000; font-weight: bold;">Kinematics Vault</a>
-                <a href="#methodology">Methodology</a>
-                <a href="about.html">About</a>
-            </nav>
-        </div>
+
+    <!-- 1. UNIFIED NAVIGATION HEADER -->
+    <header class="site-header">
+        <a href="index.html" class="logo">Science Behind <span>Things</span></a>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="#vault" class="active">Kinematics Vault</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
     </header>
 
-<!-- New Hero Section Modifed from old hero class, and centered -->
-    <main class="tex2jax_process">
-        <section class="hero">
+    <!-- 2. HIGH-CONVERSION HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
             <h1>The Analytical Blueprint for AP Physics Mastery</h1>
-            <p><i>Why it works</i>: It shifts the focus from a promised test outcome to a specific, elite methodology</p>
-<!-- End New Modified Hero Section -->
-
-<!-- Main Call to Action Container -->
-<div style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin: 30px auto; max-width: 400px;">
-    
-    <!-- Primary Action Box: High-Contrast Gold Block -->
-    <a href="kinematics-vault.html" 
-       style="display: block; width: 100%; text-align: center; background-color: #F5A623; color: #0D1117; font-weight: 700; padding: 14px 24px; text-decoration: none; border-radius: 6px; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(245, 166, 35, 0.2); transition: transform 0.2s, background-color: 0.2s;">
-        Unlock the Kinematics Vault
-    </a>
-
-    <!-- Secondary Action Box: Bordered Frame -->
-    <a href="bookshelf.html" 
-       style="display: block; width: 100%; text-align: center; background-color: transparent; color: #FFFFFF; border: 2px solid #4A5568; font-weight: 600; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-size: 1.05rem; transition: background-color 0.2s, border-color 0.2s;">
-        Browse Textbooks
-    </a>
-
-</div>
-
-        </section>
-
-        <section class="features" id="methodology">
-            <div class="grid">
-                <div class="card">
-                    <h3>First-principles calculus-based derivations designed to replace memorization with absolute clarity. No hand-waving shortcuts. No AI hallucinations</h3>
-                    <p><i>Why it works</i>: It directly calls out the problem with current study methods (rote memorization and broken AI tools) and highlights your core strength: deep derivation</p>
-                </div>
-                <div class="card">
-            <h3>Engineered for self-driven students building foundational mastery for competitive college engineering and STEM tracks</h3>
-            <p><i>Why it works</i>: It tells the parent exactly what they are paying for—long-term academic foundational strength for college, which is what they actually care about</p>
+            <p class="hero-subtitle">First-principles calculus derivations designed to replace memorization with absolute clarity. Zero AI hallucinations.</p>
             
-<!--            <div class="math-block"> -->
-<!--                $$x(t) = x_0 + \int_{0}^{t} v(t') \, dt'$$ -->
+            <div class="hero-cta-group">
+                <a href="#preview" class="btn btn-primary">Explore Sample Derivation</a>
+                <a href="#vault" class="btn btn-secondary">Inside the Vault</a>
             </div>
         </div>
-        </section>
+    </section>
 
-        <section class="product-section" id="courses">
-            <h2>Available Training Vaults</h2>
-            <p style="color: var(--text-muted); margin-top: 0.5rem;">Immediate, high-impact resources to overhaul your problem-solving paradigm.</p>
-            
+    <!-- 3. PREMIUM CONTENT / VAULT SECTION -->
+    <section id="vault" class="product-section">
+        <div class="container">
             <div class="product-box">
-                <h2>Advanced Kinematics Mastery Vault</h2>
-                <p style="color: var(--text-muted); margin-bottom: 1rem;">The foundational mini-course covering multi-stage motion, vector calculus integration, and advanced frame tracking.</p>
-                <div class="price">$49 <span>$149</span></div>
-                
+                <h2>The Kinematics Vault</h2>
+                <div class="price">$49 <span>$99</span></div>
                 <ul>
-                    <li>10 Premium AP-Style/Undergrad Practice Problems with full LaTeX solutions</li>
-                    <li>10 Premium AP-Style/Undergrad Practice Problems with full LaTeX solutions</li>
-                    <li>The 1 Essential Secret to solving any complex multi-variable kinematics system</li>
-                    <li>Complete video breakdowns with clear step-by-step mathematical proofs</li>
-                    <li>No filler, no fluff—engineered for hyper-focused, just-in-time test prep</li>
+                    <li>10 Premium AP-Style Practice Problems with complete solutions</li>
+                    <li>The 1 Equation Sheet to rule them all</li>
+                    <li>Complete step-by-step calculus derivations</li>
+                    <li>No filler content</li>
                 </ul>
-
-                <!-- Option 1: The Standard Link Wrapper (Recommended) -->
-                <a href="YOUR_LEMON_SQUEEZY_CHECKOUT_URL" style="text-decoration: none; display: block; width: 100%;">
-            <button class="cta-button" style="width: 100%; text-align: center; cursor: pointer;">Gain Instant Access</button>
-                </a>
-
+                <a href="#checkout" class="cta-button">Unlock Vault Access</a>
             </div>
+        </div>
+    </section>
 
-            <script>
-    // Quick interactive toggle for your on-page problem preview
-    function toggleDerivationProof() {
-        const proofBlock = document.getElementById('sample-proof');
-        if (proofBlock.style.display === 'none' || !proofBlock.style.display) {
-            proofBlock.style.display = 'block';
-        } else {
-            proofBlock.style.display = 'none';
-        }
-    }
-</script>
-
-        </section>
-    </main>
+</body>
+</html>
 
 <footer>
     <p>© 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
