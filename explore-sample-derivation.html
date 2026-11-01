@@ -3,143 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Derivation | Promise Media and Education</title>
-    
-    <!-- Non-Blocking Pre-Configuration for MathJax -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['$$', '$$']],
-                processEscapes: true
-            }
-        };
-    </script>
-    
-    <!-- MathJax Layout Engine Script -->
-    <script src="https://jsdelivr.net" id="MathJax-script" async></script>
+    <title>Mastering AP Physics</title>
+    <script src="https://tailwindcss.com"></script>
 </head>
-<body class="tex2jax_process">
+<body class="bg-gray-50 font-sans text-gray-900">
 
-    <!-- Global Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Science Behind Things</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="courses.html">Courses</a>
-                <a href="videos.html">Videos</a>
-                <a href="bookshelf.html">Bookshelf</a>
-                <a href="articles.html">Articles</a>
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-20 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="bg-blue-500 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Advanced Placement</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mt-4 tracking-tight">Cracking AP Physics</h1>
+            <p class="mt-6 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">
+                Master the core concepts of mechanics, electricity, and thermodynamics with interactive simulations, conceptual deep-dives, and real exam practice.
+            </p>
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#curriculum" class="bg-white text-blue-900 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-50 transition">Explore Units</a>
+                <a href="#practice" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">Start Free Quiz</a>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Content Container -->
-    <main>
+    <!-- Content Sections Matrix -->
+    <main class="max-w-6xl mx-auto px-6 py-16">
         
-        <!-- Page Header -->
-        <header>
-            <span class="badge">AP Physics C Reference</span>
-            <h1>The 3rd Kinematics Equation Derivation</h1>
-            <p class="header-p">Eliminating time parameter \(t\) from foundational constant-acceleration frameworks using definitive symbolic substitutions.</p>
-        </header>
-
-        <!-- Technical Appendix Section -->
-        <section class="card">
-            <h2><span>📐</span> Technical Appendix: Symbolic Flow</h2>
-            <p class="description">
-                To isolate final velocity purely as a function of position displacement, we begin by referencing the standard definition of acceleration and velocity under constant structural gradients.
-            </p>
-
-            <!-- Step 1 -->
-            <div class="step-block">
-                <span class="step-label">Step 1: Isolate Time from Velocity Definition</span>
-                <div class="math-wrapper">
-                    $$v_f = v_i + a \cdot t \implies t = \frac{v_f - v_i}{a}$$
-                </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="step-block">
-                <span class="step-label">Step 2: Substitute into Position Function</span>
-                <div class="math-wrapper">
-                    $$\Delta x = v_i \cdot \left(\frac{v_f - v_i}{a}\right) + \frac{1}{2}a \cdot \left(\frac{v_f - v_i}{a}\right)^2$$
-                </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="step-block">
-                <span class="step-label">Step 3: Expand and Isolate Final Velocity Squared</span>
-                <div class="math-wrapper">
-                    $$2a\Delta x = 2v_i v_f - 2v_i^2 + v_f^2 - 2v_i v_f + v_i^2 \implies v_f^2 = v_i^2 + 2a\Delta x$$
-                </div>
-            </div>
-        </section>
-
-        <!-- Dimensional Reference Matrix -->
-        <section class="matrix-section">
-            <h2>Dimensional Reference Matrix</h2>
-            <div class="table-card">
-                <table>
+        <!-- Course Comparison / Selection Table -->
+        <section id="curriculum" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Choose Your Course Path</h2>
+            <div class="overflow-x-auto bg-white rounded-xl shadow">
+                <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr>
-                            <th>Parameter</th>
-                            <th>Core SI Base Unit (Primary)</th>
-                            <th>US Contextual Alternative</th>
+                        <tr class="bg-gray-100 border-b border-gray-200">
+                            <th class="p-4 font-semibold text-gray-700">Course</th>
+                            <th class="p-4 font-semibold text-gray-700">Core Focus Areas</th>
+                            <th class="p-4 font-semibold text-gray-700">Math Requirement</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table-bold">Displacement (\(\Delta x\))</td>
-                            <td class="table-highlight">Meters (\(m\))</td>
-                            <td class="table-italic">Feet (\(ft\))</td>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-bold text-blue-800">AP Physics 1</td>
+                            <td class="p-4 text-gray-600">Kinematics, Dynamics, Circular Motion, Energy, Momentum, Torque</td>
+                            <td class="p-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">Algebra-Based</span></td>
                         </tr>
-                        <tr>
-                            <td class="table-bold">Velocity (\(v\))</td>
-                            <td class="table-highlight">Meters per second (\(m/s\))</td>
-                            <td class="table-italic">Feet per second (\(ft/s\))</td>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-bold text-blue-800">AP Physics 2</td>
+                            <td class="p-4 text-gray-600">Fluids, Thermodynamics, Electrostatics, Circuits, Optics, Modern Physics</td>
+                            <td class="p-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">Algebra-Based</span></td>
                         </tr>
-                        <tr>
-                            <td class="table-bold">Acceleration (\(a\))</td>
-                            <td class="table-highlight">Meters per second squared (\(m/s^2\))</td>
-                            <td class="table-italic">Feet per second squared (\(ft/s^2\))</td>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-bold text-blue-800">AP Physics C: Mech</td>
+                            <td class="p-4 text-gray-600">Advanced Kinematics, Newton's Laws, Rotational Dynamics, Oscillations</td>
+                            <td class="p-4"><span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full font-medium">Calculus-Based</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Verification Checklist -->
-        <section class="checklist-card">
-            <h2>Verification & Constraints Checklist</h2>
-            <p class="checklist-sub">Ensure structural prerequisite bounds match your physical scenario baseline before scaling computations.</p>
-            <ul class="checklist-items">
-                <li>
-                    <span class="check-icon">✓</span>
-                    <div class="checklist-text">
-                        <strong>Constant Acceleration:</strong> This entire mathematical structure breaks completely if \(a\) varies with time or position vectors.
-                    </div>
-                </li>
-                <li>
-                    <span class="check-icon">✓</span>
-                    <div class="checklist-text">
-                        <strong>One-Dimensional Linear Motion:</strong> All displacement fields must share a singular direction vector to prevent coordinate skewing.
-                    </div>
-                </li>
-                <li>
-                    <span class="check-icon">✓</span>
-                    <div class="checklist-text">
-                        <strong>Time Independence:</strong> Use this layout strictly when instant structural time logs are omitted or entirely unmeasured.
-                    </div>
-                </li>
-            </ul>
+        <!-- Resource Cards Grid -->
+        <section class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-xl shadow border border-gray-100 hover:border-blue-500 transition">
+                <div class="text-3xl mb-4">📐</div>
+                <h3 class="text-xl font-bold mb-2">Formula Reference</h3>
+                <p class="text-gray-600 text-sm">Download optimized equations sheets designed for rapid recall during free-response questions.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow border border-gray-100 hover:border-blue-500 transition">
+                <div class="text-3xl mb-4">⚙️</div>
+                <h3 class="text-xl font-bold mb-2">Lab Simulations</h3>
+                <p class="text-gray-600 text-sm">Interact with visual sandbox models to intuitively understand friction, vectors, and conservation laws.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow border border-gray-100 hover:border-blue-500 transition">
+                <div class="text-3xl mb-4">📝</div>
+                <h3 class="text-xl font-bold mb-2">FRQ Strategy Guide</h3>
+                <p class="text-gray-600 text-sm">Learn step-by-step scoring strategies to maximize points on paragraph-length arguments.</p>
+            </div>
         </section>
-    </main>
 
-    <footer>
-        &copy; 2026 Promise Media and Education, LLC. All rights reserved.
-    </footer>
+    </main>
 
 </body>
 </html>
