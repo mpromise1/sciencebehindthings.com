@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology | Science Behind Things</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- MathJax for clean LaTeX rendering matching your derivation pages -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['$$', '$$']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://jsdelivr.net"></script>
+
+  <style>
+    /* Clean fallback & structural styles for Methodology page */
+    .methodology-container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      line-height: 1.65;
+    }
+    .page-header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+      padding-bottom: 1.5rem;
+    }
+    .pillar-card {
+      background: rgba(128, 128, 128, 0.06);
+      border-left: 4px solid #2563eb;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+    }
+    .pillar-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2.5rem 0;
+    }
+    .comparison-table th,
+    .comparison-table td {
+      border: 1px solid rgba(128, 128, 128, 0.3);
+      padding: 0.85rem;
+      text-align: left;
+    }
+    .comparison-table th {
+      background: rgba(128, 128, 128, 0.12);
+    }
+    .cta-box {
+      margin-top: 3rem;
+      padding: 2rem;
+      border: 1px solid rgba(128, 128, 128, 0.3);
+      border-radius: 6px;
+      text-align: center;
+      background: rgba(128, 128, 128, 0.04);
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    .btn-primary, .btn-secondary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+    .btn-secondary {
+      border: 1px solid currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="brand-logo">Science Behind Things</a>
+      <ul>
+        <li><a href="index.html#kinematics-vault">Kinematics Vault</a></li>
+        <li><a href="methodology.html" class="active">Methodology</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="methodology-container">
+    
+    <section class="page-header">
+      <h1>The First-Principles Methodology</h1>
+      <p>Replacing rote formula memorization and AI hallucinations with rigorous, step-by-step mathematical clarity.</p>
+    </section>
+
+    <!-- Section 1: The Core Problem -->
+    <section>
+      <h2>Why Most AP Physics Students Hit a Wall</h2>
+      <p>Students rarely struggle in AP Physics because they lack ability. They struggle because traditional study guides treat physics like a vocabulary test—handing out disconnected equations without showing how those equations connect to basic calculus and physical reality.</p>
+      <p>When students turn to generic AI chatbots or rushed solution manuals for help, they encounter skipped algebraic steps, sign errors, and fabricated logic that break down under exam pressure.</p>
+    </section>
+
+    <!-- Section 2: The 4 Pillars -->
+    <section style="margin-top: 2.5rem;">
+      <h2>The 4 Pillars of the Science Behind Things System</h2>
+
+      <div class="pillar-card">
+        <h3>1. Derive, Never Memorize</h3>
+        <p>Every formula in classical mechanics flows from foundational definitions of position, velocity, and acceleration. By learning how to derive equations directly from first principles—such as moving from <i>a</i> = <span style="display: inline-block; text-align: center; vertical-align: middle;"><span style="display: block; border-bottom: 1px solid currentColor; padding: 0 2px;"><i>dv</i></span><span style="display: block; padding: 0 2px;"><i>dt</i></span></span>
+ and <i>v</i> = <span style="display: inline-block; text-align: center; vertical-align: middle;"><span style="display: block; border-bottom: 1px solid currentColor; padding: 0 2px;"><i>dx</i></span><span style="display: block; padding: 0 2px;"><i>dt</i></span></span>
+ to time-independent kinematics—you gain the ability to rebuild any relationship on test day without second-guessing your memory.</p>
+      </div>
+
+      <div class="pillar-card">
+        <h3>2. The "1 Equation Sheet" Framework</h3>
+        <p>Instead of juggling dozens of situational formulas, our curriculum anchors every problem to a single unified framework. You learn to identify physical boundary conditions first—such as constant acceleration versus time-varying gradients—before writing a single line of math.</p>
+      </div>
+
+      <div class="pillar-card">
+        <h3>3. Zero Skipped Steps &amp; Zero AI Hallucinations</h3>
+        <p>Every derivation and practice problem in the Kinematics Vault is authored and verified line-by-line by a veteran AP Physics and AP Calculus instructor. There are no "it can be shown that" leaps, no missing negative signs, and no unverified AI-generated shortcuts.</p>
+      </div>
+
+      <div class="pillar-card">
+        <h3>4. Dimensional &amp; Dual-Unit Verification</h3>
+        <p>True mastery requires checking whether an answer makes physical sense. All core derivations enforce strict International System (SI) base units—meters (<i>m</i>), seconds (<i>s</i>), and kilograms (<i>kg</i>)—paired with US Customary contextual references (<i>ft</i>), (<i>ft/s</i>), (<i>ft/s<sup>2</sup></i>) so students build intuitive physical judgment alongside exam-ready rigor.</p>
+      </div>
+    </section>
+
+    <!-- Section 3: Comparison Table -->
+    <section style="margin-top: 2.5rem;">
+      <h2>How Our Blueprint Compares</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Study Feature</th>
+            <th>Standard Prep Books &amp; AI Bots</th>
+            <th>Science Behind Things</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Equation Approach</strong></td>
+            <td>Long lists of formulas to memorize blindly</td>
+            <td>First-principles derivations from core definitions</td>
+          </tr>
+          <tr>
+            <td><strong>Algebra &amp; Calculus Steps</strong></td>
+            <td>Frequently skipped or hand-waved</td>
+            <td>100% explicit, line-by-line symbolic flow</td>
+          </tr>
+          <tr>
+            <td><strong>Accuracy Guarantee</strong></td>
+            <td>Prone to sign errors and AI hallucinations</td>
+            <td>Instructor-engineered and mathematically verified</td>
+          </tr>
+          <tr>
+            <td><strong>Boundary Conditions</strong></td>
+            <td>Rarely explained before applying formulas</td>
+            <td>Mandatory prerequisite checklist on every model</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 4: Call to Action -->
+    <section class="cta-box">
+      <h2>See the Methodology in Action</h2>
+      <p>Inspect our step-by-step symbolic flow for free, or unlock the complete Kinematics Vault.</p>
+      <div class="cta-buttons">
+        <a href="explore-sample-derivation.html" class="btn-secondary">Explore Sample Derivation</a>
+        <a href="index.html#kinematics-vault" class="btn-primary">Unlock Kinematics Vault ($49)</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer matching your exact site footer -->
+  <footer>
+    <p>&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+    <p>Have a physics paradox? Ask Caleb &amp; Vance | Student Support: <a href="mailto:support@sciencebehindthings.com">support@sciencebehindthings.com</a></p>
+  </footer>
+
+</body>
+</html>
