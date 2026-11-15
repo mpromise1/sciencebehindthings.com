@@ -1,149 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bookshelf - Science Behind Things</title>
-    
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="b80e1de0-7f4f-4caa-8c94-372aca866ab7"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Quantum Forensic Files | Science Behind Things Bookshelf</title>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #162032;
+      --border-subtle: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-blue-hover: #0284c7;
+      --badge-bg: rgba(56, 189, 248, 0.12);
+    }
 
-    <!-- Core Layout Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <!-- Unified Root Favicons with Cache Busting -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=3">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
-    
-    <!-- Web Manifest for Mobile Platforms -->
-    <link rel="manifest" href="/site.webmanifest">
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    <!-- Paste your Umami script right here -->
-    <script defer src="https://umami.is" data-website-id="b80e1de0-7f4f-4caa-8c94-372aca866ab7"></script>
+    /* Header & Back-to-Funnel Navigation */
+    header {
+      border-bottom: 1px solid var(--border-subtle);
+      background-color: rgba(15, 23, 42, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
 
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .brand span {
+      color: var(--accent-blue);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--bg-secondary);
+      color: var(--accent-blue);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background-color: var(--accent-blue);
+      color: var(--bg-primary);
+      border-color: var(--accent-blue);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 820px;
+      margin: 4rem auto 3rem;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background-color: var(--badge-bg);
+      color: var(--accent-blue);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Book Grid */
+    .bookshelf-grid {
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 2rem;
+    }
+
+    .book-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .book-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-blue);
+    }
+
+    .book-meta {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .book-card h2 {
+      font-size: 1.45rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .book-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .appendix-box {
+      background-color: rgba(15, 23, 42, 0.6);
+      border-left: 3px solid var(--accent-blue);
+      padding: 0.85rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 1.75rem;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .appendix-box strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .book-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.8rem 1.2rem;
+      background-color: var(--accent-blue);
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .book-cta:hover {
+      background-color: #7dd3fc;
+    }
+
+    .book-cta.secondary {
+      background-color: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      cursor: default;
+    }
+
+    .book-cta.secondary:hover {
+      background-color: transparent;
+    }
+
+    /* Vault Cross-Sell Banner */
+    .vault-banner {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 2.25rem;
+      background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .vault-banner h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .vault-banner p {
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto 1.5rem;
+      font-size: 0.98rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-    <nav class="site-nav">
-        <a href="index.html" class="nav-logo">
-            Science Behind <span class="accent-text">Things</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="videos.html">Videos</a></li>
-            <li><a href="bookshelf.html" class="active">Bookshelf</a></li>
-            <li><a href="articles.html">Articles</a></li>
-        </ul>
-    </nav>
-</header>
+  <!-- Top Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">Science Behind Things <span>| Bookshelf</span></a>
+      <a href="index.html" class="back-btn">&larr; Back to Kinematics Vault</a>
+    </div>
+  </header>
 
-<body>
-<h1>The Quantum Forensic Files</h1>
-<p class="subtitle">Hard Sci-Fi Mysteries. Real Physics. Absolute Rigor.</p>
-
-<div class="series-note">
-    <p><strong>Note to Readers:</strong> Each book in this series is a completely self-contained, standalone mystery. You can jump in anywhere. However, the mathematical complexity and narrative depth systematically build on the concepts established in the previous volumes, making them the ultimate narrative companion for AP Physics students and aerospace minds.</p>
-</div>
-
-<!-- BOOK 1 -->
-<div class="book-card">
-    <span class="status-tag available">Standalone Novel 1 — Now Available</span>
-    <h2>The Zeno Record</h2>
-    <p class="description">
-        When an untraceable tracking anomaly fractures standard telemetry profiles across open orbital trajectories, a system-wide conspiracy begins to unfold. Step into the boots of investigators Vance and Caleb as they refuse to rely on generic automated tools. To isolate the system error and track a phantom network, Caleb must strip the telemetry down to first principles and weaponize raw calculus-based mechanics. 
-    </p>
-    
-    <div class="appendix-focus">
-        <h3>Technical Appendix Focus: Inverse-Square Attenuation</h3>
-        <p>Master the exact behavior of signal decay over vast geometric distances. The technical appendix features full derivations using standard metric SI units:</p>
-        <div class="latex-block">
-            $$I = \frac{P}{4\pi r^2}$$
-        </div>
-        <p class="context-note"><em>*Includes contextual Imperial conversions for US high school testing environments.</em></p>
-    </div>
-    
-    <div class="cta-group">
-        <a href="#" class="btn-primary">Buy Softcover & Hardcover on Amazon</a>
-        <a href="#" class="btn-secondary">Watch Companion Video Lesson</a>
-    </div>
-</div>
-
-<!-- BOOK 2 -->
-<div class="book-card">
-    <span class="status-tag available">Standalone Novel 2 — Now Available</span>
-    <h2>The Blackout Override</h2>
-    <p class="description">
-        Localized telemetry disruptions are systematically threatening infrastructure data matrices. As an unmitigated orbital mechanics crisis paralyzes traditional aerospace tracking networks, traditional solution manuals prove useless. Vance and Caleb return to the workspace to challenge mainstream kinematic assumptions, forcing a brute-force mathematical breakdown of the system to prevent total orbital collapse.
-    </p>
-    
-    <div class="appendix-focus">
-        <h3>Technical Appendix Focus: Constant Kinematic Acceleration</h3>
-        <p>A deep-dive proof of the third kinematics equation without shortcuts, optimized for calculus-based mechanics:</p>
-        <div class="latex-block">
-            $$v_f^2 = v_i^2 + 2a\Delta x$$
-        </div>
-        <p class="context-note"><em>*Includes contextual Imperial conversions for US high school testing environments.</em></p>
-    </div>
-    
-    <div class="cta-group">
-        <a href="#" class="btn-primary">Buy Softcover & Hardcover on Amazon</a>
-        <a href="#" class="btn-secondary">Watch Companion Video Lesson</a>
-    </div>
-</div>
-
-<!-- BOOK 4 (Prioritized Release) -->
-<div class="book-card priority">
-    <span class="status-tag development">Standalone Novel 3 — In Development (High Priority Release)</span>
-    <h2>The Geodesic Illusion</h2>
-    <p class="description">
-        Caleb’s analytical framework encounters an operational anomaly that challenges the geometric logic of trajectories themselves. When traditional pathways warp under unverified boundary conditions, standard tracking models completely shatter. This high-priority release delivers an elite hard science mystery where the boundary lines of space and motion are weaponized.
-    </p>
-    
-    <div class="appendix-focus">
-        <h3>Technical Appendix Focus: Geodesic Metric Acceleration</h3>
-        <p>Fully formatted and verified for perfect Apple Pages template compatibility. Experience uncompromised structural math modeling:</p>
-        <div class="latex-block">
-            $$\frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau} = 0$$
-        </div>
-    </div>
-    
-    <div class="cta-group">
-        <a href="#" class="btn-primary">Read the First 3 Chapters Free</a>
-    </div>
-</div>
-
-<!-- BOOK 3 -->
-<div class="book-card">
-    <span class="status-tag development">Standalone Novel 4 — In Development</span>
-    <h2>The Ghost Signal</h2>
-    <p class="description">
-        A mysterious, phantom wavelength slices directly through standard communication arrays. Vance and Caleb must parse a heavily distorted data stream that defies classical physics models. Written as a masterful 15-chapter mystery, this narrative explicitly anchors your core video curriculum, challenging readers to isolate signal noise from absolute physical reality.
-    </p>
-    
-    <div class="appendix-focus">
-        <h3>Technical Appendix Focus: Universal Gravitation & Orbital Speed</h3>
-        <p>Calculate orbital tracking vectors from basic gravitational equations to prove why the ghost signal cannot exist:</p>
-        <div class="latex-block">
-            $$v = \sqrt{\frac{GM}{r}}$$
-        </div>
-    </div>
-    
-    <div class="cta-group">
-        <a href="#" class="btn-primary">Get Pre-Release Chapter Alerts</a>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
-    <p>Subtle Faith. Absolute Rigor.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <span class="eyebrow">Hard Sci-Fi Forensic Mysteries</span>
+    <h1>The Quantum Forensic Files</h1>
     <p>
-        Have a physics paradox? <a href="mailto:ask@sciencebehindthings.com">Ask Caleb & Vance</a> | 
-        Student Support: <a href="mailto:support@sciencebehindthings.com">support@sciencebehindthings.com</a>
+      Future crime investigations solved through first-principles physics, classical mechanics, and mathematical rigor. Every novel concludes with a complete Technical Appendix pairing LaTeX derivations with plain-English breakdowns.
     </p>
-</footer>
+  </section>
+
+  <!-- Books Grid -->
+  <main class="bookshelf-grid">
+
+    <!-- Book 1 -->
+    <article class="book-card">
+      <div>
+        <div class="book-meta">Book 1 &bull; Available Now</div>
+        <h2>The Zeno Record</h2>
+        <p class="book-desc">
+          When manipulated telemetry and impossible trajectories mask a high-stakes crime, investigators Vance and Caleb must reconstruct the true timeline of motion from raw physical evidence.
+        </p>
+        <div class="appendix-box">
+          <strong>Includes 13 Technical Appendices:</strong>
+          Full step-by-step calculus proofs and plain-English translations behind every forensic clue in the story.
+        </div>
+      </div>
+      <!-- Replace # with your Amazon KDP link -->
+      <a href="#" class="book-cta" target="_blank" rel="noopener">View on Amazon Kindle &rarr;</a>
+    </article>
+
+    <!-- Book 2 -->
+    <article class="book-card">
+      <div>
+        <div class="book-meta">Book 2 &bull; Available Now</div>
+        <h2>The Blackout Override</h2>
+        <p class="book-desc">
+          A systemic grid failure leaves zero digital logs behind—forcing Vance and Caleb to rely on conservation laws, energetics, and rotational dynamics to uncover who triggered the override.
+        </p>
+        <div class="appendix-box">
+          <strong>Includes Technical Appendices:</strong>
+          Complete mathematical derivations verifying every physical constraint and system failure in the narrative.
+        </div>
+      </div>
+      <!-- Replace # with your Amazon KDP link -->
+      <a href="#" class="book-cta" target="_blank" rel="noopener">View on Amazon Kindle &rarr;</a>
+    </article>
+
+    <!-- Book 3 / Upcoming -->
+    <article class="book-card">
+      <div>
+        <div class="book-meta">Book 3 &bull; Upcoming Release</div>
+        <h2>The Ghost Signal</h2>
+        <p class="book-desc">
+          An anomalous transmission defies standard propagation models. Vance and Caleb trace the signal across orbital and non-inertial reference frames before the window closes.
+        </p>
+        <div class="appendix-box">
+          <strong>Includes 16 Technical Appendices:</strong>
+          In-depth analytical proofs bridging wave mechanics, kinematics, and relativistic tracking.
+        </div>
+      </div>
+      <span class="book-cta secondary">Coming Soon to Amazon KDP</span>
+    </article>
+
+  </main>
+
+  <!-- Conversion Bridge Back to AP Physics C Offer -->
+  <section style="padding: 0 1.5rem;">
+    <div class="vault-banner">
+      <h3>Want to Master the Real Calculus Behind These Mysteries?</h3>
+      <p>
+        Explore <strong>The Kinematics Vault</strong>—10 exam-caliber AP Physics C scenarios with zero-hand-waving calculus derivations and side-by-side plain-English translations.
+      </p>
+      <a href="index.html" class="back-btn" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Explore The Kinematics Vault ($49) &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p style="margin-bottom: 0.4rem;">&copy; 2026 Promise Media and Education, LLC. All Rights Reserved.</p>
+    <p>
+      <a href="index.html">Return to AP Physics Mastery</a> &nbsp;|&nbsp;
+      Student Support: <a href="mailto:support@sciencebehindthings.com">support@sciencebehindthings.com</a>
+    </p>
+  </footer>
 
 </body>
 </html>
