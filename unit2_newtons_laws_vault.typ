@@ -1,0 +1,729 @@
+// ============================================================================
+// AP PHYSICS C: MECHANICS — UNIT 2: NEWTON'S LAWS OF MOTION MASTERY VAULT
+// Pages 1–5: Cover, Master Decision Matrix, Hidden Clue Decoder & Force Rules
+// ============================================================================
+
+#set page(
+  paper: "us-letter",
+  margin: (top: 0.7in, bottom: 0.7in, left: 0.7in, right: 0.7in),
+  header: context {
+    if counter(page).get().first() > 1 [
+      #set text(size: 8.5pt, fill: rgb("#475569"))
+      *AP Physics C: Mechanics — Unit 2 Mastery Vault* #h(1fr) *Newton's Laws of Motion*
+      #v(-4pt)
+      #line(length: 100%, stroke: 0.5pt + rgb("#CBD5E1"))
+    ]
+  },
+  footer: context {
+    if counter(page).get().first() > 1 [
+      #line(length: 100%, stroke: 0.5pt + rgb("#CBD5E1"))
+      #v(-4pt)
+      #set text(size: 8.5pt, fill: rgb("#64748B"))
+      Science Behind Things • Promise Media and Education, LLC #h(1fr) Page #counter(page).display("1 of 1", both: true)
+    ]
+  }
+)
+
+#set text(
+  font: ("Helvetica Neue", "Arial", "DejaVu Sans"),
+  size: 10pt,
+  fill: rgb("#1E293B")
+)
+
+#set par(leading: 0.65em, justify: false)
+
+// --- Color Palette ---
+#let navy = rgb("#0F172A")
+#let slate-dark = rgb("#1E293B")
+#let slate-muted = rgb("#475569")
+#let accent-blue = rgb("#1D4ED8")
+#let accent-light = rgb("#EFF6FF")
+#let border-gray = rgb("#CBD5E1")
+#let warn-amber = rgb("#B45309")
+#let warn-bg = rgb("#FFFBEB")
+
+// --- Reusable Helper Functions ---
+#let boxed(..args) = box(
+  stroke: 0.85pt + navy,
+  inset: (x: 5pt, y: 4pt),
+  baseline: 25%,
+  fill: white
+)[$#args.pos().join(", ")$]
+
+#let section-banner(num, title, subtitle) = {
+  block(
+    width: 100%,
+    fill: navy,
+    inset: (x: 12pt, y: 9pt),
+    radius: 4pt,
+    [
+      #text(fill: rgb("#93C5FD"), size: 8.5pt, weight: "bold")[SECTION #num]
+      #v(-3pt)
+      #text(fill: white, size: 14pt, weight: "bold")[#title]
+      #if subtitle != "" [
+        #v(-2pt)
+        #text(fill: rgb("#E2E8F0"), size: 9pt)[#subtitle]
+      ]
+    ]
+  )
+  v(6pt)
+}
+
+#let callout(title, body, bg: accent-light, border: accent-blue) = {
+  block(
+    width: 100%,
+    fill: bg,
+    stroke: (left: 3.5pt + border, top: 0.5pt + border-gray, right: 0.5pt + border-gray, bottom: 0.5pt + border-gray),
+    inset: 10pt,
+    radius: (right: 4pt),
+    [
+      #text(weight: "bold", fill: border, size: 9.5pt)[#title]
+      #v(2pt)
+      #body
+    ]
+  )
+}
+
+// ============================================================================
+// PAGE 1: COVER PAGE
+// ============================================================================
+#align(center)[
+  #v(0.45in)
+  #block(
+    fill: accent-light,
+    stroke: 1pt + accent-blue,
+    inset: (x: 14pt, y: 5pt),
+    radius: 20pt,
+    text(fill: accent-blue, weight: "bold", size: 9pt)[AP PHYSICS C: MECHANICS • UNIT 2 VAULT]
+  )
+  #v(14pt)
+  #text(size: 28pt, weight: "bold", fill: navy)[
+    Newton's Laws of Motion:\
+    The First-Principles Mastery Vault
+  ]
+  #v(8pt)
+  #text(size: 12pt, fill: slate-muted)[
+    Free-Body Diagrams, Coupled Systems, Velocity-Dependent Drag,\
+    and Exam-Grade FRQ Execution
+  ]
+  #v(22pt)
+  #line(length: 40%, stroke: 2pt + accent-blue)
+  #v(22pt)
+]
+
+#block(
+  width: 100%,
+  fill: rgb("#F8FAFC"),
+  stroke: 1pt + border-gray,
+  inset: 16pt,
+  radius: 6pt,
+  [
+    #text(size: 12pt, weight: "bold", fill: navy)[What Is Inside This 21-Page Workbook]
+    #v(6pt)
+    - *Section 1 (Page 2): Master Free-Body Diagram & System Decision Matrix* — How to choose between single-body isolation and multi-body system shortcuts in under 15 seconds.
+    - *Section 2 (Pages 3–5): Hidden Clue Word-Problem Decoder & Force Laws* — Translating AP exam phrasing into exact boundary equations, static vs. kinetic friction inequalities, and Third Law action-reaction pairs.
+    - *Section 3 (Pages 6–9): The Calculus Bridge (Velocity-Dependent Drag)* — Step-by-step separation of variables for linear ($-b v$) and quadratic ($-c v^2$) resistive forces, terminal speed, and time constants.
+    - *Section 4 (Pages 10–13): Coupled Systems, Pulleys & Tilted Inclines* — Atwood machines, accelerating wedges, and internal tension isolation.
+    - *Section 5 (Pages 14–16): Circular Dynamics & Banked Curves* — Conical pendulums, vertical loops, and maximum safe cornering speeds.
+    - *Section 6 (Pages 17–21): Top 7 Score Killers & 4 AP-Style FRQs with Rubrics* — Full exam workspaces paired with official-style point-by-point grading rubrics.
+  ]
+)
+
+#v(14pt)
+
+#callout(
+  "How to Use This Vault Effectively",
+  [
+    Do *not* memorize dozens of special-case incline or pulley formulas. Every mechanics problem on the AP Physics C exam reduces to choosing an inertial reference frame, drawing a clean Free-Body Diagram (FBD), and writing $sum arrow(F) = m arrow(a)$ along perpendicular axes. Core equations in this guide use *SI metric units* ($\"kg\"$, $"m/s"^2$, $"N"$), with occasional US imperial comparisons ($"lb"$, $"ft/s"^2$) noted for intuition.
+  ]
+)
+
+#v(1fr)
+#align(center)[
+  #text(size: 9.5pt, weight: "bold", fill: navy)[Science Behind Things • Promise Media and Education, LLC] \
+  #text(size: 8.5pt, fill: slate-muted)[All rights reserved. Licensed for individual student and classroom print use.]
+]
+
+#pagebreak()
+
+// ============================================================================
+// PAGE 2: SECTION 1 — MASTER FBD & SYSTEM DECISION MATRIX
+// ============================================================================
+#section-banner("1", "Master Free-Body Diagram & System Decision Matrix", "Follow this 4-step protocol before writing a single equation.")
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 12pt,
+  [
+    #callout(
+      "Step 1: Define the System Boundary",
+      [
+        Ask: *Do I need internal tension/normal forces, or just acceleration?*
+        - *Whole-System Method:* Group blocks moving with identical acceleration magnitude $a$ into one composite mass $M_"tot" = sum m_i$. Internal tensions cancel out immediately.
+        - *Single-Body Isolation:* Isolate one object whenever the prompt asks for string tension $T$, contact normal force $N$, or static friction $f_s$.
+      ]
+    )
+  ],
+  [
+    #callout(
+      "Step 2: Align Axes With Acceleration",
+      [
+        Always point $+x$ in the direction of known or expected acceleration $arrow(a)$:
+        - *Horizontal motion:* Standard horizontal ($x$) and vertical ($y$) axes.
+        - *Inclined plane ($theta$):* Tilt $+x$ parallel to the ramp ($a_x = a$) and $+y$ perpendicular to the ramp ($a_y = 0$). Only $m arrow(g)$ needs splitting into $m g sin theta$ and $m g cos theta$.
+        - *Circular motion:* Point $+r$ radially *inward* toward the circle's center ($a_r = v^2 / r$).
+      ]
+    )
+  ]
+)
+
+#v(10pt)
+
+#text(size: 11pt, weight: "bold", fill: navy)[Newton's Three Laws: Operational Exam Definitions]
+#v(4pt)
+
+#table(
+  columns: (1.3fr, 2.2fr, 2.5fr),
+  inset: 8pt,
+  stroke: 0.6pt + border-gray,
+  fill: (x, y) => if y == 0 { navy } else if calc.odd(y) { rgb("#F8FAFC") } else { white },
+  text(fill: white, weight: "bold")[Law],
+  text(fill: white, weight: "bold")[Mathematical Form],
+  text(fill: white, weight: "bold")[Exam Application & Operational Rule],
+
+  [*First Law*\ (Inertia)],
+  [$sum arrow(F) = 0 <==> arrow(v) = "constant"$],
+  [Defines *inertial reference frames*. If an object is at rest or moving at constant velocity ($arrow(a) = 0$), forces balance along every axis ($sum F_x = 0, sum F_y = 0$).],
+
+  [*Second Law*\ (Dynamics)],
+  [$sum arrow(F) = (d arrow(p))/(d t) = m arrow(a)$\ *(for constant mass $m$)*],
+  [Only *external contact and field forces* acting ON the chosen system belong on the left side. Never draw $m arrow(a)$ as a force arrow on an AP Free-Body Diagram.],
+
+  [*Third Law*\ (Interaction)],
+  [$arrow(F)_(A "on" B) = -arrow(F)_(B "on" A)$],
+  [Action-reaction pairs have equal magnitude, opposite direction, identical force type, and *always act on two different objects*—so they never cancel on a single-body FBD.]
+)
+
+#v(10pt)
+
+#text(size: 11pt, weight: "bold", fill: navy)[System vs. Isolation Decision Matrix]
+#v(4pt)
+
+#table(
+  columns: (1.6fr, 1.4fr, 2.5fr),
+  inset: 7pt,
+  stroke: 0.6pt + border-gray,
+  fill: (x, y) => if y == 0 { accent-blue } else { white },
+  text(fill: white, weight: "bold")[Problem Scenario],
+  text(fill: white, weight: "bold")[Best Approach],
+  text(fill: white, weight: "bold")[Core Equation Setup],
+
+  [Two blocks connected by a light string over a frictionless pulley; find $a$],
+  [*Whole-System* first, then isolate],
+  [$a = (F_"driving" - F_"opposing") / (m_1 + m_2)$, then plug $a$ into one block to get $T$.],
+
+  [Block sliding down a rough ramp of angle $theta$; find $a$],
+  [*Single-Body* (tilted axes)],
+  [$sum F_y = N - m g cos theta = 0$\ $sum F_x = m g sin theta - mu_k N = m a$],
+
+  [Car rounding a flat or banked curve at speed $v$],
+  [*Single-Body* (radial $+r$ inward)],
+  [$sum F_r = (m v^2)/r$ and $sum F_y = 0$ *(never tilt axes on a banked turn!)*.],
+
+  [Skydiver or sphere falling through fluid with drag $F_d(v)$],
+  [*Calculus ODE* ($a = d v \/ d t$)],
+  [$m (d v)/(d t) = m g - F_d(v) arrow.r$ Separate variables and integrate.]
+)
+
+#v(8pt)
+#callout(
+  "AP Grader Rule on Free-Body Diagrams",
+  [
+    On AP Physics C FRQs, if a question asks you to *"draw and label the forces (not components) that act on the block,"* draw *only* the actual forces (e.g., $m arrow(g)$, $arrow(N)$, $arrow(T)$, $arrow(f)_k$). Do *not* draw dashed component arrows ($m g sin theta$, $m g cos theta$) on the graded FBD—sketch components on a separate scratch diagram off to the side so you never lose points for extra vectors.
+  ],
+  bg: warn-bg,
+  border: warn-amber
+)
+
+#pagebreak()
+
+// ============================================================================
+// PAGE 3: SECTION 2 — HIDDEN CLUE WORD-PROBLEM DECODER (PART 1)
+// ============================================================================
+#section-banner("2", "Hidden Clue Word-Problem Decoder", "Every phrase in an AP Physics C prompt encodes a specific mathematical constraint.")
+#text(size: 9.5pt, fill: slate-muted)[
+AP Physics C problem writers rarely state boundary conditions explicitly. Use this translation dictionary to convert verbal qualifiers directly into equations.
+]
+#v(6pt)
+#table(
+columns: (1.7fr, 2.0fr, 2.3fr),
+inset: 7.5pt,
+stroke: 0.6pt + border-gray,
+fill: (x, y) => if y == 0 { navy } else if calc.odd(y) { rgb("#F8FAFC") } else { white },
+text(fill: white, weight: "bold")[Exam Phrase / Keyword],
+text(fill: white, weight: "bold")[Physical Meaning],
+text(fill: white, weight: "bold")[Mathematical Translation],
+["Smooth surface"\ or "frictionless"],
+[Zero tangential surface resistance],
+[$mu_s = 0, quad mu_k = 0 arrow.r f = 0$],
+["Rough surface"],
+[Non-zero friction opposes relative motion or tendency to slip],
+[$f_s <= mu_s N$ (at rest) or $f_k = mu_k N$ (sliding)],
+["Light string / cord"\ or "massless rope"],
+[String inertia is negligible compared to attached masses],
+[$m_"string" = 0 arrow.r$ Tension $T$ is uniform throughout any straight segment],
+["Inextensible string"],
+[String does not stretch or go slack while taut],
+[Connected bodies share equal speed and acceleration magnitudes ($|a_1| = |a_2|$)],
+["Ideal / massless frictionless pulley"],
+[Pulley redirects tension without rotational inertia or bearing drag],
+[$I_"pulley" = 0 arrow.r T_"left" = T_"right"$ (unlike Unit 5 massive pulleys!)],
+["On the verge of slipping"\ or "just begins to move"],
+[Static friction has reached its maximum threshold value],
+[$f_s = f_(s, max) = mu_s N$ (equality holds only at this instant)],
+["Loses contact"\ or "leaves the track"],
+[Surface stops pushing on the object],
+[$N = 0$ at the separation point],
+["String goes slack"],
+[Rope can no longer pull on the object],
+[$T = 0$ (common at the top of a vertical circular loop)],
+["Constant velocity"\ or "moves steadily"],
+[Zero linear acceleration],
+[$arrow(a) = 0 arrow.r sum F_x = 0, quad sum F_y = 0$],
+["Terminal velocity ($v_t$)"],
+[Drag force balances driving force; acceleration drops to zero],
+[$a = (d v)/(d t) = 0 arrow.r F_"drag"(v_t) = F_"driving"$]
+)
+#v(10pt)
+#callout(
+"Units Sanity Check: Metric (SI) vs. Imperial Intuition",
+[
+In AP Physics C, mass is always measured in kilograms ($"kg"$) and force in newtons ($1 "N" = 1 "kg" dot "m/s"^2$), with $g approx 9.8 "m/s"^2$ (or $10 "m/s"^2$ when permitted on multiple-choice). For quick physical intuition: a $1 "kg"$ textbook weighs $9.8 "N"$ (about $2.2 "lb"$), while $g approx 32.2 "ft/s"^2$ in US customary units. Never mix slugs or pounds into AP free-response calculations.
+]
+)
+#pagebreak()
+// ============================================================================
+// PAGE 4: WORKED TRANSLATION EXAMPLES (APPLYING THE DECODER)
+// ============================================================================
+#section-banner("2B", "Worked Translation Examples", "Applying the Hidden Clue Decoder to multi-step AP setups.")
+#block(
+width: 100%,
+stroke: 0.75pt + border-gray,
+inset: 11pt,
+radius: 5pt,
+[
+#text(weight: "bold", fill: accent-blue, size: 10.5pt)[Example 2.1: "On the Verge of Slipping" on a Ramp]
+#v(4pt)
+Prompt: A $4.0 "kg"$ crate rests on a rough incline whose angle $theta$ is slowly increased. The crate is on the verge of slipping when $theta = 25^degree$. Find the coefficient of static friction $mu_s$ and the magnitude of the static friction force at that angle.
+#v(6pt)
+Solution:
+1. Decode clues: "On the verge of slipping" means $a = 0$ and $f_s = f_(s, max) = mu_s N$.
+2. Set tilted axes: $+x$ down the ramp, $+y$ perpendicular to the ramp.
+3. Perpendicular balance ($\sum F_y = 0$):
+$ N - m g cos theta = 0 arrow.r N = m g cos theta $
+4. Parallel balance ($\sum F_x = 0$):
+$ m g sin theta - f_(s, max) = 0 arrow.r m g sin theta = mu_s (m g cos theta) $
+5. Solve symbolically first (mass $m$ cancels!):
+$ mu_s = (sin theta)/(cos theta) = tan(25^degree) = boxed(0.47) $
+6. Compute static friction magnitude ($g = 9.8 "m/s"^2$):
+$ f_(s, max) = m g sin(25^degree) = (4.0 "kg")(9.8 "m/s"^2) sin(25^degree) = boxed(16.6 "N") $
+]
+)
+#v(10pt)
+#block(
+width: 100%,
+stroke: 0.75pt + border-gray,
+inset: 11pt,
+radius: 5pt,
+[
+#text(weight: "bold", fill: accent-blue, size: 10.5pt)[Example 2.2: Pushing Against a Vertical Wall (Normal Force Trap)]
+#v(4pt)
+Prompt: A horizontal force $F = 60 "N"$ presses a $2.5 "kg"$ block against a rough vertical wall ($\mu_s = 0.50, mu_k = 0.35$). Does the block slide, and what is its acceleration?
+#v(6pt)
+Solution:
+1. Avoid the $N = m g$ trap: The contact surface is vertical, so the wall pushes horizontally:
+$ sum F_x = F - N = 0 arrow.r N = F = 60 "N" $
+2. Test static friction capacity:
+$ f_(s, max) = mu_s N = (0.50)(60 "N") = 30 "N" $
+3. Compare against downward weight:
+$ F_g = m g = (2.5 "kg")(9.8 "m/s"^2) = 24.5 "N" $
+4. Decision: Since $F_g (24.5 "N") < f_(s, max) (30 "N")$, static friction easily holds the block in equilibrium!
+- Actual static friction force: $f_s = 24.5 "N"$ upward (NOT $30 "N"$!).
+- Acceleration: $a = boxed(0 "m/s"^2)$ (block remains at rest).
+]
+)
+#v(8pt)
+#callout(
+"Key Insight from Example 2.2",
+[
+Students frequently plug $f_(s, max) = 30 "N"$ into $\sum F_y = f_s - m g = m a$ and falsely conclude the block accelerates upward! Static friction is a self-adjusting reaction force: it supplies only what is needed to prevent motion, up to its ceiling $\mu_s N$.
+],
+bg: warn-bg,
+border: warn-amber
+)
+#pagebreak()
+// ============================================================================
+// PAGE 5: FRICTION REGIMES & NON-INERTIAL REFERENCE FRAME RULES
+// ============================================================================
+#section-banner("2C", "Friction Regimes & Accelerating Reference Frames", "Mastering the static-to-kinetic transition and elevator/wedge apparent weight.")
+#grid(
+columns: (1.15fr, 1fr),
+gutter: 12pt,
+[
+#text(size: 10.5pt, weight: "bold", fill: navy)[1. Static vs. Kinetic Friction Rules]
+#v(4pt)
+- Static Friction ($f_s <= mu_s N$): Acts when surfaces do not slide relative to each other. Magnitude adjusts from $0$ up to $mu_s N$ to match the net applied parallel force.
+- Kinetic Friction ($f_k = mu_k N$): Acts whenever surfaces slide relative to each other. Direction is strictly opposite the relative velocity vector, and typically $mu_k < mu_s$.
+- Direction Flip Trap: If a block slides up a ramp, $f_k$ points down the ramp. Once it reaches peak height and reverses direction, $f_k$ flips to point up the ramp—meaning $|a_"up"| > |a_"down"|$.
+],
+[
+#block(
+width: 100%,
+fill: rgb("#F8FAFC"),
+stroke: 0.75pt + border-gray,
+inset: 10pt,
+radius: 5pt,
+[
+#text(weight: "bold", fill: navy, size: 9.5pt)[Friction Behavior Summary]
+#v(4pt)
+Region 1: Static ($v_"rel" = 0$)
+$f_s = F_"applied, parallel"$
+(45° linear rise with applied force)
+#v(4pt)
+Threshold ($v_"rel" = 0^+$)
+$f_(s, max) = mu_s N$ (peak spike)
+#v(4pt)
+Region 2: Kinetic ($v_"rel" != 0$)
+$f_k = mu_k N = "constant"$
+(drops slightly below $f_(s, max)$)
+]
+)
+]
+)
+#v(12pt)
+#text(size: 10.5pt, weight: "bold", fill: navy)[2. Elevators & Apparent Weight (Inertial Frame Method)]
+#v(4pt)
+#text(size: 9.5pt)[
+A bathroom scale measures the normal force $N$ exerted on the rider, not $m g$. Always analyze from the ground (inertial) frame with $+y$ upward:
+$ sum F_y = N - m g = m a_y arrow.r N = m(g + a_y) $
+]
+#v(4pt)
+#table(
+columns: (1.8fr, 1.4fr, 2.8fr),
+inset: 7pt,
+stroke: 0.6pt + border-gray,
+fill: (x, y) => if y == 0 { navy } else if calc.odd(y) { rgb("#F8FAFC") } else { white },
+text(fill: white, weight: "bold")[Elevator Motion],
+text(fill: white, weight: "bold")[Sign of $a_y$],
+text(fill: white, weight: "bold")[Scale Reading ($N$) & Physics Check],
+[At rest or constant velocity (up or down)],
+[$a_y = 0$],
+[$N = m g$ — Speed direction does not change normal force; only acceleration does.],
+[Accelerating upward or slowing down while moving downward],
+[$a_y > 0$],
+[$N = m(g + |a_y|) > m g$ — Rider feels heavier.],
+[Accelerating downward or slowing down while moving upward],
+[$a_y < 0$],
+[$N = m(g - |a_y|) < m g$ — Rider feels lighter.],
+[Cable snaps (free fall)],
+[$a_y = -g$],
+[$N = m(g - g) = 0$ — Apparent weightlessness ($m g$ still acts, so gravity is NOT zero!).]
+)
+#v(10pt)
+#callout(
+"Quick Check: Accelerating Wedge Without Friction",
+[
+What horizontal acceleration $a$ must a smooth wedge of angle $theta$ have so a block of mass $m$ rests on it without sliding up or down?
+- Vertical balance ($a_y = 0$): $N cos theta = m g$
+- Horizontal dynamics ($a_x = a$): $N sin theta = m a$
+- Divide the two equations: $tan theta = a / g arrow.r a = boxed(g tan theta)$
+]
+)
+#pagebreak()
+
+// ============================================================================
+// PAGE 6: SECTION 3 — THE CALCULUS BRIDGE (VARIABLE & DRAG FORCES)
+// ============================================================================
+#section-banner("3", "The Calculus Bridge: Variable & Velocity-Dependent Forces", "When acceleration is not constant, Newton's Second Law becomes a differential equation.")
+
+#text(size: 9.5pt)[
+  Constant-acceleration kinematics ($v = v_0 + a t$, $Delta x = v_0 t + 1/2 a t^2$) is **strictly forbidden** whenever net force depends on time $t$, position $x$, or velocity $v$. Instead, replace $a$ in $sum F = m a$ with the exact derivative matching the given force variable:
+]
+#v(6pt)
+
+#table(
+  columns: (1.4fr, 1.8fr, 2.8fr),
+  inset: 8pt,
+  stroke: 0.6pt + border-gray,
+  fill: (x, y) => if y == 0 { navy } else if calc.odd(y) { rgb("#F8FAFC") } else { white },
+  text(fill: white, weight: "bold")[Force Dependence],
+  text(fill: white, weight: "bold")[Acceleration Substitution],
+  text(fill: white, weight: "bold")[Separation of Variables Setup],
+
+  [*Time-Dependent*\ $F(t)$],
+  [$a = (d v)/(d t)$],
+  [$m (d v)/(d t) = F(t) arrow.r integral_(v_0)^v d v = 1/m integral_0^t F(t') d t'$],
+
+  [*Velocity-Dependent*\ $F(v)$ *(Drag)*],
+  [$a = (d v)/(d t)$ *(for $v(t)$)*\ $a = v (d v)/(d x)$ *(for $v(x)$)*],
+  [$m (d v)/(d t) = F_"net"(v) arrow.r integral_(v_0)^v (d v')/(F_"net"(v')) = 1/m integral_0^t d t'$],
+
+  [*Position-Dependent*\ $F(x)$],
+  [$a = v (d v)/(d x)$ *(Chain Rule)*],
+  [$m v (d v)/(d x) = F(x) arrow.r integral_(v_0)^v m v' d v' = integral_(x_0)^x F(x') d x'$]
+)
+
+#v(10pt)
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 12pt,
+  [
+    #callout(
+      "AP Grader Rule: Always Show Separation",
+      [
+        On AP Physics C free-response questions, writing the memorized final exponential formula ($v(t) = v_t (1 - e^(-t/\tau))$) without showing the calculus steps loses **3 to 4 out of 5 derivation points**. Always write:
+        1. Newton's Second Law with $m (d v)/(d t)$.
+        2. Separated variables with all $v$ terms on one side and $d t$ on the other.
+        3. Explicit definite integral limits (e.g., $0$ to $v$ and $0$ to $t$).
+      ]
+    )
+  ],
+  [
+    #callout(
+      "Terminal Velocity Shortcut (Zero Calculus)",
+      [
+        Whenever an exam asks *only* for **terminal velocity $v_t$**, do *not* integrate! At terminal speed, velocity is constant so $a = d v \/ d t = 0$:
+        - *Linear drag ($F_d = b v$):*\
+          $m g - b v_t = 0 arrow.r v_t = boxed((m g)/b)$
+        - *Quadratic drag ($F_d = c v^2$):*\
+          $m g - c v_t^2 = 0 arrow.r v_t = boxed(sqrt((m g)/c))$
+      ],
+      bg: warn-bg,
+      border: warn-amber
+    )
+  ]
+)
+
+#v(10pt)
+
+#block(
+  width: 100%,
+  fill: rgb("#F8FAFC"),
+  stroke: 0.75pt + border-gray,
+  inset: 10pt,
+  radius: 5pt,
+  [
+    #text(weight: "bold", fill: navy, size: 10pt)[Dimensional Analysis Check for Drag Coefficients ($b$ vs. $c$)]
+    #v(4pt)
+    Every term added or subtracted in $sum F$ must carry units of *newtons* ($1 \"N\" = 1 \"kg" dot "m/s"^2$):
+    - *Linear drag ($F_d = b v$):* $[b] = [F_d] / [v] = \"N" / ("m/s") = "N" dot "s/m" = "kg/s"$.
+    - *Quadratic drag ($F_d = c v^2$):* $[c] = [F_d] / [v^2] = \"N" / ("m/s")^2 = "N" dot "s"^2 / "m"^2 = "kg/m"$.
+    *(US Customary intuition: In imperial aerodynamics, $b$ is expressed in $"lb" dot "s/ft"$ and $c$ in $"lb" dot "s"^2 / "ft"^2$, or via $F_d = 1/2 rho C_d A v^2$.)*
+  ]
+)
+
+#pagebreak()
+
+// ============================================================================
+// PAGE 7: LINEAR DRAG (F_d = -b v) — FULL DERIVATION & TIME CONSTANT
+// ============================================================================
+#section-banner("3A", "Linear Velocity-Dependent Drag: F_d = -b v", "Complete separation-of-variables derivation, time constant tau, and kinematics.")
+
+#text(size: 9.5pt)[
+  *Physical Setup:* An object of mass $m$ is released from rest ($v(0) = 0$) at $y = 0$ and falls downward ($+y$ downward) through a viscous fluid exerting an upward linear resistive force $F_d = b v$.
+]
+#v(6pt)
+
+#block(
+  width: 100%,
+  stroke: 0.75pt + border-gray,
+  inset: 11pt,
+  radius: 5pt,
+  [
+    #text(weight: "bold", fill: accent-blue, size: 10.5pt)[Step-by-Step AP Exam Derivation of $v(t)$]
+    #v(4pt)
+    *1. Write Newton's Second Law ($+y$ downward):*
+    $ sum F_y = m g - b v = m (d v)/(d t) $
+
+    *2. Factor out $-b / m$ to isolate the coefficient of $v$:*
+    $ (d v)/(d t) = -(b)/(m) (v - (m g)/b) = -(b)/(m) (v - v_t) quad "where" v_t = (m g)/b $
+
+    *3. Separate variables and apply definite limits ($v = 0$ at $t = 0$):*
+    $ integral_0^v (d v')/(v' - v_t) = -integral_0^t (b)/(m) d t' $
+
+    *4. Evaluate both integrals:*
+    $ ln abs(v' - v_t) |_0^v = -(b)/(m) t arrow.r ln((v_t - v)/(v_t)) = -(b)/(m) t $
+    *(Note: Because $v < v_t$ during fall from rest, $|v - v_t| = v_t - v > 0$, keeping the logarithm argument strictly positive.)*
+
+    *5. Exponentiate both sides and solve for $v(t)$:*
+    $ (v_t - v)/(v_t) = e^(-(b\/m)t) arrow.r v(t) = v_t (1 - e^(-(b\/m)t)) = boxed((m g)/b (1 - e^(-(b\/m)t))) $
+  ]
+)
+
+#v(8pt)
+
+#grid(
+  columns: (1.1fr, 1fr),
+  gutter: 12pt,
+  [
+    #block(
+      width: 100%,
+      fill: rgb("#F8FAFC"),
+      stroke: 0.75pt + border-gray,
+      inset: 10pt,
+      radius: 5pt,
+      [
+        #text(weight: "bold", fill: navy, size: 10pt)[Acceleration $a(t)$ & Position $y(t)$]
+        #v(4pt)
+        *Differentiate $v(t)$ to get $a(t)$:*
+        $ a(t) = (d v)/(d t) = v_t (b/m) e^(-(b\/m)t) = boxed(g e^(-(b\/m)t)) $
+        - At $t = 0$: $a(0) = g$ *(pure free fall before speed builds)*.
+        - As $t arrow.r infinity$: $a(t) arrow.r 0$ *(asymptotic equilibrium)*.
+        #v(4pt)
+        *Integrate $v(t)$ from $0$ to $t$ to get $y(t)$:*
+        $ y(t) = integral_0^t v_t (1 - e^(-(b\/m)t')) d t' = boxed(v_t [t - (m)/(b)(1 - e^(-(b\/m)t))]) $
+      ]
+    )
+  ],
+  [
+    #callout(
+      "The Time Constant tau = m / b",
+      [
+        Define the characteristic mechanical time constant:
+        $ tau = (m)/(b) quad ("units: " ("kg")/("kg/s") = "s") $
+        Rewriting velocity in terms of $tau$ gives:
+        $ v(t) = v_t (1 - e^(-t\/tau)) $
+        - At $t = 1 tau$: $v(tau) = v_t (1 - e^(-1)) approx bold(0.632 \, v_t)$ *(63.2% of terminal speed)*.
+        - At $t = 2 tau$: $v(2tau) approx bold(0.865 \, v_t)$.
+        - At $t = 3 tau$: $v(3tau) approx bold(0.950 \, v_t)$.
+        - Larger mass $m$ or smaller drag $b$ increases $tau$, meaning the object takes *longer* to reach terminal speed.
+      ]
+    )
+  ]
+)
+
+#pagebreak()
+
+// ============================================================================
+// PAGE 8: QUADRATIC DRAG (F_d = -c v^2) — COASTING & VERTICAL FALL
+// ============================================================================
+#section-banner("3B", "Quadratic Velocity-Dependent Drag: F_d = -c v^2", "High-Reynolds-number drag for macroscopic projectiles, cars, and skydivers.")
+
+#text(size: 9.5pt)[
+  For macroscopic objects moving rapidly through air or water, drag scales with the *square* of speed: $F_d = c v^2$ (where $c = 1/2 rho C_d A$). AP Physics C tests two distinct quadratic-drag cases:
+]
+#v(6pt)
+
+#block(
+  width: 100%,
+  stroke: 0.75pt + border-gray,
+  inset: 10pt,
+  radius: 5pt,
+  [
+    #text(weight: "bold", fill: accent-blue, size: 10.5pt)[Case 1: Horizontal Coasting Under Quadratic Drag ($F_"net" = -c v^2$)]
+    #v(4pt)
+    A boat or puck of mass $m$ enters a resistive medium at $x = 0, t = 0$ with initial speed $v_0$, subject *only* to horizontal drag $F_d = -c v^2$:
+    #v(4pt)
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 12pt,
+      [
+        *A. Finding Speed vs. Time $v(t)$:*
+        $ m (d v)/(d t) = -c v^2 arrow.r integral_(v_0)^v (d v')/(v'^2) = -(c)/(m) integral_0^t d t' $
+        $ [-1/(v')]_(v_0)^v = -(c)/(m) t arrow.r 1/v - 1/(v_0) = (c t)/(m) $
+        $ v(t) = boxed((v_0)/(1 + (c v_0 \/ m) t)) $
+        *(Notice: $v(t)$ decays algebraically as $1/t$, NOT exponentially!)*
+      ],
+      [
+        *B. Finding Speed vs. Position $v(x)$:*
+        Use $a = v (d v)/(d x)$ so one factor of $v$ cancels:
+        $ m v (d v)/(d x) = -c v^2 arrow.r integral_(v_0)^v (d v')/(v') = -(c)/(m) integral_0^x d x' $
+        $ ln(v/(v_0)) = -(c)/(m) x $
+        $ v(x) = boxed(v_0 e^(-(c\/m) x)) $
+        *(Speed decays exponentially with distance $x$!)*
+      ]
+    )
+  ]
+)
+
+#v(8pt)
+
+#block(
+  width: 100%,
+  stroke: 0.75pt + border-gray,
+  inset: 10pt,
+  radius: 5pt,
+  [
+    #text(weight: "bold", fill: accent-blue, size: 10.5pt)[Case 2: Vertical Free Fall Under Quadratic Drag ($m (d v)/(d t) = m g - c v^2$)]
+    #v(4pt)
+    *1. Terminal Speed ($a = 0$):*
+    $ m g - c v_t^2 = 0 arrow.r v_t = boxed(sqrt((m g)/c)) $
+    *(Notice the mass scaling: Under linear drag $v_t prop m$, whereas under quadratic drag $v_t prop sqrt(m)$!)*
+    #v(4pt)
+    *2. Exact Velocity Function $v(t)$ from Rest ($v(0) = 0$):*
+    Factor out $c/m$ and write $m g / c = v_t^2$:
+    $ (d v)/(d t) = (c)/(m) (v_t^2 - v^2) arrow.r integral_0^v (d v')/(v_t^2 - v'^2) = (c)/(m) integral_0^t d t' $
+    Using the standard integral $integral (d u)/(a^2 - u^2) = 1/a "arctanh"(u/a)$ (or partial fractions):
+    $ 1/(v_t) "arctanh"(v/(v_t)) = (c)/(m) t arrow.r v(t) = boxed(v_t tanh((g t)/(v_t))) $
+    *(Check: As $t arrow.r infinity$, $tanh(infinity) = 1$, so $v(t) arrow.r v_t$; for small $t$, $tanh(u) approx u$, so $v(t) approx g t$.)*
+  ]
+)
+
+#v(6pt)
+
+#callout(
+  "Exam Strategy for Case 2",
+  [
+    AP Physics C rarely requires memorizing $"arctanh"$ unless given on the formula sheet—instead, exams typically ask you to: (1) write the differential equation $m (d v)/(d t) = m g - c v^2$, (2) solve for $v_t = sqrt(m g \/ c)$, (3) find the initial acceleration $a(0) = g$, and (4) sketch $v(t)$ and $a(t)$ vs. $t$.
+  ],
+  bg: warn-bg,
+  border: warn-amber
+)
+
+#pagebreak()
+
+// ============================================================================
+// PAGE 9: WORKED CALCULUS FRQ & SKETCHING ASYMPTOTIC GRAPHS
+// ============================================================================
+#section-banner("3C", "Worked Calculus FRQ & Asymptotic Curve Sketching", "Full AP-style problem combining linear drag, separation of limits, and graph behavior.")
+#block(
+width: 100%,
+stroke: 0.75pt + border-gray,
+inset: 11pt,
+radius: 5pt,
+[
+#text(weight: "bold", fill: accent-blue, size: 10.5pt)[Worked Example 3.1: Projectile Fired Downward Into a Viscous Fluid]
+#v(4pt)
+Prompt: A small steel sphere of mass $m = 0.20 "kg"$ is fired downward into a tall tank of oil with initial speed $v_0 = 8.0 "m/s"$ at $t = 0$. The oil exerts an upward drag force $F_d = b v$, where $b = 0.50 "N" dot "s/m"$. Use $g = 10 "m/s"^2$.
+- (a) Calculate the terminal speed $v_t$ of the sphere.
+- (b) Calculate the magnitude and direction of the sphere's initial acceleration at $t = 0^+$.
+- (c) Derive an expression for $v(t)$ for $t >= 0$ and compute $v$ at $t = 0.40 "s"$.
+#v(6pt)
+Step-by-Step Solution:
+- (a) Terminal Speed ($a = 0$):
+$ m g - b v_t = 0 arrow.r v_t = (m g)/b = ((0.20 "kg")(10 "m/s"^2))/(0.50 "N" dot "s/m") = boxed(4.0 "m/s") $
+(Crucial Observation: Notice that $v_0 = 8.0 "m/s" > v_t = 4.0 "m/s"$! The sphere enters the oil faster than terminal speed, so it will SLOW DOWN toward $4.0 "m/s"$.)
+- (b) Initial Acceleration at $t = 0^+$ ($+y$ downward):
+$ sum F_y = m g - b v_0 = m a_0 arrow.r a_0 = g - (b v_0)/m = 10 - ((0.50)(8.0))/(0.20) = 10 - 20 = boxed(-10 "m/s"^2) $
+(Magnitude is $10 "m/s"^2$, directed upward, opposing the downward motion.)
+- (c) Derivation of $v(t)$ with Non-Zero Lower Limit $v_0$:
+$ m (d v)/(d t) = m g - b v = -b (v - v_t) arrow.r integral_(v_0)^v (d v')/(v' - v_t) = -(b)/(m) integral_0^t d t' $
+Because $v > v_t$ throughout the motion, $v - v_t > 0$:
+$ ln((v - v_t)/(v_0 - v_t)) = -(b)/(m) t arrow.r v(t) = v_t + (v_0 - v_t) e^(-(b/m)t) $
+Substitute $v_t = 4.0 "m/s"$, $v_0 = 8.0 "m/s"$, and $b/m = 0.50 / 0.20 = 2.5 "s"^(-1)$:
+$ v(t) = boxed(4.0 + 4.0 e^(-2.5 t) quad ("in m/s")) $
+Evaluate at $t = 0.40 "s"$ (note $2.5 times 0.40 = 1.0 = 1 tau$):
+$ v(0.40 "s") = 4.0 + 4.0 e^(-1.0) = 4.0 + 4.0(0.368) = boxed(5.47 "m/s") $
+]
+)
+#v(8pt)
+#callout(
+"3-Point Checklist for Sketching Drag Graphs on the AP Exam",
+[
+When asked to sketch $v(t)$ vs. $t$ or $a(t)$ vs. $t$ on an AP free-response grid, graders look for three exact features:
+1. Correct $y$-intercept ($t = 0$): Mark $v(0) = v_0$ (or $0$) and $a(0) = g - F_d(v_0)/m$ explicitly on the vertical axis.
+2. Correct initial slope / concavity: The tangent slope of $v(t)$ equals $a(t)$, so $|"slope"|$ must be steepest at $t = 0$ and flatten smoothly toward zero (concave down if speeding up to $v_t$; concave up if slowing down to $v_t$).
+3. Dashed horizontal asymptote: Draw and label a dashed horizontal line at $v = v_t$ (or $a = 0$) and ensure your curve approaches it without crossing it.
+]
+)
