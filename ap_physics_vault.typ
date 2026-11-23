@@ -271,17 +271,24 @@
 
 // Geometric Split Connector (Start Box -> Left & Right Branches)
 #align(center)[
-  #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#475569"))
-  #v(-12pt)
-  #line(length: 52%, stroke: 1.5pt + rgb("#475569"))
-  #grid(
-    columns: (52%,),
-    [
-      #align(left)[#line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#0F172A"))]
-      #v(-24pt)
-      #align(right)[#line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#DC2626"))]
+  #box(width: 52%, height: 24pt)[
+    // Top vertical stem from Start Box down to crossbar (y = 0 to 12pt)
+    #place(top + center, dy: 0pt)[
+      #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#475569"))
     ]
-  )
+    // Horizontal crossbar across the full 52% width at y = 12pt
+    #place(top + left, dy: 12pt)[
+      #line(length: 100%, stroke: 1.5pt + rgb("#475569"))
+    ]
+    // Left vertical drop down to Path 1 box (y = 12pt to 24pt)
+    #place(top + left, dx: 0.75pt, dy: 12pt)[
+      #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#0F172A"))
+    ]
+    // Right vertical drop down to Path 2 box (y = 12pt to 24pt)
+    #place(top + right, dx: -0.75pt, dy: 12pt)[
+      #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#DC2626"))
+    ]
+  ]
 ]
 
 #v(-2pt)
@@ -1376,6 +1383,7 @@ A magnetic levitation capsule moves along a straight horizontal track along the 
 An autonomous drone moves along a straight north-south corridor (take north as $+x$). At $t = 0$, the drone passes the charging pad at $x_0 = -5.0 "m"$. Its velocity $v(t)$ (in $"m/s"$) is shown in the piecewise graph below over $0 <= t <= 10.0 "s"$.
 
 #v(0.25em)
+
 // Vector Piecewise v(t) Graph
 #align(center)[
   #block(
@@ -1386,29 +1394,33 @@ An autonomous drone moves along a straight north-south corridor (take north as $
     radius: 3pt,
     [
       #box(width: 100%, height: 92pt)[
-        // Horizontal t-axis (v = 0) at vertical center (dy: -46pt)
-        #place(bottom + left, dx: 32pt, dy: -46pt)[#line(length: 86%, stroke: 1pt + rgb("#0F172A"))]
-        // Vertical v-axis at left (dx: 32pt)
-        #place(bottom + left, dx: 32pt, dy: -8pt)[#line(angle: 90deg, length: 78pt, stroke: 1pt + rgb("#0F172A"))]
+        // Horizontal t-axis (v = 0) at y = 46pt from top
+        #place(top + left, dx: 32pt, dy: 46pt)[#line(length: 86%, stroke: 1pt + rgb("#0F172A"))]
+        // Vertical v-axis at x = 32pt from left
+        #place(top + left, dx: 32pt, dy: 6pt)[#line(angle: 90deg, length: 78pt, stroke: 1pt + rgb("#0F172A"))]
+
         // Axis Labels
         #place(top + left, dx: 2pt, dy: 2pt)[#text(size: 7.5pt, weight: "bold")[$v ("m/s")$]]
-        #place(bottom + left, dx: 12pt, dy: -75pt)[#text(size: 7.5pt)[$+6$]]
-        #place(bottom + left, dx: 20pt, dy: -42pt)[#text(size: 7.5pt)[$0$]]
-        #place(bottom + left, dx: 12pt, dy: -10pt)[#text(size: 7.5pt)[$-6$]]
-        // Time Tick Labels along v = 0 axis
-        #place(bottom + left, dx: 82pt, dy: -35pt)[#text(size: 7.5pt)[$2$]]
-        #place(bottom + left, dx: 132pt, dy: -35pt)[#text(size: 7.5pt)[$4$]]
-        #place(bottom + left, dx: 207pt, dy: -35pt)[#text(size: 7.5pt)[$7$]]
-        #place(bottom + left, dx: 245pt, dy: -35pt)[#text(size: 7.5pt)[$8.5$]]
-        #place(bottom + left, dx: 282pt, dy: -35pt)[#text(size: 7.5pt)[$10$]]
-        #place(bottom + right, dx: -2pt, dy: -42pt)[#text(size: 7.5pt, weight: "bold")[$t ("s")$]]
-        // Piecewise Velocity Curve Segments (25pt per second, 5.5pt per m/s)
-        // Segment 1: (0, -6) -> (4, +6)
-        #place(bottom + left, dx: 32pt, dy: -13pt)[#line(end: (100pt, -66pt), stroke: 2pt + rgb("#D97706"))]
-        // Segment 2: (4, +6) -> (7, +6)
-        #place(bottom + left, dx: 132pt, dy: -79pt)[#line(end: (75pt, 0pt), stroke: 2pt + rgb("#D97706"))]
-        // Segment 3: (7, +6) -> (10, -6)
-        #place(bottom + left, dx: 207pt, dy: -79pt)[#line(end: (75pt, 66pt), stroke: 2pt + rgb("#D97706"))]
+        #place(top + left, dx: 12pt, dy: 9pt)[#text(size: 7.5pt)[$+6$]]
+        #place(top + left, dx: 20pt, dy: 42pt)[#text(size: 7.5pt)[$0$]]
+        #place(top + left, dx: 12pt, dy: 75pt)[#text(size: 7.5pt)[$-6$]]
+
+        // Time Tick Labels along v = 0 axis (dy: 50pt sits cleanly just below the axis)
+        #place(top + left, dx: 80pt, dy: 50pt)[#text(size: 7.5pt)[$2$]]
+        #place(top + left, dx: 130pt, dy: 50pt)[#text(size: 7.5pt)[$4$]]
+        #place(top + left, dx: 205pt, dy: 50pt)[#text(size: 7.5pt)[$7$]]
+        #place(top + left, dx: 241pt, dy: 50pt)[#text(size: 7.5pt)[$8.5$]]
+        #place(top + left, dx: 278pt, dy: 50pt)[#text(size: 7.5pt)[$10$]]
+        #place(top + right, dx: -2pt, dy: 42pt)[#text(size: 7.5pt, weight: "bold")[$t ("s")$]]
+
+        // Piecewise Velocity Curve Segments
+        // Coordinate map: x = 32pt + 25pt*t | y = 46pt - 5.5pt*v
+        // Segment 1: (0, -6) -> (4, +6)  =>  (32pt, 79pt) to (132pt, 13pt)
+        #place(top + left)[#line(start: (32pt, 79pt), end: (132pt, 13pt), stroke: 2pt + rgb("#D97706"))]
+        // Segment 2: (4, +6) -> (7, +6)  =>  (132pt, 13pt) to (207pt, 13pt)
+        #place(top + left)[#line(start: (132pt, 13pt), end: (207pt, 13pt), stroke: 2pt + rgb("#D97706"))]
+        // Segment 3: (7, +6) -> (10, -6) =>  (207pt, 13pt) to (282pt, 79pt)
+        #place(top + left)[#line(start: (207pt, 13pt), end: (282pt, 79pt), stroke: 2pt + rgb("#D97706"))]
       ]
     ]
   )

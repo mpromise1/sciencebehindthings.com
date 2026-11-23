@@ -1,0 +1,80 @@
+// 4. HARD PAGE BREAK (Starts Section 2 cleanly at the top of Page 3)
+#pagebreak()
+// ==========================================
+// PAGE 3: SECTION 2 — MASTER KINEMATICS DECISION TREE
+// ==========================================
+
+// 1. TOP SECTION BANNER
+#block(
+  width: 100%,
+  fill: rgb("#1E293B"),
+  inset: (x: 12pt, y: 10pt),
+  radius: 3pt,
+  text(font: "Inter", weight: "bold", size: 11.5pt, fill: white, tracking: 1pt)[
+    SECTION 2  |  MASTER KINEMATICS DECISION TREE
+  ]
+)
+
+#v(0.7em)
+
+// 2. START NODE (Centered 3.8-inch Starting Box)
+#align(center)[
+  #block(
+    width: 3.8in,
+    fill: rgb("#0F172A"),
+    stroke: 1.5pt + rgb("#D97706"),
+    inset: (x: 14pt, y: 10pt),
+    radius: 6pt,
+    [
+      #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#D97706"), tracking: 1pt)[START HERE] \
+      #v(2pt)
+      #text(font: "Inter", weight: "bold", size: 10.5pt, fill: white)[
+        Examine the Acceleration Expression ($a$)
+      ]
+    ]
+  )
+]
+
+// Geometric Split Connector (Start Box -> Left & Right Branches)
+#align(center)[
+  #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#475569"))
+  #v(-12pt)
+  #line(length: 52%, stroke: 1.5pt + rgb("#475569"))
+  #grid(
+    columns: (52%,),
+    [
+      #align(left)[#line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#0F172A"))]
+      #v(-24pt)
+      #align(right)[#line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#DC2626"))]
+    ]
+  )
+]
+
+#v(-2pt)
+
+// 3. PRIMARY BINARY BRANCHES (Left: Constant vs. Right: Variable)
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 14pt,
+
+  // LEFT BRANCH: CONSTANT ACCELERATION
+  block(
+    width: 100%,
+    fill: rgb("#F8FAFC"),
+    stroke: 1.5pt + rgb("#0F172A"),
+    inset: 10pt,
+    radius: 5pt,
+    [
+      #align(center)[
+        #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#0F172A"), tracking: 0.6pt)[PATH 1: CONSTANT] \
+        #v(2pt)
+        #text(font: "Inter", weight: "bold", size: 9.5pt, fill: rgb("#1E293B"))[
+          Is $a$ a constant number?
+        ] \
+        #text(size: 8.5pt, fill: rgb("#475569"))[
+          _(e.g., $a = -9.8 "m/s"^2$ or $a = 4.0 "m/s"^2$)_
+        ]
+      ]
+    ]
+  ),
+
