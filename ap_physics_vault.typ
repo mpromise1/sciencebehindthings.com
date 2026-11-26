@@ -251,131 +251,104 @@
 
 #v(0.7em)
 
-// 2. START NODE (Centered 3.8-inch Starting Box)
-#align(center)[
-  #block(
-    width: 3.8in,
-    fill: rgb("#0F172A"),
-    stroke: 1.5pt + rgb("#D97706"),
-    inset: (x: 14pt, y: 10pt),
-    radius: 6pt,
-    [
-      #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#D97706"), tracking: 1pt)[START HERE] \
-      #v(2pt)
-      #text(font: "Inter", weight: "bold", size: 10.5pt, fill: white)[
-        Examine the Acceleration Expression ($a$)
-      ]
-    ]
-  )
-]
+#stack(
+  dir: ttb,
+  spacing: 0pt,
 
-// Geometric Split Connector (Start Box -> Left & Right Branches)
-#align(center)[
-  #box(width: 52%, height: 24pt)[
-    // Top vertical stem from Start Box down to crossbar (y = 0 to 12pt)
-    #place(top + center, dy: 0pt)[
-      #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#475569"))
-    ]
-    // Horizontal crossbar across the full 52% width at y = 12pt
-    #place(top + left, dy: 12pt)[
-      #line(length: 100%, stroke: 1.5pt + rgb("#475569"))
-    ]
-    // Left vertical drop down to Path 1 box (y = 12pt to 24pt)
-    #place(top + left, dx: 0.75pt, dy: 12pt)[
-      #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#0F172A"))
-    ]
-    // Right vertical drop down to Path 2 box (y = 12pt to 24pt)
-    #place(top + right, dx: -0.75pt, dy: 12pt)[
-      #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#DC2626"))
-    ]
-  ]
-]
-
-#v(-2pt)
-
-// 3. PRIMARY BINARY BRANCHES (Left: Constant vs. Right: Variable)
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 14pt,
-
-  // LEFT BRANCH: CONSTANT ACCELERATION
-  block(
-    width: 100%,
-    fill: rgb("#F8FAFC"),
-    stroke: 1.5pt + rgb("#0F172A"),
-    inset: 10pt,
-    radius: 5pt,
-    [
-      #align(center)[
-        #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#0F172A"), tracking: 0.6pt)[PATH 1: CONSTANT] \
+  // 2. START NODE (Centered 3.8-inch Starting Box)
+  align(center)[
+    #block(
+      width: 3.8in,
+      fill: rgb("#0F172A"),
+      stroke: 1.5pt + rgb("#D97706"),
+      inset: (x: 14pt, y: 10pt),
+      radius: 6pt,
+      [
+        #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#D97706"), tracking: 1pt)[START HERE] \
         #v(2pt)
-        #text(font: "Inter", weight: "bold", size: 9.5pt, fill: rgb("#1E293B"))[
-          Is $a$ a constant number?
-        ] \
-        #text(size: 8.5pt, fill: rgb("#475569"))[
-          _(e.g., $a = -9.8 "m/s"^2$ or $a = 4.0 "m/s"^2$)_
+        #text(font: "Inter", weight: "bold", size: 10.5pt, fill: white)[
+          Examine the Acceleration Expression ($a$)
         ]
       ]
-    ]
-  ),
+    )
+  ],
 
-  // RIGHT BRANCH: VARIABLE ACCELERATION
-  block(
-    width: 100%,
-    fill: rgb("#FEF2F2"),
-    stroke: 1.5pt + rgb("#DC2626"),
-    inset: 10pt,
-    radius: 5pt,
-    [
-      #align(center)[
-        #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#DC2626"), tracking: 0.6pt)[PATH 2: VARIABLE] \
-        #v(2pt)
-        #text(font: "Inter", weight: "bold", size: 9.5pt, fill: rgb("#1E293B"))[
-          Does $a$ contain a variable?
-        ] \
-        #text(size: 8.5pt, fill: rgb("#475569"))[
-          _(e.g., $t$, $v$, or $x$)_
+  // Geometric Split Connector (Start Box -> Left & Right Branches)
+  align(center)[
+    #box(width: 52%, height: 24pt)[
+      #place(top + center, dy: 0pt)[
+        #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#475569"))
+      ]
+      #place(top + left, dy: 12pt)[
+        #line(length: 100%, stroke: 1.5pt + rgb("#475569"))
+      ]
+      #place(top + left, dx: 0.75pt, dy: 12pt)[
+        #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#0F172A"))
+      ]
+      #place(top + right, dx: -0.75pt, dy: 12pt)[
+        #line(angle: 90deg, length: 12pt, stroke: 1.5pt + rgb("#DC2626"))
+      ]
+    ]
+  ],
+
+  // 3. PRIMARY BINARY BRANCHES (Left: Constant vs. Right: Variable)
+  grid(
+    columns: (1fr, 1fr),
+    gutter: 14pt,
+
+    // LEFT BRANCH: CONSTANT ACCELERATION
+    block(
+      width: 100%,
+      fill: rgb("#F8FAFC"),
+      stroke: 1.5pt + rgb("#0F172A"),
+      inset: 10pt,
+      radius: 5pt,
+      [
+        #align(center)[
+          #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#0F172A"), tracking: 0.6pt)[PATH 1: CONSTANT] \
+          #v(2pt)
+          #text(font: "Inter", weight: "bold", size: 9.5pt, fill: rgb("#1E293B"))[
+            Is $a$ a constant number?
+          ] \
+          #text(size: 8.5pt, fill: rgb("#475569"))[
+            _(e.g., $a = -9.8 space "m/s"^2$ or $a = 4.0 space "m/s"^2$)_
+          ]
         ]
       ]
-    ]
-  )
-)
+    ),
 
-// Vertical Downward Connectors from Primary Branches
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 14pt,
-  align(center)[#line(angle: 90deg, length: 14pt, stroke: 1.5pt + rgb("#0F172A"))],
-  align(center)[#line(angle: 90deg, length: 14pt, stroke: 1.5pt + rgb("#DC2626"))]
-)
-
-#v(-2pt)
-
-// 4. BRANCH OUTCOMES (Left Action Card + Right Calculus Header)
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 14pt,
-
-  // LEFT OUTCOME: ALGEBRAIC SHORTCUTS ("THE BIG FOUR")
-  block(
-    width: 100%,
-    fill: white,
-    stroke: (top: 4pt + rgb("#0F172A"), rest: 0.75pt + rgb("#CBD5E1")),
-    inset: 11pt,
-    radius: 4pt,
-    [
-      #text(font: "Inter", weight: "bold", size: 9.5pt, fill: rgb("#0F172A"))[
-        USE ALGEBRAIC SHORTCUTS ("THE BIG FOUR")
+    // RIGHT BRANCH: VARIABLE ACCELERATION (Paste your existing Path 2 block here)
+    block(
+      width: 100%,
+      fill: rgb("#FEF2F2"),
+      stroke: 1.5pt + rgb("#DC2626"),
+      inset: 10pt,
+      radius: 5pt,
+      [
+        #align(center)[
+          #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#DC2626"), tracking: 0.6pt)[PATH 2: VARIABLE] \
+          #v(2pt)
+          #text(font: "Inter", weight: "bold", size: 9.5pt, fill: rgb("#1E293B"))[
+            Does $a$ contain a variable?
+          ] \
+          #text(size: 8.5pt, fill: rgb("#475569"))[
+            _(e.g., $t$, $v$, or $x$)_
+          ]
+        ]
       ]
-      #v(4pt)
-      #line(length: 100%, stroke: 0.5pt + rgb("#E2E8F0"))
-      #v(4pt)
-      #text(font: "Inter", weight: "bold", size: 8.5pt, fill: rgb("#D97706"))[MANDATORY CONDITION CHECK:] \
-      #text(size: 9pt)[
-        Verify that acceleration *never changes direction or magnitude* during the time interval. If acceleration changes in stages, split the problem into separate time intervals and reset initial conditions ($x_0, v_0$) at each boundary.
-      ]
-    ]
+    )
   ),
+
+  // 4. LOWER VERTICAL CONNECTORS (Directly touching Path 1/2 bottoms and lower card tops)
+  grid(
+    columns: (1fr, 1fr),
+    gutter: 14pt,
+    align(center)[#line(angle: 90deg, length: 14pt, stroke: 1.5pt + rgb("#0F172A"))],
+    align(center)[#line(angle: 90deg, length: 14pt, stroke: 1.5pt + rgb("#DC2626"))]
+  ),
+
+  // 5. LOWER ACTION CARDS (Paste your existing two-column grid here as the final item in #stack)
+)
 
   // RIGHT OUTCOME HEADER: CALCULUS REQUIRED
   block(

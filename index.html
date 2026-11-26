@@ -30,37 +30,277 @@
         </nav>
     </header>
 
-    <!-- 2. HIGH-CONVERSION HERO SECTION -->
-    <section class="hero-section">
-        <div class="container">
-            <h1>The Analytical Blueprint for AP Physics Mastery</h1>
-            <p class="hero-subtitle">First-principles calculus derivations designed to replace memorization with absolute clarity. Zero AI hallucinations.</p>
-            
-            <div class="hero-cta-group">
-                <a href="explore-sample-derivation.html" class="btn btn-primary">Explore Sample Derivation</a>
-                <a href="https://payhip.com" class="payhip-buy-button btn btn-secondary" data-theme="none" data-product="oNaA3">Inside the Vault</a>
-            </div>
-        </div>
-    </section>
+<!-- 3 new buttons -->
 
-    <!-- 3. PREMIUM CONTENT / VAULT SECTION -->
-    <section id="vault" class="product-section">
-        <div class="container">
-            <div class="product-box">
-                <h2>The Kinematics Vault</h2>
-                <div class="price">$49 <span>$99</span></div>
-                <ul>
-                    <li><strong>10 Exam-Caliber AP Physics C Scenarios:</strong> Master the exact variable-acceleration, resistive-media, and multi-dimensional problems that separate 3s from 5s.</li>
-                    <li><strong>Zero-Hand-Waving Calculus Proofs:</strong> Every single integral, boundary condition, and substitution step is shown explicitly—no skipped algebra or "it can be shown that" shortcuts.</li>
-                    <li><strong>Plain-English Conceptual Translations:</strong> Side-by-side plain-English breakdowns that teach you how to read a dense word problem and set up the math before touching a calculator.</li>
-                    <li><strong>"The 1 Equation Sheet" Derivation Blueprint:</strong> Stop memorizing dozens of fragmented formulas by learning how every kinematics equation flows naturally from two fundamental calculus definitions.</li>
-                    <li><strong>Integration Trap & Exam Rubric Diagnostics:</strong> Targeted troubleshooting notes that expose the exact sign errors, missing constants of integration, and framing mistakes that cost students FRQ points.</li>
-                </ul>
-                <a href="https://payhip.com" class="payhip-buy-button btn btn-secondary" data-theme="none" data-product="oNaA3">Unlock the Vault</a>
+<style>
+  .physics-store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .product-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(15, 37, 55, 0.05);
+  }
+  .product-card.featured {
+    border: 2px solid #d97706;
+    background: #fffbeb;
+    position: relative;
+  }
+  .badge {
+    background: #0f2537;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .product-card.featured .badge {
+    background: #d97706;
+  }
+  .product-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f2537;
+    margin: 0 0 8px 0;
+  }
+  .product-price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f2537;
+    margin: 8px 0 14px 0;
+  }
+  .product-price span {
+    font-size: 15px;
+    font-weight: 400;
+    color: #64748b;
+    text-decoration: line-through;
+    margin-left: 6px;
+  }
+  .product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.6;
+  }
+  .product-features li::before {
+    content: "✓ ";
+    color: #059669;
+    font-weight: bold;
+  }
+  .buy-btn {
+    display: block;
+    text-align: center;
+    background: #0f2537;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .buy-btn:hover {
+    background: #1e3a5f;
+  }
+  .product-card.featured .buy-btn {
+    background: #d97706;
+  }
+  .product-card.featured .buy-btn:hover {
+    background: #b45309;
+  }
+</style>
 
-            </div>
-        </div>
-    </section>
+<style>
+  .physics-store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    max-width: 1050px;
+    margin: 36px auto;
+    padding: 0 12px;
+  }
+  .product-card {
+    background: #0f2537;
+    border: 1px solid #1e3a5f;
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-3px);
+    border-color: #38bdf8;
+  }
+  .product-card.featured {
+    border: 2px solid #d97706;
+    background: #132c42;
+  }
+  .product-badge {
+    background: #1e3a5f;
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 9px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .product-card.featured .product-badge {
+    background: #d97706;
+    color: #ffffff;
+  }
+  .product-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+  }
+  .product-price {
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 8px 0 16px 0;
+  }
+  .product-price span {
+    font-size: 15px;
+    font-weight: 400;
+    color: #94a3b8;
+    text-decoration: line-through;
+    margin-left: 6px;
+  }
+  .product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px 0;
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.65;
+  }
+  .product-features li {
+    margin-bottom: 6px;
+  }
+  .product-features li::before {
+    content: "✓ ";
+    color: #10b981;
+    font-weight: bold;
+  }
+  .store-buy-btn {
+    display: block;
+    text-align: center;
+    background: #1e3a5f;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 13px 16px;
+    border-radius: 6px;
+    border: 1px solid #38bdf8;
+    transition: background 0.2s ease;
+  }
+  .store-buy-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+  }
+  .product-card.featured .store-buy-btn {
+    background: #d97706;
+    border-color: #f59e0b;
+    color: #ffffff;
+  }
+  .product-card.featured .store-buy-btn:hover {
+    background: #b45309;
+  }
+</style>
+
+<div class="physics-store-grid">
+  
+  <!-- PRODUCT 1: UNIT 2 DRAG FORCE -->
+  <div class="product-card">
+    <div>
+      <span class="product-badge">Unit 2 • Rapid Guide</span>
+      <h3 class="product-title">Drag Force & Differential Equations</h3>
+      <div class="product-price">$9 <span>$15</span></div>
+      <ul class="product-features">
+        <li>2-Page Exam Bottleneck Sheet</li>
+        <li>Linear (-bv) & Quadratic (-cv²) Calculus</li>
+        <li>15-Second Terminal Velocity Shortcuts</li>
+        <li>Instant Printable PDF Download</li>
+      </ul>
+    </div>
+    <a href="YOUR_PAYHIP_LINK_UNIT_2" class="store-buy-btn" target="_blank" rel="noopener">Get Unit 2 Guide →</a>
+  </div>
+
+  <!-- PRODUCT 2: UNIT 3 POTENTIAL ENERGY -->
+  <div class="product-card">
+    <div>
+      <span class="product-badge">Unit 3 • Exam Blueprint</span>
+      <h3 class="product-title">Potential Energy Curves U(x)</h3>
+      <div class="product-price">$12 <span>$19</span></div>
+      <ul class="product-features">
+        <li>4-Page Calculus & Graph Blueprint</li>
+        <li>Fx = -dU/dx & Stability Rules</li>
+        <li>Turning Points & Lennard-Jones U(r)</li>
+        <li>Worked AP FRQ + Scoring Rubric</li>
+      </ul>
+    </div>
+    <a href="YOUR_PAYHIP_LINK_UNIT_3" class="store-buy-btn" target="_blank" rel="noopener">Get Unit 3 Guide →</a>
+  </div>
+
+  <!-- PRODUCT 3: UNIT 1 MASTERY VAULT -->
+  <div class="product-card featured">
+    <div>
+      <span class="product-badge">Most Comprehensive</span>
+      <h3 class="product-title">Unit 1 Kinematics Mastery Vault</h3>
+      <div class="product-price">$49 <span>$79</span></div>
+      <ul class="product-features">
+        <li>Complete 21-Page Calculus-Based Guide</li>
+        <li>Variable Acceleration & Integration Traps</li>
+        <li>Step-by-Step FRQ Derivations & Rubrics</li>
+        <li>Plain-English Explanations + Student FAQ</li>
+      </ul>
+    </div>
+    <a href="YOUR_PAYHIP_LINK_UNIT_1" class="store-buy-btn" target="_blank" rel="noopener">Get Full Unit 1 Vault →</a>
+  </div>
+
+    <!-- PRODUCT 4: UNITS 1–3 COMPLETE BUNDLE -->
+  <div class="product-card featured">
+    <div>
+      <span class="product-badge">Best Value • Save $11</span>
+      <h3 class="product-title">Units 1–3 Complete Exam Mastery Pack</h3>
+      <div class="product-price">$59 <span>$70</span></div>
+      <ul class="product-features">
+        <li>All 3 Study Guides (27 Pages Total)</li>
+        <li>Unit 1 Vault + Unit 2 Drag + Unit 3 U(x)</li>
+        <li>Every Calculus Derivation & FRQ Rubric</li>
+        <li>Instant Download • Lifetime Access</li>
+      </ul>
+    </div>
+    <a href="YOUR_PAYHIP_LINK_BUNDLE_1_3" class="store-buy-btn" target="_blank" rel="noopener">Get Complete Bundle →</a>
+  </div>
+
+</div>
+ 
+<!-- END STORE -->
+
 
 <!-- 4. MEET THE ARCHITECT SECTION -->
 <section id="about" class="features">
